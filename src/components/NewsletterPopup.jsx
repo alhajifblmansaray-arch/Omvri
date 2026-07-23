@@ -7,9 +7,17 @@ export default function NewsletterPopup() {
   const [error, setError] = useState('')
 
   useEffect(() => {
+    // show once per visitor — don't nag on every page load or after they've
+    // already subscribed or dismissed it
+    if (localStorage.getItem('omvri-popup-seen')) return
     const timer = setTimeout(() => setShow(true), 5000)
     return () => clearTimeout(timer)
   }, [])
+
+  const dismiss = () => {
+    localStorage.setItem('omvri-popup-seen', '1')
+    setShow(false)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -32,6 +40,7 @@ export default function NewsletterPopup() {
       subscribedAt: new Date().toISOString(),
     })
     localStorage.setItem('omvri-subscribers', JSON.stringify(subscribers))
+    localStorage.setItem('omvri-popup-seen', '1')
 
     setSubmitted(true)
     setTimeout(() => {
@@ -47,7 +56,7 @@ export default function NewsletterPopup() {
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-white max-w-md w-full p-8 rounded-sm shadow-lg">
         <button
-          onClick={() => setShow(false)}
+          onClick={dismiss}
           className="absolute top-4 right-4 text-obsidian-400 hover:text-obsidian-900 text-2xl leading-none"
         >
           ×
