@@ -53,10 +53,17 @@ export default function NewsletterPopup() {
   if (!show) return null
 
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white max-w-md w-full p-8 rounded-sm shadow-lg">
+    <div
+      onClick={dismiss}
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative bg-white max-w-md w-full p-8 rounded-sm shadow-lg"
+      >
         <button
           onClick={dismiss}
+          aria-label="Close"
           className="absolute top-4 right-4 text-obsidian-400 hover:text-obsidian-900 text-2xl leading-none"
         >
           ×

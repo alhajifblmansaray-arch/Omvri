@@ -55,11 +55,9 @@ export const products = [
     hero: `${look('brown')}/cover.jpg`,
     gallery: [
       { src: `${look('brown')}/cover.jpg`, caption: null, type: 'full' },
-      { src: `${look('brown')}/detail-1.jpg`, caption: 'Unlined Construction — Bare canvas for warm-weather softness.', type: 'detail' },
       { src: `${look('brown')}/styled-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('brown')}/detail-3.jpg`, caption: 'OMVRI Cuff Tab — Embroidered in raw silk thread by hand.', type: 'detail' },
       { src: `${look('brown')}/walk-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('brown')}/full-2.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A warm-weather cotton-linen blend from Solbiati, cut double-breasted and left soft in the shoulder for a jacket that breathes.',
