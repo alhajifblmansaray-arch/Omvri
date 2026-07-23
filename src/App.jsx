@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import BookingModal from './components/BookingModal'
 import AddedToBagBar from './components/AddedToBagBar'
+import NewsletterPopup from './components/NewsletterPopup'
 import { CartProvider } from './context/CartContext'
 import { MeasurementsProvider } from './context/MeasurementsContext'
 import Home from './pages/Home'
@@ -48,6 +49,7 @@ function App() {
         <Footer />
         <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
         <AddedToBagBar />
+        <NewsletterPopup />
       </MeasurementsProvider>
     </CartProvider>
   )
