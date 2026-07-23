@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { formatMoney, currencyCode } from '../lib/currency'
 import { JACKET_FIELDS, PANT_FIELDS } from '../context/MeasurementsContext'
 import SidePanel from '../components/SidePanel'
 import ExpressCheckoutPanel from '../components/ExpressCheckoutPanel'
@@ -36,7 +37,7 @@ export default function Cart() {
         <h1 className="font-display text-4xl md:text-5xl text-obsidian-900 text-center mb-14">
           Shopping bag{' '}
           <span className="text-obsidian-400 text-2xl align-middle">
-            ${total.toLocaleString()} CAD
+            {formatMoney(total)} {currencyCode()}
           </span>
         </h1>
 
@@ -109,8 +110,8 @@ export default function Cart() {
                       )}
                     </div>
                     <div className="text-obsidian-900">
-                      ${(item.price * (item.qty || 1)).toLocaleString()}{' '}
-                      <span className="text-[10px] text-obsidian-400 uppercase">CAD</span>
+                      {formatMoney(item.price * (item.qty || 1))}{' '}
+                      <span className="text-[10px] text-obsidian-400 uppercase">{currencyCode()}</span>
                     </div>
                   </div>
                 </div>
@@ -163,7 +164,7 @@ export default function Cart() {
                 Total <span className="text-xs text-obsidian-400">Excl. Sales Tax</span>
               </span>
               <span className="text-xl text-obsidian-900">
-                ${total.toLocaleString()} <span className="text-xs text-obsidian-400 uppercase">CAD</span>
+                {formatMoney(total)} <span className="text-xs text-obsidian-400 uppercase">{currencyCode()}</span>
               </span>
             </div>
 

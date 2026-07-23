@@ -11,6 +11,7 @@ import {
 } from '../lib/config'
 import { useCart } from '../context/CartContext'
 import { useMeasurements } from '../context/MeasurementsContext'
+import { formatMoney, currencyCode } from '../lib/currency'
 
 export default function Configurator() {
   const location = useLocation()
@@ -174,8 +175,8 @@ export default function Configurator() {
                               {opt.priceDelta === 0
                                 ? 'Included'
                                 : opt.priceDelta > 0
-                                  ? `+ $${opt.priceDelta}`
-                                  : `– $${Math.abs(opt.priceDelta)}`}
+                                  ? `+ ${formatMoney(opt.priceDelta)}`
+                                  : `– ${formatMoney(Math.abs(opt.priceDelta))}`}
                             </span>
                           </span>
                           <span
@@ -218,8 +219,8 @@ export default function Configurator() {
               <div className="flex items-baseline justify-between mb-6">
                 <span className="text-sm tracking-[0.12em] uppercase text-obsidian-400">Your price</span>
                 <span className="font-display text-3xl text-obsidian-900">
-                  ${price.toLocaleString()}{' '}
-                  <span className="text-[11px] text-obsidian-400 uppercase">CAD</span>
+                  {formatMoney(price)}{' '}
+                  <span className="text-[11px] text-obsidian-400 uppercase">{currencyCode()}</span>
                 </span>
               </div>
 
@@ -227,7 +228,7 @@ export default function Configurator() {
                 onClick={addToBag}
                 className="w-full bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
               >
-                Add to bag — ${price.toLocaleString()}
+                Add to bag — {formatMoney(price)}
               </button>
               <button
                 onClick={share}

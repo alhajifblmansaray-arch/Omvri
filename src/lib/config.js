@@ -13,6 +13,11 @@ import { configuratorSteps, products, getProductBySlug } from '../data/products'
 // step ids in canonical order: ['fabric','lapel','button','lining']
 export const STEP_IDS = configuratorSteps.map((s) => s.id)
 
+// A made-to-order suit starts at a flat bespoke base (USD), independent of which
+// house look it starts from — premade looks are $999, a bespoke build is $1,500
+// before any premium-option upgrades.
+export const CUSTOM_BASE_PRICE = 1500
+
 function stepOf(stepId) {
   return configuratorSteps.find((s) => s.id === stepId)
 }
@@ -48,7 +53,7 @@ export function resolveConfig(config) {
     }
   })
 
-  const price = base.price + selections.reduce((sum, s) => sum + s.priceDelta, 0)
+  const price = CUSTOM_BASE_PRICE + selections.reduce((sum, s) => sum + s.priceDelta, 0)
 
   // Fabric drives the main garment preview; the other three read as swatches.
   // When true per-option isolated photography exists, this becomes a stacked

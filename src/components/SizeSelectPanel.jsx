@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { sizeMatrix } from '../data/products'
+import { formatMoney, currencyCode } from '../lib/currency'
 
 const sizeLabels = {
   32: 'XXS', 34: 'XS', 36: 'S', 38: 'M', 40: 'M/L',
@@ -59,7 +60,7 @@ export default function SizeSelectPanel({ product, onAdd }) {
         <div className="flex items-end justify-between pb-2">
           <div>
             <div className="text-xl text-obsidian-900">
-              ${product.price.toLocaleString()} <span className="text-xs text-obsidian-400 uppercase">CAD</span>
+              {formatMoney(product.price)} <span className="text-xs text-obsidian-400 uppercase">{currencyCode()}</span>
             </div>
             <div className="text-sm text-obsidian-400 mt-1">Delivery: 2 to 4 business days</div>
           </div>

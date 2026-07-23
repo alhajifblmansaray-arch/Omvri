@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
+import { formatMoney } from '../lib/currency'
 
 const process = [
   {
@@ -70,7 +71,7 @@ export default function Home({ onBook }) {
                 <div className="text-obsidian-900 font-display text-xl group-hover:text-gold-700 transition-colors duration-450">
                   {p.name}
                 </div>
-                <div className="text-obsidian-400 text-xs mt-1">{p.fabric} — ${p.price.toLocaleString()}</div>
+                <div className="text-obsidian-400 text-xs mt-1">{p.fabric} — {formatMoney(p.price)}</div>
               </div>
             </Link>
           ))}

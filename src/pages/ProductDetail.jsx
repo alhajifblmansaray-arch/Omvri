@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
 import { getProductBySlug } from '../data/products'
+import { formatMoney, currencyCode } from '../lib/currency'
 import { useCart } from '../context/CartContext'
 import SidePanel from '../components/SidePanel'
 import ShopTheLookPanel from '../components/ShopTheLookPanel'
@@ -99,8 +100,8 @@ export default function ProductDetail() {
             </h1>
             <div className="text-obsidian-400 text-sm mt-2">{product.fabric}</div>
             <div className="text-xl text-obsidian-900 mt-5">
-              ${product.price.toLocaleString()}{' '}
-              <span className="text-xs text-obsidian-400 uppercase">CAD</span>
+              {formatMoney(product.price)}{' '}
+              <span className="text-xs text-obsidian-400 uppercase">{currencyCode()}</span>
             </div>
 
             <p className="text-sm text-obsidian-400 leading-relaxed mt-6 max-w-[420px]">

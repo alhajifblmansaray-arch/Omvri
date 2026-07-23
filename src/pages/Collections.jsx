@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
+import { formatMoney, currencyCode } from '../lib/currency'
 
 export default function Collections() {
   return (
@@ -38,7 +39,7 @@ export default function Collections() {
                 {/* fabric + price reveal on hover/focus */}
                 <div className="absolute inset-x-0 bottom-0 p-6 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-450 ease-signature">
                   <div className="text-white/80 text-xs tracking-wide">{p.fabric}</div>
-                  <div className="text-gold-400 text-sm mt-1">${p.price.toLocaleString()} CAD</div>
+                  <div className="text-gold-400 text-sm mt-1">{formatMoney(p.price)} {currencyCode()}</div>
                 </div>
 
                 <span className="absolute top-5 right-5 w-8 h-8 rounded-full border border-obsidian-900/15 bg-white/80 flex items-center justify-center text-obsidian-900 opacity-0 group-hover:opacity-100 transition-opacity duration-450">
@@ -53,7 +54,7 @@ export default function Collections() {
                   {p.name}
                 </h3>
                 <span className="text-xs text-obsidian-400 group-hover:opacity-0 transition-opacity duration-300">
-                  ${p.price.toLocaleString()}
+                  {formatMoney(p.price)}
                 </span>
               </div>
             </Link>

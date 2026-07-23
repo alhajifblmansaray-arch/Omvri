@@ -1,4 +1,5 @@
-import { orderTotals, money } from '../lib/orders'
+import { orderTotals } from '../lib/orders'
+import { formatMoney, currencyCode } from '../lib/currency'
 
 export default function OrderSummary({ items, compact = false }) {
   const totals = orderTotals(items)
@@ -28,19 +29,19 @@ export default function OrderSummary({ items, compact = false }) {
               </div>
             </div>
             <div className="text-sm text-obsidian-900 shrink-0">
-              ${(item.price * (item.qty || 1)).toLocaleString()}
+              {formatMoney(item.price * (item.qty || 1))}
             </div>
           </div>
         ))}
       </div>
 
-      <Line label="Subtotal" value={`$${money(totals.subtotal)}`} />
+      <Line label="Subtotal" value={formatMoney(totals.subtotal, 2)} />
       <Line label="Delivery" value="Free" />
-      <Line label="Sales tax (HST)" value={`$${money(totals.tax)}`} />
+      <Line label={`Sales tax (${totals.taxLabel})`} value={formatMoney(totals.tax, 2)} />
       <div className="flex items-baseline justify-between pt-3 mt-1 border-t border-obsidian-900/10">
         <span className="text-lg text-obsidian-900">Total</span>
         <span className="text-lg text-obsidian-900">
-          ${money(totals.total)} <span className="text-[10px] text-obsidian-400 uppercase">CAD</span>
+          {formatMoney(totals.total, 2)} <span className="text-[10px] text-obsidian-400 uppercase">{currencyCode()}</span>
         </span>
       </div>
     </aside>

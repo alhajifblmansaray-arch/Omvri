@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
-import { createOrder, orderTotals, money } from '../lib/orders'
+import { createOrder, orderTotals } from '../lib/orders'
+import { formatMoney } from '../lib/currency'
 import OrderSummary from '../components/OrderSummary'
 
 const STEPS = ['Contact', 'Shipping', 'Payment', 'Review']
@@ -205,7 +206,7 @@ export default function Checkout() {
                   onClick={placeOrder}
                   className="flex-1 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
                 >
-                  Place order — ${money(totals.total)}
+                  Place order — {formatMoney(totals.total, 2)}
                 </button>
               )}
             </div>

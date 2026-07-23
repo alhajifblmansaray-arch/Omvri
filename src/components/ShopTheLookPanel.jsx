@@ -1,5 +1,6 @@
 import { accessories } from '../data/products'
 import { useCart } from '../context/CartContext'
+import { formatMoney, currencyCode } from '../lib/currency'
 
 export default function ShopTheLookPanel() {
   const { addItem } = useCart()
@@ -15,7 +16,7 @@ export default function ShopTheLookPanel() {
             <div className="text-obsidian-900 font-medium">{a.name}</div>
             <div className="text-sm text-obsidian-400 mt-0.5">{a.material}</div>
             <div className="text-sm text-obsidian-900 mt-1.5">
-              ${a.price.toLocaleString()} <span className="text-[10px] text-obsidian-400 uppercase">CAD</span>
+              {formatMoney(a.price)} <span className="text-[10px] text-obsidian-400 uppercase">{currencyCode()}</span>
             </div>
             <div className="flex items-center gap-3 mt-4">
               <button

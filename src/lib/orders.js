@@ -2,19 +2,24 @@
 // here talks to a processor. Swap createOrder's body for the real API call
 // when one exists; the shape below is what the atelier needs to cut a suit.
 
-const STORAGE_KEY = 'omvri-orders'
-export const TAX_RATE = 0.13 // HST
+import { currencyCode } from './currency'
 
-// toLocaleString drops trailing zeros ($245.7); money always wants two places.
-export function money(n) {
-  return n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+const STORAGE_KEY = 'omvri-orders'
+
+// Tax follows the visitor's market. Canada charges 13% HST; other regions show
+// no tax in this demo rather than inventing a rate (US sales tax varies by state,
+// EU prices are usually tax-inclusive). Wire in real tax rules per market later.
+function taxFor(code) {
+  if (code === 'CAD') return { rate: 0.13, label: 'HST' }
+  return { rate: 0, label: 'Sales tax' }
 }
 
 export function orderTotals(items, giftWrap = false) {
   const subtotal = items.reduce((sum, i) => sum + i.price * (i.qty || 1), 0)
   const shipping = 0
-  const tax = Math.round(subtotal * TAX_RATE * 100) / 100
-  return { subtotal, shipping, tax, giftWrap, total: subtotal + shipping + tax }
+  const { rate, label } = taxFor(currencyCode())
+  const tax = Math.round(subtotal * rate * 100) / 100
+  return { subtotal, shipping, tax, taxLabel: label, giftWrap, total: subtotal + shipping + tax }
 }
 
 function orderNumber() {
