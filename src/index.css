@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #ffffff;
+  --paper-dim: #f6f4ef;
+  --ink: #17161a;
+  --ink-dim: #6f6d70;
+  --gold: #9a7742;
+  --gold-bright: #b89257;
+  --hairline: rgba(23, 22, 26, 0.1);
+  --ease-signature: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--paper);
+}
+
+/* film grain overlay — fixed, non-interactive, over everything */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.hairline {
+  border-color: var(--hairline);
+}
+
+/* Ken Burns slow drift, used on hero and lookbook imagery */
+.kenburns {
+  animation: kenburns 18s var(--ease-signature) forwards;
+}
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(-1.5%, -1.5%); }
+}
+
+/* crossfade hero layers */
+.crossfade-layer {
+  transition: opacity 1200ms var(--ease-signature);
+}
+
+/* accordion pattern — shared across PDP details, size & fit, etc */
+.accordion-item {
+  border-top: 1px solid var(--hairline);
+}
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.accordion-icon {
+  transition: transform 450ms var(--ease-signature);
+}
+.accordion-item[data-open='true'] .accordion-icon {
+  transform: rotate(45deg);
+}
+.accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms var(--ease-signature);
+}
+.accordion-item[data-open='true'] .accordion-body {
+  grid-template-rows: 1fr;
+}
+.accordion-body-inner {
+  overflow: hidden;
+}
+.accordion-content {
+  padding-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--ink-dim);
+  font-weight: 300;
+}
+
+/* measure-path — a hand-drawn confirming stroke used for selection states */
+.measure-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  pathLength: 1;
+  animation: drawIn 550ms var(--ease-signature) forwards;
+}
+@keyframes drawIn {
+  to { stroke-dashoffset: 0; }
+}
+
+.reveal {
+  animation: fadeUp 700ms var(--ease-signature) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* thin gold-on-paper scrollbar for the shop */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-dim);
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d4c9;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kenburns, .reveal, .measure-path {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
