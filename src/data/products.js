@@ -71,9 +71,9 @@ export const products = [
     price: 999,
     slug: 'vesper-ivory',
     tone: '#7a2e2e',
-    hero: `${look('burgundy')}/full-1.jpg`,
+    hero: `${look('burgundy')}/cover.jpg`,
     gallery: [
-      { src: `${look('burgundy')}/full-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('burgundy')}/cover.jpg`, caption: null, type: 'full' },
       { src: `${look('burgundy')}/detail-1.jpg`, caption: 'Back Vent — A single deep vent for ease of movement.', type: 'detail' },
       { src: `${look('burgundy')}/back-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('burgundy')}/detail-2.jpg`, caption: 'OMVRI Cuff Tab — Signature hardware on every jacket.', type: 'detail' },
