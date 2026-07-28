@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
 import { formatMoney } from '../lib/currency'
+import { testimonials, lookbook, craft } from '../data/content'
 
 const process = [
   {
@@ -116,6 +117,81 @@ export default function Home({ onBook }) {
               How to Measure
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* craft band — the OMVRI tab */}
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="aspect-[4/5] max-w-md w-full mx-auto overflow-hidden bg-ivory order-2 md:order-1">
+          <img src={craft.image} alt="The OMVRI cuff tab, hand-embroidered in gold thread" loading="lazy" className="w-full h-full object-cover" />
+        </div>
+        <div className="text-center md:text-left order-1 md:order-2">
+          <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-5">
+            The Signature
+          </span>
+          <h3 className="font-display text-4xl md:text-5xl text-obsidian-900 leading-[1.1] mb-6">
+            One tab, sewn by hand,
+            <br /> on every finished cuff.
+          </h3>
+          <p className="text-obsidian-400 text-sm leading-relaxed max-w-[420px] mx-auto md:mx-0 mb-10">
+            The last stitch of every OMVRI garment is the same: the house tab, embroidered in
+            gold thread and set beside the working buttons. It goes on only when the cutter is
+            satisfied — which takes longer than you would think.
+          </p>
+          <Link
+            to="/house"
+            className="inline-block px-9 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+          >
+            Inside the House
+          </Link>
+        </div>
+      </section>
+
+      {/* testimonials */}
+      <section className="bg-ivory border-y border-obsidian-900/10">
+        <div className="max-w-[1300px] mx-auto px-6 md:px-10 py-24">
+          <h3 className="font-display text-3xl md:text-4xl text-obsidian-900 text-center mb-16">
+            Worn and vouched for.
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {testimonials.map((t) => (
+              <figure key={t.name} className="border-t border-obsidian-900/15 pt-6">
+                <div className="text-gold-700 mb-4" aria-hidden="true">★★★★★</div>
+                <blockquote className="text-sm text-obsidian-900 leading-relaxed mb-5">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="text-xs text-obsidian-400">
+                  {t.name}, {t.city}
+                  <span className="block text-gold-700 mt-0.5">{t.suit}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* lookbook teaser */}
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28">
+        <div className="flex items-end justify-between mb-10">
+          <h3 className="font-display text-3xl text-obsidian-900">From the Lookbook</h3>
+          <Link to="/lookbook" className="text-[11px] tracking-[0.16em] uppercase text-gold-700 hover:text-gold-800 transition-colors duration-450">
+            View All
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          {lookbook.slice(0, 4).map((f) => (
+            <Link key={f.src} to="/lookbook" className="group relative aspect-[3/4] overflow-hidden bg-ivory">
+              <img
+                src={f.src}
+                alt={f.title}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 ease-signature group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-obsidian-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-450">
+                <span className="text-white text-xs tracking-wide">{f.title}</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
     </div>

@@ -118,10 +118,16 @@ export default function OrderConfirmation() {
           <Detail title="Paid with">{order.method}</Detail>
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to={`/track?id=${order.id}`}
+            className="px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+          >
+            Track This Order
+          </Link>
           <Link
             to="/collections"
-            className="inline-block px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="px-9 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
           >
             Continue Shopping
           </Link>

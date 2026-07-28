@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
-import { getProductBySlug } from '../data/products'
+import { useParams, useLocation, Link } from 'react-router-dom'
+import { getProductBySlug, products } from '../data/products'
 import { formatMoney, currencyCode } from '../lib/currency'
 import { useCart } from '../context/CartContext'
 import SidePanel from '../components/SidePanel'
 import ShopTheLookPanel from '../components/ShopTheLookPanel'
 import SaveForLaterPanel from '../components/SaveForLaterPanel'
 import CustomMeasurementsPanel from '../components/CustomMeasurementsPanel'
+import WishlistButton from '../components/WishlistButton'
+import Reviews from '../components/Reviews'
 
 const accordionSections = [
   {
@@ -95,9 +97,12 @@ export default function ProductDetail() {
             <span className="text-[11px] tracking-widest2 uppercase text-gold-700">
               {product.mill}
             </span>
-            <h1 className="font-display text-4xl md:text-5xl text-obsidian-900 mt-3">
-              {product.name}
-            </h1>
+            <div className="flex items-start justify-between gap-4">
+              <h1 className="font-display text-4xl md:text-5xl text-obsidian-900 mt-3">
+                {product.name}
+              </h1>
+              <WishlistButton productId={product.id} className="mt-4 border border-obsidian-900/10" />
+            </div>
             <div className="text-obsidian-400 text-sm mt-2">{product.fabric}</div>
             <div className="text-xl text-obsidian-900 mt-5">
               {formatMoney(product.price)}{' '}
@@ -159,6 +164,37 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
+
+      {/* reviews */}
+      <Reviews productId={product.id} />
+
+      {/* related suits */}
+      <section className="max-w-[1300px] mx-auto px-6 md:px-10 py-20 border-t border-obsidian-900/10">
+        <h2 className="font-display text-3xl text-obsidian-900 mb-10 text-center">You may also like</h2>
+        <div className="grid grid-cols-3 gap-4 md:gap-8">
+          {products
+            .filter((p) => p.id !== product.id)
+            .slice(0, 3)
+            .map((p) => (
+              <Link key={p.id} to={`/suits/${p.slug}`} className="group">
+                <div className="aspect-[3/4] bg-ivory overflow-hidden mb-4">
+                  <img
+                    src={p.hero}
+                    alt={p.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-signature group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 className="font-display text-lg md:text-xl text-obsidian-900 group-hover:text-gold-700 transition-colors duration-450">
+                    {p.name}
+                  </h3>
+                  <span className="text-xs text-obsidian-400">{formatMoney(p.price)}</span>
+                </div>
+              </Link>
+            ))}
+        </div>
+      </section>
 
       {/* one reusable right-panel slot, content swaps by state */}
       <SidePanel

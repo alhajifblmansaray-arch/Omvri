@@ -1,8 +1,28 @@
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { products } from '../data/products'
+import { products, categories, accessories } from '../data/products'
 import { formatMoney, currencyCode } from '../lib/currency'
+import WishlistButton from '../components/WishlistButton'
+
+const sorts = [
+  ['featured', 'Featured'],
+  ['name', 'Name A–Z'],
+  ['price-asc', 'Price, low to high'],
+  ['price-desc', 'Price, high to low'],
+]
 
 export default function Collections() {
+  const [cat, setCat] = useState('all')
+  const [sort, setSort] = useState('featured')
+
+  const shown = useMemo(() => {
+    let list = cat === 'all' ? [...products] : products.filter((p) => p.category === cat)
+    if (sort === 'name') list.sort((a, b) => a.name.localeCompare(b.name))
+    if (sort === 'price-asc') list.sort((a, b) => a.price - b.price)
+    if (sort === 'price-desc') list.sort((a, b) => b.price - a.price)
+    return list
+  }, [cat, sort])
+
   return (
     <div className="pt-20">
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-14 text-center">
@@ -19,9 +39,45 @@ export default function Collections() {
         </p>
       </section>
 
+      {/* filter + sort bar */}
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-10">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-y border-obsidian-900/10 py-4">
+          <div className="flex flex-wrap gap-1">
+            {categories.map((c) => (
+              <button
+                key={c.key}
+                onClick={() => setCat(c.key)}
+                aria-pressed={cat === c.key}
+                className={`px-4 py-2 text-[11px] tracking-[0.14em] uppercase transition-colors duration-300 ${
+                  cat === c.key
+                    ? 'bg-obsidian-900 text-white'
+                    : 'text-obsidian-500 hover:text-obsidian-900'
+                }`}
+              >
+                {c.label}
+              </button>
+            ))}
+          </div>
+          <label className="flex items-center gap-3 text-xs text-obsidian-400">
+            Sort
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+              className="border border-obsidian-900/15 bg-white text-obsidian-900 text-xs py-2 pl-3 pr-2 outline-none focus:border-gold-700"
+            >
+              {sorts.map(([v, label]) => (
+                <option key={v} value={v}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      </section>
+
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
-          {products.map((p, i) => (
+          {shown.map((p, i) => (
             <Link
               key={p.id}
               to={`/suits/${p.slug}`}
@@ -42,11 +98,7 @@ export default function Collections() {
                   <div className="text-gold-400 text-sm mt-1">{formatMoney(p.price)} {currencyCode()}</div>
                 </div>
 
-                <span className="absolute top-5 right-5 w-8 h-8 rounded-full border border-obsidian-900/15 bg-white/80 flex items-center justify-center text-obsidian-900 opacity-0 group-hover:opacity-100 transition-opacity duration-450">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </span>
+                <WishlistButton productId={p.id} className="absolute top-4 right-4 bg-white/85" />
               </div>
 
               <div className="mt-4 flex items-baseline justify-between">
@@ -57,6 +109,38 @@ export default function Collections() {
                   {formatMoney(p.price)}
                 </span>
               </div>
+            </Link>
+          ))}
+        </div>
+
+        {shown.length === 0 && (
+          <p className="text-center text-obsidian-400 text-sm py-20">
+            Nothing in this category yet.
+          </p>
+        )}
+      </section>
+
+      {/* accessories strip */}
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-28">
+        <div className="flex items-baseline justify-between mb-8">
+          <h2 className="font-display text-3xl text-obsidian-900">Finishing touches</h2>
+          <Link to="/accessories" className="text-[11px] tracking-[0.14em] uppercase text-gold-700 hover:underline">
+            All Accessories →
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {accessories.map((a) => (
+            <Link key={a.id} to="/accessories" className="group">
+              <div className="aspect-square bg-ivory overflow-hidden mb-3">
+                <img
+                  src={a.image}
+                  alt={a.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-signature group-hover:scale-[1.04]"
+                />
+              </div>
+              <div className="text-sm text-obsidian-900 group-hover:text-gold-700 transition-colors duration-300">{a.name}</div>
+              <div className="text-xs text-obsidian-400">{formatMoney(a.price)}</div>
             </Link>
           ))}
         </div>

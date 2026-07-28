@@ -1,8 +1,6 @@
 // Editorial photography, shot on location (Valley of Fire desert road).
-// Only 4 distinct looks currently exist (brown double-breasted, black
-// tuxedo, grey double-breasted, burgundy blazer), so two products below
-// intentionally reuse a look's image set — swap in dedicated shoots for
-// Harlow/Vesper once available rather than treating this as final.
+// Each look folder now carries a full editorial set — covers, motion shots,
+// details and OMVRI cuff macros — so every product reads distinct.
 const look = (color) => `/images/looks/${color}`
 
 export const products = [
@@ -14,13 +12,14 @@ export const products = [
     price: 999,
     slug: 'meridian-charcoal',
     tone: '#1c1c1e',
+    category: 'evening',
     hero: `${look('black')}/full-1.jpg`,
     gallery: [
       { src: `${look('black')}/full-1.jpg`, caption: null, type: 'full' },
-      { src: `${look('black')}/detail-1.jpg`, caption: 'Peak Lapel — Cut sharp and satin-faced for evening formality.', type: 'detail' },
-      { src: `${look('black')}/portrait-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('black')}/detail-3.jpg`, caption: 'Working Cuffs — Four kissing buttons, hand-stitched OMVRI tab.', type: 'detail' },
-      { src: `${look('black')}/back-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('black')}/torso-1.jpg`, caption: 'Satin Shawl — Bow tie, pleated bib and a hand-set pocket square.', type: 'detail' },
+      { src: `${look('black')}/walk-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('black')}/cuff-1.jpg`, caption: 'Working Cuffs — Satin-covered buttons, hand-stitched OMVRI tab.', type: 'detail' },
+      { src: `${look('black')}/back-2.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A one-button peak lapel tuxedo in deep charcoal wool, built for the room that calls for restraint over spectacle. Satin facing, hand-finished throughout.',
@@ -33,13 +32,14 @@ export const products = [
     price: 999,
     slug: 'solstice-navy',
     tone: '#8d94a0',
-    hero: `${look('grey')}/full-1.jpg`,
+    category: 'business',
+    hero: `${look('grey')}/stool-1.jpg`,
     gallery: [
-      { src: `${look('grey')}/full-1.jpg`, caption: null, type: 'full' },
-      { src: `${look('grey')}/detail-1.jpg`, caption: 'Horn Buttons — Cut from natural buffalo horn, no two alike.', type: 'detail' },
-      { src: `${look('grey')}/full-2.jpg`, caption: null, type: 'styled' },
-      { src: `${look('grey')}/detail-2.jpg`, caption: 'OMVRI Cuff Tab — Hand-embroidered on every finished cuff.', type: 'detail' },
-      { src: `${look('grey')}/portrait-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('grey')}/stool-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('grey')}/chest-1.jpg`, caption: 'Double-Breasted Front — Six buttons, cut to close clean.', type: 'detail' },
+      { src: `${look('grey')}/full-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('grey')}/lapel-1.jpg`, caption: 'Peak Lapel — Hand-pressed roll with a silk pocket square.', type: 'detail' },
+      { src: `${look('grey')}/full-2.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A double-breasted birdseye that reads as the closest thing to a uniform a bespoke suit can be — quietly correct in nearly every room, from the VBC mill outside Biella.',
@@ -52,12 +52,14 @@ export const products = [
     price: 999,
     slug: 'faro-tan',
     tone: '#6b4a30',
+    category: 'casual',
     hero: `${look('brown')}/cover.jpg`,
     gallery: [
       { src: `${look('brown')}/cover.jpg`, caption: null, type: 'full' },
       { src: `${look('brown')}/styled-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('brown')}/detail-3.jpg`, caption: 'OMVRI Cuff Tab — Embroidered in raw silk thread by hand.', type: 'detail' },
       { src: `${look('brown')}/walk-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('brown')}/portrait-2.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A warm-weather cotton-linen blend from Solbiati, cut double-breasted and left soft in the shoulder for a jacket that breathes.',
@@ -70,13 +72,14 @@ export const products = [
     price: 999,
     slug: 'vesper-ivory',
     tone: '#7a2e2e',
+    category: 'evening',
     hero: `${look('burgundy')}/cover.jpg`,
     gallery: [
       { src: `${look('burgundy')}/cover.jpg`, caption: null, type: 'full' },
-      { src: `${look('burgundy')}/detail-1.jpg`, caption: 'Back Vent — A single deep vent for ease of movement.', type: 'detail' },
-      { src: `${look('burgundy')}/back-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('burgundy')}/back-2.jpg`, caption: 'Back Vent — A single deep vent, pressed to fall closed.', type: 'detail' },
+      { src: `${look('burgundy')}/stool-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('burgundy')}/detail-2.jpg`, caption: 'OMVRI Cuff Tab — Signature hardware on every jacket.', type: 'detail' },
-      { src: `${look('burgundy')}/full-2.jpg`, caption: null, type: 'full' },
+      { src: `${look('burgundy')}/reach-1.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A double-breasted wool twill in deep burgundy for occasions that call for a bit of nerve. Zegna cloth, cut close through the body.',
@@ -89,13 +92,14 @@ export const products = [
     price: 999,
     slug: 'harlow-forest',
     tone: '#1c1c1e',
-    hero: `${look('black')}/full-2.jpg`,
+    category: 'business',
+    hero: `${look('black')}/walk-1.jpg`,
     gallery: [
-      { src: `${look('black')}/full-2.jpg`, caption: null, type: 'full' },
+      { src: `${look('black')}/walk-1.jpg`, caption: null, type: 'full' },
       { src: `${look('black')}/detail-2.jpg`, caption: 'Milled Flannel — Brushed twice for a soft, matte hand.', type: 'detail' },
       { src: `${look('black')}/styled-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('black')}/detail-1.jpg`, caption: 'Notch Lapel — Cut narrow to keep the silhouette lean.', type: 'detail' },
-      { src: `${look('black')}/portrait-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('black')}/full-2.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A deep flannel from Fox Brothers, milled in Somerset since 1772. Heavier in the hand, built for the cold months.',
@@ -108,17 +112,25 @@ export const products = [
     price: 999,
     slug: 'ashford-stone',
     tone: '#8d94a0',
-    hero: `${look('grey')}/portrait-1.jpg`,
+    category: 'business',
+    hero: `${look('grey')}/wide-1.jpg`,
     gallery: [
-      { src: `${look('grey')}/portrait-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('grey')}/wide-1.jpg`, caption: null, type: 'full' },
       { src: `${look('grey')}/detail-2.jpg`, caption: 'Sharkskin Weave — A two-tone twist yarn that shifts in the light.', type: 'detail' },
-      { src: `${look('grey')}/full-2.jpg`, caption: null, type: 'styled' },
+      { src: `${look('grey')}/walk-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('grey')}/detail-1.jpg`, caption: 'Horn Buttons — Cut from natural buffalo horn, no two alike.', type: 'detail' },
-      { src: `${look('grey')}/full-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('grey')}/portrait-1.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A stone-grey double-breasted from Dormeuil with a subtle two-tone shimmer. Sharp under office light, unassuming in shadow.',
   },
+]
+
+export const categories = [
+  { key: 'all', label: 'All Suits' },
+  { key: 'business', label: 'Business' },
+  { key: 'evening', label: 'Evening' },
+  { key: 'casual', label: 'Casual' },
 ]
 
 export const getProductBySlug = (slug) => products.find((p) => p.slug === slug)
@@ -127,6 +139,9 @@ export const accessories = [
   { id: 'belt-black', name: 'Black Belt', material: 'Italian Cow Leather', price: 129, image: `${look('black')}/detail-3.jpg` },
   { id: 'tie-burgundy', name: 'Burgundy Silk Tie', material: 'Mulberry Silk', price: 139, image: `${look('burgundy')}/detail-1.jpg` },
   { id: 'oxford-black', name: 'Black Oxford', material: 'Calf Leather', price: 319, image: `${look('black')}/full-1.jpg` },
+  { id: 'pocket-square-ivory', name: 'Ivory Pocket Square', material: 'Silk Satin', price: 79, image: `${look('grey')}/lapel-1.jpg` },
+  { id: 'bow-tie-black', name: 'Black Bow Tie', material: 'Silk Satin', price: 119, image: `${look('black')}/torso-1.jpg` },
+  { id: 'cufflinks-gold', name: 'Gold Cufflinks', material: 'Plated Brass', price: 149, image: `${look('black')}/cuff-1.jpg` },
 ]
 
 // Configurator option inventory. Real per-option garment photography

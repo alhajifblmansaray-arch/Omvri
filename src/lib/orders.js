@@ -60,3 +60,7 @@ export function createOrder({ items, contact, shipping, method, giftWrap }) {
 export function getOrder(id) {
   return readAll().find((o) => o.id === id) || null
 }
+
+export function getAllOrders() {
+  return readAll()
+}
