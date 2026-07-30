@@ -72,7 +72,7 @@ export const products = [
     slug: 'vesper-ivory',
     tone: '#7a2e2e',
     category: 'evening',
-    hero: `${look('burgundy')}/cover.jpg`,
+    hero: `${look('burgundy')}/stool-1.jpg`,
     gallery: [
       { src: `${look('burgundy')}/stool-1.jpg`, caption: null, type: 'full' },
       { src: `${look('burgundy')}/front-1.jpg`, caption: null, type: 'styled' },
