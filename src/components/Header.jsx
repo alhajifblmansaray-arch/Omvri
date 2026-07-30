@@ -20,7 +20,7 @@ const menuSmall = [
   ['Contact', '/contact'],
 ]
 
-export default function Header({ onBook }) {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
@@ -59,12 +59,6 @@ export default function Header({ onBook }) {
           </Link>
 
           <div className="flex items-center gap-5 md:gap-6">
-            <button
-              onClick={onBook}
-              className="hidden lg:inline text-[11px] tracking-[0.18em] uppercase text-obsidian-400 hover:text-gold-700 transition-colors duration-450"
-            >
-              Book a Fitting
-            </button>
             <button
               aria-label="Search"
               onClick={() => setSearchOpen(true)}

@@ -22,7 +22,7 @@ const process = [
   },
 ]
 
-export default function Home({ onBook }) {
+export default function Home() {
   return (
     <div>
       {/* full-bleed video hero */}

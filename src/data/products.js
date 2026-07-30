@@ -37,7 +37,7 @@ export const products = [
     gallery: [
       { src: `${look('grey')}/stool-1.jpg`, caption: null, type: 'full' },
       { src: `${look('grey')}/chest-1.jpg`, caption: 'Double-Breasted Front — Six buttons, cut to close clean.', type: 'detail' },
-      { src: `${look('grey')}/full-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('grey')}/wide-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('grey')}/lapel-1.jpg`, caption: 'Peak Lapel — Hand-pressed roll with a silk pocket square.', type: 'detail' },
       { src: `${look('grey')}/full-2.jpg`, caption: null, type: 'full' },
     ],
@@ -53,12 +53,12 @@ export const products = [
     slug: 'faro-tan',
     tone: '#6b4a30',
     category: 'casual',
-    hero: `${look('brown')}/cover.jpg`,
+    hero: `${look('brown')}/walk-1.jpg`,
     gallery: [
+      { src: `${look('brown')}/walk-1.jpg`, caption: null, type: 'full' },
       { src: `${look('brown')}/cover.jpg`, caption: null, type: 'full' },
       { src: `${look('brown')}/styled-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('brown')}/detail-3.jpg`, caption: 'OMVRI Cuff Tab — Embroidered in raw silk thread by hand.', type: 'detail' },
-      { src: `${look('brown')}/walk-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('brown')}/portrait-2.jpg`, caption: null, type: 'full' },
     ],
     description:
@@ -75,11 +75,11 @@ export const products = [
     category: 'evening',
     hero: `${look('burgundy')}/cover.jpg`,
     gallery: [
-      { src: `${look('burgundy')}/cover.jpg`, caption: null, type: 'full' },
+      { src: `${look('burgundy')}/stool-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('burgundy')}/front-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('burgundy')}/back-1-full.jpg`, caption: null, type: 'full' },
       { src: `${look('burgundy')}/back-2.jpg`, caption: 'Back Vent — A single deep vent, pressed to fall closed.', type: 'detail' },
-      { src: `${look('burgundy')}/stool-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('burgundy')}/detail-2.jpg`, caption: 'OMVRI Cuff Tab — Signature hardware on every jacket.', type: 'detail' },
-      { src: `${look('burgundy')}/reach-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('burgundy')}/cover.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A double-breasted wool twill in deep burgundy for occasions that call for a bit of nerve. Zegna cloth, cut close through the body.',

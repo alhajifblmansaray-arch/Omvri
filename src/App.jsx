@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import BookingModal from './components/BookingModal'
 import AddedToBagBar from './components/AddedToBagBar'
 import NewsletterPopup from './components/NewsletterPopup'
 import { CartProvider } from './context/CartContext'
@@ -36,18 +35,16 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [bookingOpen, setBookingOpen] = useState(false)
-
   return (
     <CartProvider>
       <MeasurementsProvider>
         <WishlistProvider>
           <ScrollToTop />
           <div className="grain-overlay" />
-          <Header onBook={() => setBookingOpen(true)} />
+          <Header />
           <main>
             <Routes>
-              <Route path="/" element={<Home onBook={() => setBookingOpen(true)} />} />
+              <Route path="/" element={<Home />} />
               <Route path="/collections" element={<Collections />} />
               <Route path="/suits/:slug" element={<ProductDetail />} />
               <Route path="/configure" element={<Configurator />} />
@@ -70,7 +67,6 @@ function App() {
             </Routes>
           </main>
           <Footer />
-          <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
           <AddedToBagBar />
           <NewsletterPopup />
         </WishlistProvider>
