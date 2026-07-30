@@ -65,7 +65,9 @@ export default function Home() {
                 <img
                   src={p.hero}
                   alt={p.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-[700ms] ease-signature group-hover:scale-105"
+                  className={`w-full h-full object-cover transition-transform duration-[700ms] ease-signature group-hover:scale-105 ${
+                    p.id === 'vesper-ivory' ? 'object-[center_14%]' : 'object-top'
+                  }`}
                 />
               </div>
               <div className="px-1 pt-5 pb-6">
