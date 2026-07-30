@@ -37,9 +37,9 @@ export const products = [
     gallery: [
       { src: `${look('grey')}/stool-1.jpg`, caption: null, type: 'full' },
       { src: `${look('grey')}/chest-1.jpg`, caption: 'Double-Breasted Front — Six buttons, cut to close clean.', type: 'detail' },
+      { src: `${look('grey')}/cuff-1.jpg`, caption: 'OMVRI Cuff Tab — Hand-embroidered on every finished cuff.', type: 'detail' },
       { src: `${look('grey')}/wide-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('grey')}/lapel-1.jpg`, caption: 'Peak Lapel — Hand-pressed roll with a silk pocket square.', type: 'detail' },
-      { src: `${look('grey')}/full-2.jpg`, caption: null, type: 'full' },
+      { src: `${look('grey')}/stool-2.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A double-breasted birdseye that reads as the closest thing to a uniform a bespoke suit can be — quietly correct in nearly every room, from the VBC mill outside Biella.',
