@@ -112,13 +112,12 @@ export const products = [
     slug: 'ashford-stone',
     tone: '#8d94a0',
     category: 'business',
-    hero: `${look('grey')}/wide-1.jpg`,
+    hero: `${look('ashford')}/cover.jpg`,
     gallery: [
-      { src: `${look('grey')}/wide-1.jpg`, caption: null, type: 'full' },
-      { src: `${look('grey')}/detail-2.jpg`, caption: 'Sharkskin Weave — A two-tone twist yarn that shifts in the light.', type: 'detail' },
-      { src: `${look('grey')}/walk-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('grey')}/detail-1.jpg`, caption: 'Horn Buttons — Cut from natural buffalo horn, no two alike.', type: 'detail' },
-      { src: `${look('grey')}/portrait-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('ashford')}/cover.jpg`, caption: null, type: 'full' },
+      { src: `${look('ashford')}/seated-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('ashford')}/lapel-1.jpg`, caption: 'Satin Peak Lapel — Contrast satin facing, hand-set pocket square.', type: 'detail' },
+      { src: `${look('ashford')}/seated-2.jpg`, caption: null, type: 'full' },
     ],
     description:
       'A stone-grey double-breasted from Dormeuil with a subtle two-tone shimmer. Sharp under office light, unassuming in shadow.',
