@@ -59,7 +59,7 @@ export default function Collections() {
           </label>
         </div>
         <p className="text-xs text-obsidian-500 mt-3">
-          Hover any suit to page through its photographs.
+          Hover any suit to see it from every angle.
         </p>
       </section>
 
