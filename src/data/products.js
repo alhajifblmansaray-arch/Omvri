@@ -122,6 +122,27 @@ export const products = [
     description:
       'A stone-grey double-breasted from Dormeuil with a subtle two-tone shimmer. Sharp under office light, unassuming in shadow.',
   },
+  {
+    id: 'lario-black',
+    name: 'The Lario',
+    fabric: 'Black Wool Barathea',
+    mill: 'Drago, Biella',
+    price: 999,
+    slug: 'lario-black',
+    tone: '#111113',
+    category: 'evening',
+    hero: `${look('lario')}/cover.jpg`,
+    gallery: [
+      { src: `${look('lario')}/cover.jpg`, caption: null, type: 'full' },
+      { src: `${look('lario')}/lawn-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('lario')}/lapel-1.jpg`, caption: 'Peak Lapel — Cut wide and pressed to a knife edge, with covered buttons.', type: 'detail' },
+      { src: `${look('lario')}/walk-1.jpg`, caption: null, type: 'styled' },
+      { src: `${look('lario')}/portrait-1.jpg`, caption: null, type: 'full' },
+      { src: `${look('lario')}/edge-1.jpg`, caption: null, type: 'styled' },
+    ],
+    description:
+      'A double-breasted black barathea cut for the hour after sunset — shot on the water at Lake Como, from which it takes its name. Peak lapels, covered buttons, nothing else.',
+  },
 ]
 
 export const categories = [

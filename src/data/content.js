@@ -70,6 +70,10 @@ export const reviews = {
     { name: 'Hasan R.', rating: 5, date: 'June 2026', title: 'Shifts in the light', body: 'The sharkskin two-tone is subtle until the sun hits it. Office-sharp.' },
     { name: 'P. Delgado', rating: 5, date: 'April 2026', title: 'Dormeuil delivers', body: 'Crisp shoulder line, clean close. My second OMVRI and not my last.' },
   ],
+  'lario-black': [
+    { name: 'Emeka N.', rating: 5, date: 'July 2026', title: 'Black tie, done properly', body: 'The barathea has a depth that reads black in every light — no shine, no blue cast. The peak lapel does the rest.' },
+    { name: 'Renzo C.', rating: 5, date: 'June 2026', title: 'Worth the wait', body: 'Wore it to a wedding on the lake. Three people asked who made it before the ceremony started.' },
+  ],
 }
 
 export const lookbook = [
@@ -88,6 +92,9 @@ export const lookbook = [
   { src: `${look('black')}/back-2.jpg`, title: 'Meridian, from behind', product: 'meridian-charcoal', span: 'tall' },
   { src: `${look('brown')}/cuff-1.jpg`, title: 'Four buttons, brown twill', product: 'faro-tan', span: 'square' },
   { src: `${look('grey')}/wide-1.jpg`, title: 'Stone grey, open road', product: 'ashford-stone', span: 'wide' },
+  { src: `${look('lario')}/cover.jpg`, title: 'The Lario, Lake Como', product: 'lario-black', span: 'tall' },
+  { src: `${look('lario')}/lapel-1.jpg`, title: 'Peak lapel, covered buttons', product: 'lario-black', span: 'square' },
+  { src: `${look('lario')}/edge-1.jpg`, title: 'At the water’s edge', product: 'lario-black', span: 'tall' },
 ]
 
 export const craft = {
