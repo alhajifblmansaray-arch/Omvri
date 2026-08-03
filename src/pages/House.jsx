@@ -8,7 +8,7 @@ const values = [
   },
   {
     title: 'Cloth before everything',
-    body: 'We buy from mills we can name — Loro Piana, VBC, Fox Brothers, Dormeuil, Solbiati, Zegna — and we will tell you exactly what your suit is made of.',
+    body: 'We buy from mills we can name: Loro Piana, VBC, Fox Brothers, Dormeuil, Solbiati and Zegna. We will tell you exactly what your suit is made of.',
   },
   {
     title: 'Fit is a relationship',
@@ -16,13 +16,13 @@ const values = [
   },
   {
     title: 'Repair for life',
-    body: 'Buttons, seams, linings, edges. If we made it, we mend it — for as long as the garment lives.',
+    body: 'Buttons, seams, linings, edges. If we made it, we mend it, for as long as the garment lives.',
   },
 ]
 
 const numbers = [
   ['12', 'measurements taken for every cut'],
-  ['3–5', 'weeks from cloth to doorstep'],
+  ['3 to 5', 'weeks from cloth to doorstep'],
   ['6', 'mills across Italy and England'],
   ['1', 'pair of hands on your pattern'],
 ]
@@ -41,7 +41,7 @@ export default function House() {
           They are cut.
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[560px] mx-auto mt-7 leading-relaxed" style={{ animationDelay: '180ms' }}>
-          OMVRI began with a simple refusal — the refusal to accept that a suit off a rack, sized
+          OMVRI began with a simple refusal, the refusal to accept that a suit off a rack, sized
           for nobody, was good enough for anybody. Every garment in the house starts as a bolt of
           cloth and a set of twelve numbers, and becomes something that belongs to one person only.
         </p>
@@ -54,14 +54,14 @@ export default function House() {
             <img src={craft.cuffBlack} alt="Black satin cuff with OMVRI tab" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="aspect-[3/4] overflow-hidden md:mt-16">
-            <img src={craft.image} alt="Hand-embroidered OMVRI tab in gold thread" className="w-full h-full object-cover" loading="lazy" />
+            <img src={craft.image} alt="OMVRI tab embroidered by hand in gold thread" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="aspect-[3/4] overflow-hidden hidden md:block mt-8">
             <img src={craft.lapelGrey} alt="Grey peak lapel with silk pocket square" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
         <p className="text-center text-xs text-obsidian-400 mt-6 tracking-wide">
-          The OMVRI tab — embroidered by hand on every finished cuff.
+          The OMVRI tab, embroidered by hand on every finished cuff.
         </p>
       </section>
 

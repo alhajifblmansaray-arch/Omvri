@@ -13,14 +13,14 @@ export default function Lookbook() {
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
-          Lookbook — Valley of Fire
+          The Lookbook
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
           Cloth, against the desert.
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[520px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
-          The full collection, shot on one road in the Utah desert. Every look is shoppable —
-          tap a frame to open the suit behind it.
+          The full collection, shot on location. Every look is shoppable, so tap a frame to open
+          the suit behind it.
         </p>
       </section>
 
@@ -40,7 +40,7 @@ export default function Lookbook() {
                   <div className="text-white text-xs tracking-wide">{f.title}</div>
                   {product && (
                     <div className="text-gold-400 text-[10px] tracking-[0.14em] uppercase mt-1">
-                      Shop {product.name} →
+                      Shop {product.name}
                     </div>
                   )}
                 </div>

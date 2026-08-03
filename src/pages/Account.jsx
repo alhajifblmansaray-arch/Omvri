@@ -29,7 +29,7 @@ export default function Account() {
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[460px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
           Every suit you have ordered, the measurements it was cut to, and the pieces you are
-          still deciding on — all in one place, saved on this device.
+          still deciding on, all in one place and saved on this device.
         </p>
       </section>
 
@@ -160,7 +160,7 @@ function Measurements() {
     return (
       <Empty
         title="No measurements on file."
-        body="Save your twelve numbers once and every suit after that is cut to them — no re-measuring, ever."
+        body="Save your twelve numbers once and every suit after that is cut to them. No measuring again, ever."
         cta="How to Measure"
         to="/measurement-guide"
       />
@@ -186,7 +186,7 @@ function Measurements() {
             {g.fields.map((f) => (
               <div key={f.key} className="flex justify-between text-sm py-1.5 border-t border-obsidian-900/5">
                 <span className="text-obsidian-400">{f.label}</span>
-                <span className="text-obsidian-900">{values[f.key] ? `${values[f.key]} ${unit}` : '—'}</span>
+                <span className="text-obsidian-900">{values[f.key] ? `${values[f.key]} ${unit}` : '·'}</span>
               </div>
             ))}
           </div>

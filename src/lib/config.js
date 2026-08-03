@@ -95,7 +95,7 @@ export function configLineItem(config, { measurements } = {}) {
 
   return {
     id: `custom-${base.slug}`,
-    name: `${base.name} — Bespoke`,
+    name: `${base.name} · Bespoke`,
     price,
     image: preview,
     configured: true,

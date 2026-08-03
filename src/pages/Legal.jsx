@@ -5,10 +5,10 @@ const content = {
     title: 'Terms of Service',
     updated: 'July 2026',
     sections: [
-      ['Who we are', 'OMVRI Bespoke ("OMVRI", "we") operates this site and the atelier behind it. By placing an order you agree to these terms — they are short on purpose.'],
+      ['Who we are', 'OMVRI Bespoke ("OMVRI", "we") operates this site and the atelier behind it. By placing an order you agree to these terms, which are short on purpose.'],
       ['Orders', 'An order is confirmed when payment clears and you receive an order number. Made-to-order and bespoke garments begin production after a 48-hour grace window, during which you may change or cancel freely.'],
       ['Pricing', 'Prices are set in US dollars and shown in your local currency at the day’s display rate. The amount charged is the amount shown at checkout. Taxes are applied by delivery market.'],
-      ['Fit & alterations', 'First alterations on every suit are free. Garments cut to custom measurements are exchanged for alteration rather than refunded — see Shipping & Returns for the full policy.'],
+      ['Fit & alterations', 'First alterations on every suit are free. Garments cut to custom measurements are exchanged for alteration rather than refunded. See Shipping & Returns for the full policy.'],
       ['Your measurements', 'Measurements you save belong to you. We store them to cut your garments and improve your next fit, and we never sell or share them.'],
       ['Intellectual property', 'Photography, the OMVRI mark and the cuff tab are ours. Please ask before reusing them.'],
       ['Liability', 'Our liability is limited to the price of the garment. Nothing in these terms limits rights you hold under local consumer law.'],
@@ -21,11 +21,11 @@ const content = {
     updated: 'July 2026',
     sections: [
       ['What we collect', 'Your name, contact and shipping details when you order; your measurements when you save them; your email when you subscribe. Nothing more.'],
-      ['What we do with it', 'Cut your garments, deliver your orders, and — if you subscribed — write to you occasionally. We do not sell, rent or trade personal data. Ever.'],
+      ['What we do with it', 'Cut your garments, deliver your orders, and write to you occasionally if you subscribed. We do not sell, rent or trade personal data. Ever.'],
       ['Where it lives', 'Order and measurement data is stored securely and retained while your account is active, because your next suit fits better when we remember your last one. Ask and we delete it.'],
       ['Payments', 'Card details are processed by our payment provider and never touch our servers. We keep only the last four digits, for your receipts.'],
       ['Cookies', 'We use the minimum needed to keep your bag and preferences working. No advertising trackers.'],
-      ['Your rights', 'Access, correction, export and deletion — one email to atelier@omvri.com and it is done within 30 days.'],
+      ['Your rights', 'Access, correction, export and deletion: one email to atelier@omvri.com and it is done within 30 days.'],
     ],
   },
 }

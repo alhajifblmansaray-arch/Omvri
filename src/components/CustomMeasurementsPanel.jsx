@@ -259,7 +259,7 @@ function ReviewStep({ values, unit, onEdit }) {
               <div key={f.key} className="flex justify-between py-2.5 text-sm">
                 <dt className="text-obsidian-400">{f.label}</dt>
                 <dd className="text-obsidian-900">
-                  {values[f.key] ? `${values[f.key]} ${unit}` : '—'}
+                  {values[f.key] ? `${values[f.key]} ${unit}` : '·'}
                 </dd>
               </div>
             ))}

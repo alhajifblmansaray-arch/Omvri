@@ -26,7 +26,7 @@ export default function AddedToBagBar() {
           <div className="flex items-center gap-3">
             <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
             <span className="text-sm text-white">
-              Added to bag — <span className="text-obsidian-200">{shownRef.current?.name}</span>
+              Added to bag · <span className="text-obsidian-200">{shownRef.current?.name}</span>
             </span>
           </div>
           <button

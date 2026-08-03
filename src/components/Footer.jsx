@@ -8,7 +8,6 @@ const cols = [
     links: [
       ['Collections', '/collections'],
       ['Build Your Own', '/configure'],
-      ['Accessories', '/accessories'],
       ['Lookbook', '/lookbook'],
       ['Bag', '/cart'],
     ],

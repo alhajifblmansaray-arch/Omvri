@@ -76,7 +76,7 @@ export default function Checkout() {
         postal: form.postal,
         country: form.country,
       },
-      // only the last four is kept — the full number never leaves this form
+      // only the last four is kept; the full number never leaves this form
       method: `Card ending ${digitsOnly(form.cardNumber).slice(-4)}`,
     })
     clear()
@@ -159,7 +159,7 @@ export default function Checkout() {
                   <Field k="cvc" label="CVC" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} inputMode="numeric" />
                 </div>
                 <p className="text-xs text-obsidian-400 mt-4 leading-relaxed">
-                  Demo only — no payment is processed and no card details are stored or sent
+                  Demo only. No payment is processed and no card details are stored or sent
                   anywhere. Connect a payment provider before taking real orders.
                 </p>
               </Section>
@@ -206,7 +206,7 @@ export default function Checkout() {
                   onClick={placeOrder}
                   className="flex-1 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
                 >
-                  Place order — {formatMoney(totals.total, 2)}
+                  Place order · {formatMoney(totals.total, 2)}
                 </button>
               )}
             </div>

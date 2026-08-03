@@ -1,6 +1,6 @@
 // Editorial photography, shot on location (Valley of Fire desert road).
-// Each look folder now carries a full editorial set — covers, motion shots,
-// details and OMVRI cuff macros — so every product reads distinct.
+// Each look folder now carries a full editorial set: covers, motion shots,
+// details and OMVRI cuff macros, so every product reads distinct.
 const look = (color) => `/images/looks/${color}`
 
 export const products = [
@@ -16,13 +16,13 @@ export const products = [
     hero: `${look('black')}/full-1.jpg`,
     gallery: [
       { src: `${look('black')}/full-1.jpg`, caption: null, type: 'full' },
-      { src: `${look('black')}/torso-1.jpg`, caption: 'Satin Shawl — Bow tie, pleated bib and a hand-set pocket square.', type: 'detail' },
+      { src: `${look('black')}/torso-1.jpg`, caption: 'Satin Shawl · Bow tie, pleated bib and a hand set pocket square.', type: 'detail' },
       { src: `${look('black')}/walk-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('black')}/cuff-1.jpg`, caption: 'Working Cuffs — Satin-covered buttons, hand-stitched OMVRI tab.', type: 'detail' },
+      { src: `${look('black')}/cuff-1.jpg`, caption: 'Working Cuffs · Satin covered buttons, hand stitched OMVRI tab.', type: 'detail' },
       { src: `${look('black')}/back-2.jpg`, caption: null, type: 'full' },
     ],
     description:
-      'A one-button peak lapel tuxedo in deep charcoal wool, built for the room that calls for restraint over spectacle. Satin facing, hand-finished throughout.',
+      'A one button peak lapel tuxedo in deep charcoal wool, built for the room that calls for restraint over spectacle. Satin facing, finished by hand throughout.',
   },
   {
     id: 'solstice-navy',
@@ -36,18 +36,18 @@ export const products = [
     hero: `${look('grey')}/stool-1.jpg`,
     gallery: [
       { src: `${look('grey')}/stool-1.jpg`, caption: null, type: 'full' },
-      { src: `${look('grey')}/chest-1.jpg`, caption: 'Double-Breasted Front — Six buttons, cut to close clean.', type: 'detail' },
-      { src: `${look('grey')}/cuff-1.jpg`, caption: 'OMVRI Cuff Tab — Hand-embroidered on every finished cuff.', type: 'detail' },
+      { src: `${look('grey')}/chest-1.jpg`, caption: 'Double Breasted Front · Six buttons, cut to close clean.', type: 'detail' },
+      { src: `${look('grey')}/cuff-1.jpg`, caption: 'OMVRI Cuff Tab · Hand embroidered on every finished cuff.', type: 'detail' },
       { src: `${look('grey')}/wide-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('grey')}/stool-2.jpg`, caption: null, type: 'full' },
     ],
     description:
-      'A double-breasted birdseye that reads as the closest thing to a uniform a bespoke suit can be — quietly correct in nearly every room, from the VBC mill outside Biella.',
+      'A double breasted birdseye that reads as the closest thing to a uniform a bespoke suit can be, quietly correct in nearly every room, from the VBC mill outside Biella.',
   },
   {
     id: 'faro-tan',
     name: 'The Faro',
-    fabric: 'Tan Cotton-Linen',
+    fabric: 'Tan Cotton Linen',
     mill: 'Solbiati, Como',
     price: 999,
     slug: 'faro-tan',
@@ -57,11 +57,11 @@ export const products = [
     gallery: [
       { src: `${look('brown')}/walk-1.jpg`, caption: null, type: 'full' },
       { src: `${look('brown')}/cover.jpg`, caption: null, type: 'full' },
-      { src: `${look('craft')}/artistry-1.jpg`, caption: 'OMVRI Cuff Tab — Embroidered in raw silk thread by hand.', type: 'detail' },
+      { src: `${look('craft')}/artistry-1.jpg`, caption: 'OMVRI Cuff Tab · Embroidered in raw silk thread by hand.', type: 'detail' },
       { src: `${look('brown')}/lean-1.jpg`, caption: null, type: 'styled' },
     ],
     description:
-      'A warm-weather cotton-linen blend from Solbiati, cut double-breasted and left soft in the shoulder for a jacket that breathes.',
+      'A warm weather cotton linen blend from Solbiati, cut double breasted and left soft in the shoulder for a jacket that breathes.',
   },
   {
     id: 'vesper-ivory',
@@ -77,11 +77,11 @@ export const products = [
       { src: `${look('burgundy')}/stool-1.jpg`, caption: null, type: 'full' },
       { src: `${look('burgundy')}/front-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('burgundy')}/back-1-full.jpg`, caption: null, type: 'full' },
-      { src: `${look('burgundy')}/back-2.jpg`, caption: 'Back Vent — A single deep vent, pressed to fall closed.', type: 'detail' },
+      { src: `${look('burgundy')}/back-2.jpg`, caption: 'Back Vent · A single deep vent, pressed to fall closed.', type: 'detail' },
       { src: `${look('burgundy')}/cover.jpg`, caption: null, type: 'full' },
     ],
     description:
-      'A double-breasted wool twill in deep burgundy for occasions that call for a bit of nerve. Zegna cloth, cut close through the body.',
+      'A double breasted wool twill in deep burgundy for occasions that call for a bit of nerve. Zegna cloth, cut close through the body.',
   },
   {
     id: 'harlow-forest',
@@ -97,7 +97,7 @@ export const products = [
       { src: `${look('harlow')}/cover.jpg`, caption: null, type: 'full' },
       { src: `${look('harlow')}/detail-1.jpg`, caption: null, type: 'detail' },
       { src: `${look('harlow')}/seated-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('harlow')}/lapel-1.jpg`, caption: 'Satin Peak Lapel — Faced in contrast satin, hand-pressed to a sharp roll.', type: 'detail' },
+      { src: `${look('harlow')}/lapel-1.jpg`, caption: 'Satin Peak Lapel · Faced in contrast satin, pressed to a sharp roll.', type: 'detail' },
       { src: `${look('harlow')}/portrait-1.jpg`, caption: null, type: 'full' },
     ],
     description:
@@ -116,11 +116,11 @@ export const products = [
     gallery: [
       { src: `${look('ashford')}/cover.jpg`, caption: null, type: 'full' },
       { src: `${look('ashford')}/seated-1.jpg`, caption: null, type: 'styled' },
-      { src: `${look('ashford')}/lapel-1.jpg`, caption: 'Satin Peak Lapel — Contrast satin facing, hand-set pocket square.', type: 'detail' },
+      { src: `${look('ashford')}/lapel-1.jpg`, caption: 'Satin Peak Lapel · Contrast satin facing, hand set pocket square.', type: 'detail' },
       { src: `${look('ashford')}/seated-2.jpg`, caption: null, type: 'full' },
     ],
     description:
-      'A stone-grey double-breasted from Dormeuil with a subtle two-tone shimmer. Sharp under office light, unassuming in shadow.',
+      'A stone grey double breasted from Dormeuil with a subtle two tone shimmer. Sharp under office light, unassuming in shadow.',
   },
   {
     id: 'lario-black',
@@ -135,36 +135,20 @@ export const products = [
     gallery: [
       { src: `${look('lario')}/cover.jpg`, caption: null, type: 'full' },
       { src: `${look('lario')}/lawn-1.jpg`, caption: null, type: 'full' },
-      { src: `${look('lario')}/lapel-1.jpg`, caption: 'Peak Lapel — Cut wide and pressed to a knife edge, with covered buttons.', type: 'detail' },
+      { src: `${look('lario')}/lapel-1.jpg`, caption: 'Peak Lapel · Cut wide and pressed to a knife edge, with covered buttons.', type: 'detail' },
       { src: `${look('lario')}/walk-1.jpg`, caption: null, type: 'styled' },
       { src: `${look('lario')}/portrait-1.jpg`, caption: null, type: 'full' },
       { src: `${look('lario')}/edge-1.jpg`, caption: null, type: 'styled' },
     ],
     description:
-      'A double-breasted black barathea cut for the hour after sunset — shot on the water at Lake Como, from which it takes its name. Peak lapels, covered buttons, nothing else.',
+      'A double breasted black barathea cut for the hour after sunset, shot on the water at Lake Como, from which it takes its name. Peak lapels, covered buttons, nothing else.',
   },
-]
-
-export const categories = [
-  { key: 'all', label: 'All Suits' },
-  { key: 'business', label: 'Business' },
-  { key: 'evening', label: 'Evening' },
-  { key: 'casual', label: 'Casual' },
 ]
 
 export const getProductBySlug = (slug) => products.find((p) => p.slug === slug)
 
-export const accessories = [
-  { id: 'belt-black', name: 'Black Belt', material: 'Italian Cow Leather', price: 129, image: `${look('black')}/detail-3.jpg` },
-  { id: 'tie-burgundy', name: 'Burgundy Silk Tie', material: 'Mulberry Silk', price: 139, image: `${look('burgundy')}/detail-1.jpg` },
-  { id: 'oxford-black', name: 'Black Oxford', material: 'Calf Leather', price: 319, image: `${look('black')}/full-1.jpg` },
-  { id: 'pocket-square-ivory', name: 'Ivory Pocket Square', material: 'Silk Satin', price: 79, image: `${look('grey')}/lapel-1.jpg` },
-  { id: 'bow-tie-black', name: 'Black Bow Tie', material: 'Silk Satin', price: 119, image: `${look('black')}/torso-1.jpg` },
-  { id: 'cufflinks-gold', name: 'Gold Cufflinks', material: 'Plated Brass', price: 149, image: `${look('black')}/cuff-1.jpg` },
-]
-
 // Configurator option inventory. Real per-option garment photography
-// (each button/lapel/lining shot in isolation) is not yet available —
+// (each button/lapel/lining shot in isolation) is not yet available, so
 // `image` falls back to the closest full look shot, so the "live preview"
 // swaps looks rather than true construction details. Replace with actual
 // macro shots per option before this feels genuinely live.
@@ -175,7 +159,7 @@ export const configuratorSteps = [
     options: [
       { code: '595.201', name: 'Charcoal Wool Twill', priceDelta: 0, image: `${look('black')}/full-1.jpg` },
       { code: '412.118', name: 'Navy Birdseye', priceDelta: 0, image: `${look('grey')}/full-1.jpg` },
-      { code: '330.087', name: 'Tan Cotton-Linen', priceDelta: -80, image: `${look('brown')}/full-1.jpg` },
+      { code: '330.087', name: 'Tan Cotton Linen', priceDelta: -80, image: `${look('brown')}/full-1.jpg` },
       { code: '710.204', name: 'Burgundy Twill', priceDelta: 60, image: `${look('burgundy')}/full-1.jpg` },
     ],
   },

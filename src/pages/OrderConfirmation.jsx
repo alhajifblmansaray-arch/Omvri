@@ -39,7 +39,7 @@ export default function OrderConfirmation() {
           </h1>
           <p className="reveal text-sm text-obsidian-400 max-w-[440px] mx-auto leading-relaxed">
             A confirmation is on its way to {order.contact.email}. We'll write again when your
-            cloth is cut — expect delivery in {order.eta}.
+            cloth is cut. Expect delivery in {order.eta}.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function OrderConfirmation() {
                             <span className="text-obsidian-900">
                               {item.measurements.values[f.key]
                                 ? `${item.measurements.values[f.key]} ${item.measurements.unit}`
-                                : '—'}
+                                : '·'}
                             </span>
                           </div>
                         ))}

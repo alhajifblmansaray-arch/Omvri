@@ -54,7 +54,7 @@ export default function ExpressCheckoutPanel({ onClose }) {
   return (
     <div className="flex flex-col h-full">
       <p className="text-sm text-obsidian-400 leading-relaxed mb-6">
-        Pay in one step. Your wallet supplies the email, shipping address and payment method —
+        Pay in one step. Your wallet supplies the email, shipping address and payment method, so
         no forms to fill in.
       </p>
 
@@ -95,7 +95,7 @@ export default function ExpressCheckoutPanel({ onClose }) {
       <OrderSummary items={items} compact />
 
       <p className="text-xs text-obsidian-400 leading-relaxed mt-6">
-        Demo only — no wallet is contacted and no payment is taken.
+        Demo only. No wallet is contacted and no payment is taken.
       </p>
     </div>
   )

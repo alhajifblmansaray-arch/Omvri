@@ -84,7 +84,7 @@ export default function Configurator() {
             The Configurator
           </h1>
           <p className="reveal text-obsidian-400 text-sm max-w-[460px] mx-auto mt-5 leading-relaxed">
-            Start from a house look and make it yours — cloth, lapel, button, lining.
+            Start from a house look and make it yours: cloth, lapel, button, lining.
             The price moves as you do. Save the link to sleep on it.
           </p>
         </div>
@@ -97,7 +97,7 @@ export default function Configurator() {
                 <img
                   key={preview}
                   src={preview}
-                  alt={`${base.name} — bespoke build`}
+                  alt={`${base.name} bespoke build`}
                   className="reveal w-full h-full object-cover object-top"
                 />
               </div>
@@ -228,7 +228,7 @@ export default function Configurator() {
                 onClick={addToBag}
                 className="w-full bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
               >
-                Add to bag — {formatMoney(price)}
+                Add to bag · {formatMoney(price)}
               </button>
               <button
                 onClick={share}
@@ -237,7 +237,7 @@ export default function Configurator() {
                 {copied ? 'Link copied ✓' : 'Save & share this build'}
               </button>
               <p className="text-xs text-obsidian-400 text-center mt-3">
-                The link rebuilds this exact configuration — send it to whoever gets a say.
+                The link rebuilds this exact configuration. Send it to whoever gets a say.
               </p>
             </div>
           </div>

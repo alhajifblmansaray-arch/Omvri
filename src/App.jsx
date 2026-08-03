@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import BrandMark from './components/BrandMark'
 import AddedToBagBar from './components/AddedToBagBar'
 import NewsletterPopup from './components/NewsletterPopup'
 import { CartProvider } from './context/CartContext'
@@ -17,7 +18,6 @@ import OrderConfirmation from './pages/OrderConfirmation'
 import MeasurementGuide from './pages/MeasurementGuide'
 import House from './pages/House'
 import Lookbook from './pages/Lookbook'
-import Accessories from './pages/Accessories'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import ShippingReturns from './pages/ShippingReturns'
@@ -55,7 +55,6 @@ function App() {
               <Route path="/order/:id" element={<OrderConfirmation />} />
               <Route path="/house" element={<House />} />
               <Route path="/lookbook" element={<Lookbook />} />
-              <Route path="/accessories" element={<Accessories />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/shipping-returns" element={<ShippingReturns />} />
@@ -67,6 +66,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <BrandMark />
           <AddedToBagBar />
           <NewsletterPopup />
         </WishlistProvider>

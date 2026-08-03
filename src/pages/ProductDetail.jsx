@@ -4,7 +4,6 @@ import { getProductBySlug, products } from '../data/products'
 import { formatMoney, currencyCode } from '../lib/currency'
 import { useCart } from '../context/CartContext'
 import SidePanel from '../components/SidePanel'
-import ShopTheLookPanel from '../components/ShopTheLookPanel'
 import SaveForLaterPanel from '../components/SaveForLaterPanel'
 import CustomMeasurementsPanel from '../components/CustomMeasurementsPanel'
 import WishlistButton from '../components/WishlistButton'
@@ -13,7 +12,7 @@ import Reviews from '../components/Reviews'
 const accordionSections = [
   {
     title: 'Size & Fit',
-    body: 'Cut to a tailored fit: trim through the chest and waist without pulling, with room in the blade for movement. Between sizes, size up — the atelier takes it in at your fitting.',
+    body: 'Cut to a tailored fit: trim through the chest and waist without pulling, with room in the blade for movement. Between sizes, size up. The atelier takes it in at your fitting.',
   },
   {
     title: 'Details & Care',
@@ -51,13 +50,13 @@ export default function ProductDetail() {
       qty: 1,
       delivery: '3 to 5 weeks · made to measure',
     })
-    setPanel('look')
+    setPanel(null)
   }
 
   return (
     <div className="pt-20">
       <div className="lg:grid lg:grid-cols-[60%_40%]">
-        {/* scrolling image column — the craft story */}
+        {/* scrolling image column, the craft story */}
         <div className="relative">
           {product.gallery.map((shot, i) => (
             <figure key={i} className="relative m-0">
@@ -70,25 +69,13 @@ export default function ProductDetail() {
               {shot.caption && (
                 <figcaption className="px-6 md:px-12 py-6 text-sm text-obsidian-400 leading-relaxed max-w-[480px]">
                   <span className="text-gold-700 uppercase tracking-[0.14em] text-[11px] block mb-1.5">
-                    {shot.caption.split(' — ')[0]}
+                    {shot.caption.split(' · ')[0]}
                   </span>
-                  {shot.caption.split(' — ')[1]}
+                  {shot.caption.split(' · ')[1]}
                 </figcaption>
               )}
             </figure>
           ))}
-
-          {/* floating contextual cross-sell pill */}
-          <button
-            onClick={() => setPanel('look')}
-            className="sticky bottom-8 ml-6 md:ml-12 mb-8 inline-flex items-center gap-2.5 bg-white/90 backdrop-blur px-6 py-3.5 rounded-full text-sm text-obsidian-900 shadow-lg border border-obsidian-900/10 hover:border-gold-700 transition-colors duration-450"
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-              <path d="M6 8h12l-1 13H7L6 8Z" />
-              <path d="M9 8V6a3 3 0 0 1 6 0v2" />
-            </svg>
-            Shop the Look
-          </button>
         </div>
 
         {/* pinned right panel */}
@@ -207,14 +194,6 @@ export default function ProductDetail() {
           onAdd={handleAddCustom}
           initialStep={resume ? (location.state?.step ?? 0) : 0}
         />
-      </SidePanel>
-
-      <SidePanel
-        open={panel === 'look'}
-        onClose={() => setPanel(null)}
-        title="Shop the Look"
-      >
-        <ShopTheLookPanel />
       </SidePanel>
 
       <SidePanel

@@ -18,7 +18,7 @@ export default function Cart() {
         <div className="max-w-[700px] mx-auto px-6 py-40 text-center">
           <h1 className="font-display text-4xl text-obsidian-900 mb-4">Your bag is empty.</h1>
           <p className="text-sm text-obsidian-400 mb-10">
-            Nothing here yet — the collection is waiting.
+            Nothing here yet. The collection is waiting.
           </p>
           <Link
             to="/collections"
@@ -244,7 +244,7 @@ function CustomSummary({ measurements }) {
               {g.fields.map((f) => (
                 <div key={f.key} className="flex justify-between text-xs py-0.5">
                   <span className="text-obsidian-400">{f.label}</span>
-                  <span className="text-obsidian-900">{values[f.key] ? `${values[f.key]} ${unit}` : '—'}</span>
+                  <span className="text-obsidian-900">{values[f.key] ? `${values[f.key]} ${unit}` : '·'}</span>
                 </div>
               ))}
             </div>

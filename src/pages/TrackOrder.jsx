@@ -25,7 +25,7 @@ export default function TrackOrder() {
           Where is my suit?
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[460px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
-          Enter your order number — it looks like OMV-123456 and lives in your confirmation.
+          Enter your order number. It looks like OMV-123456 and lives in your confirmation.
         </p>
       </section>
 
@@ -50,8 +50,7 @@ export default function TrackOrder() {
           <div className="border border-obsidian-900/10 px-8 py-12 text-center">
             <h2 className="font-display text-2xl text-obsidian-900 mb-3">Not found.</h2>
             <p className="text-sm text-obsidian-400 leading-relaxed max-w-[380px] mx-auto">
-              No order “{searched}” on this device. Check the number in your confirmation email —
-              or{' '}
+              No order “{searched}” on this device. Check the number in your confirmation email, or{' '}
               <Link to="/contact" className="text-gold-700 hover:underline">
                 write to the atelier
               </Link>{' '}

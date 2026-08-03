@@ -14,7 +14,7 @@ const process = [
   },
   {
     title: 'Cut by hand',
-    body: 'Your pattern is drafted from scratch and cut on the table — no grading, no size chart, no shortcuts.',
+    body: 'Your pattern is drafted from scratch and cut on the table. No grading, no size chart, no shortcuts.',
   },
   {
     title: 'The final fitting',
@@ -45,7 +45,7 @@ export default function Home() {
         </h2>
         <p className="text-obsidian-400 text-sm leading-relaxed max-w-[560px] mx-auto">
           Omvri works with a small circle of mills across Italy and England, cutting each
-          garment to the individual — not the size chart. The result is a suit that fits
+          garment to the individual, not the size chart. The result is a suit that fits
           the way a bespoke suit should: like it was never made for anyone else.
         </p>
       </section>
@@ -74,14 +74,14 @@ export default function Home() {
                 <div className="text-obsidian-900 font-display text-xl group-hover:text-gold-700 transition-colors duration-450">
                   {p.name}
                 </div>
-                <div className="text-obsidian-400 text-xs mt-1">{p.fabric} — {formatMoney(p.price)}</div>
+                <div className="text-obsidian-400 text-xs mt-1">{p.fabric} · {formatMoney(p.price)}</div>
               </div>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* the atelier process — hands off into the made-to-measure flow */}
+      {/* the atelier process, handing off into the made to measure flow */}
       <section className="bg-ivory border-t border-obsidian-900/10">
         <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-28 md:py-32">
           <div className="max-w-[560px] mb-16">
@@ -122,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* craft band — the OMVRI tab */}
+      {/* craft band, the OMVRI tab */}
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="aspect-[4/5] max-w-md w-full mx-auto overflow-hidden bg-ivory order-2 md:order-1">
           <img src={craft.image} alt="The OMVRI cuff tab, hand-embroidered in gold thread" loading="lazy" className="w-full h-full object-cover" />
@@ -138,7 +138,7 @@ export default function Home() {
           <p className="text-obsidian-400 text-sm leading-relaxed max-w-[420px] mx-auto md:mx-0 mb-10">
             The last stitch of every OMVRI garment is the same: the house tab, embroidered in
             gold thread and set beside the working buttons. It goes on only when the cutter is
-            satisfied — which takes longer than you would think.
+            satisfied, which takes longer than you would think.
           </p>
           <Link
             to="/house"

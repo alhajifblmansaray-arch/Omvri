@@ -36,7 +36,7 @@ export default function Contact() {
           Speak to the atelier.
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[480px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
-          Fittings, weddings, orders in progress, or a cloth you have in mind — write, and a
+          Fittings, weddings, orders in progress, or a cloth you have in mind. Write, and a
           person answers within one working day.
         </p>
       </section>
@@ -53,7 +53,7 @@ export default function Contact() {
               </span>
               <h2 className="font-display text-3xl text-obsidian-900 mb-3">Received.</h2>
               <p className="text-sm text-obsidian-400 max-w-[380px] mx-auto leading-relaxed">
-                Thank you — your note is with the atelier. Expect a reply at {form.email} within
+                Thank you. Your note is with the atelier. Expect a reply at {form.email} within
                 one working day.
               </p>
             </div>

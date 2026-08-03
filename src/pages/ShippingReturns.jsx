@@ -4,9 +4,8 @@ const sections = [
   {
     title: 'Delivery',
     rows: [
-      ['Made-to-order suits', '3 to 5 weeks — cut after your order is confirmed', 'Free'],
-      ['Accessories', '2 to 4 business days', 'Free over $150'],
-      ['Alterations returning home', '5 to 7 business days round trip', 'Free'],
+      ['Made to order suits', 'Three to five weeks, cut after your order is confirmed', 'Free'],
+      ['Alterations returning home', 'Five to seven business days round trip', 'Free'],
     ],
     note: 'Every suit ships pressed and hung in a rigid OMVRI garment box, with tracking and signature on delivery. We ship across Canada and the United States; elsewhere by arrangement with the atelier.',
   },
@@ -14,12 +13,12 @@ const sections = [
 
 const returns = [
   {
-    title: 'Ready-to-wear & accessories',
-    body: '30 days, free, unworn with tags. Refund lands on the original payment method within 5 business days of the piece reaching the atelier.',
+    title: 'Ready to wear',
+    body: '30 days, free, unworn with tags. Refund lands on the original payment method within five business days of the piece reaching the atelier.',
   },
   {
-    title: 'Custom-measured suits',
-    body: 'Cut for one body, so they exchange for alteration rather than refund. First alterations are always free — we adjust until nothing needs saying.',
+    title: 'Custom measured suits',
+    body: 'Cut for one body, so they exchange for alteration rather than refund. First alterations are always free. We adjust until nothing needs saying.',
   },
   {
     title: 'Bespoke builds',
@@ -27,7 +26,7 @@ const returns = [
   },
   {
     title: 'Faults',
-    body: 'A fault in cloth or construction is our fault, at any age of the garment. Send it home and we repair it — for life.',
+    body: 'A fault in cloth or construction is our fault, at any age of the garment. Send it home and we repair it, for life.',
   },
 ]
 

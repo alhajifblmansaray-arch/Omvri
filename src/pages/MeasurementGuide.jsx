@@ -9,9 +9,9 @@ const sets = {
 
 const faqs = [
   { q: 'How do I measure my chest?', a: 'Wrap the tape around the fullest part of your chest, under the arms and across the shoulder blades, keeping it parallel to the floor.' },
-  { q: 'Should I wear clothing while measuring?', a: 'Measure over a single thin layer — a dress shirt is ideal. Avoid measuring over jackets or thick knits.' },
-  { q: 'What measuring tape should I use?', a: 'A soft, flexible fabric tailor’s tape gives the most accurate reading. A metal tape will not follow the body.' },
-  { q: "What if I don't know my measurements?", a: 'Book a fitting with our atelier — in person or virtual — and we will take every measurement for you.' },
+  { q: 'Should I wear clothing while measuring?', a: 'Measure over a single thin layer. A dress shirt is ideal. Avoid measuring over jackets or thick knits.' },
+  { q: 'What measuring tape should I use?', a: 'A soft, flexible tailor’s tape gives the most accurate reading. A metal tape will not follow the body.' },
+  { q: "What if I don't know my measurements?", a: 'Book a fitting with our atelier, in person or virtual, and we will take every measurement for you.' },
 ]
 
 export default function MeasurementGuide() {
@@ -62,8 +62,8 @@ export default function MeasurementGuide() {
           How to Measure for the Perfect Fit
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[520px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
-          Seven for the jacket, five for the trouser. Take your time — accuracy here is the
-          difference between off-the-rack and made-for-you.
+          Seven for the jacket, five for the trouser. Take your time. Accuracy here is the
+          difference between off the rack and made for you.
         </p>
       </section>
 
@@ -157,7 +157,7 @@ export default function MeasurementGuide() {
                 <span className="w-14 h-14 rounded-full border border-obsidian-900/20 flex items-center justify-center text-obsidian-400">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
                 </span>
-                <span className="text-sm text-obsidian-400">{label} — coming soon</span>
+                <span className="text-sm text-obsidian-400">{label}, coming soon</span>
               </div>
             ))}
           </div>
