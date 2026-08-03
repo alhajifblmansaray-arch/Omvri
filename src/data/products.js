@@ -147,52 +147,6 @@ export const products = [
 
 export const getProductBySlug = (slug) => products.find((p) => p.slug === slug)
 
-// Configurator option inventory. Real per-option garment photography
-// (each button/lapel/lining shot in isolation) is not yet available, so
-// `image` falls back to the closest full look shot, so the "live preview"
-// swaps looks rather than true construction details. Replace with actual
-// macro shots per option before this feels genuinely live.
-export const configuratorSteps = [
-  {
-    id: 'fabric',
-    label: 'Fabric',
-    options: [
-      { code: '595.201', name: 'Charcoal Wool Twill', priceDelta: 0, image: `${look('black')}/full-1.jpg` },
-      { code: '412.118', name: 'Navy Birdseye', priceDelta: 0, image: `${look('grey')}/full-1.jpg` },
-      { code: '330.087', name: 'Tan Cotton Linen', priceDelta: -80, image: `${look('brown')}/full-1.jpg` },
-      { code: '710.204', name: 'Burgundy Twill', priceDelta: 60, image: `${look('burgundy')}/full-1.jpg` },
-    ],
-  },
-  {
-    id: 'lapel',
-    label: 'Lapel',
-    options: [
-      { code: 'L1', name: 'Notch Lapel', priceDelta: 0, image: `${look('black')}/styled-1.jpg` },
-      { code: 'L2', name: 'Peak Lapel', priceDelta: 40, image: `${look('grey')}/full-2.jpg` },
-      { code: 'L3', name: 'Shawl Lapel', priceDelta: 60, image: `${look('brown')}/styled-1.jpg` },
-    ],
-  },
-  {
-    id: 'button',
-    label: 'Button',
-    options: [
-      { code: 'TFH01', name: 'Mahogany', priceDelta: 0, image: `${look('brown')}/detail-1.jpg` },
-      { code: 'G8', name: 'Dark & Light Brown', priceDelta: 0, image: `${look('brown')}/detail-3.jpg` },
-      { code: 'B09', name: 'Grey & Dark Brown Horn', priceDelta: 10, image: `${look('grey')}/detail-1.jpg` },
-      { code: 'E2', name: 'Maroon & Dark Brown', priceDelta: 0, image: `${look('burgundy')}/detail-1.jpg` },
-    ],
-  },
-  {
-    id: 'lining',
-    label: 'Lining',
-    options: [
-      { code: 'LN1', name: 'Obsidian', priceDelta: 0, image: `${look('black')}/detail-1.jpg` },
-      { code: 'LN2', name: 'Gold Paisley', priceDelta: 30, image: `${look('brown')}/detail-2.jpg` },
-      { code: 'LN3', name: 'Burgundy', priceDelta: 20, image: `${look('burgundy')}/detail-2.jpg` },
-    ],
-  },
-]
-
 export const sizeMatrix = {
   lengths: ['Short', 'Regular', 'Long'],
   sizes: [32, 34, 36, 38, 40, 42, 44, 46, 48, 50],

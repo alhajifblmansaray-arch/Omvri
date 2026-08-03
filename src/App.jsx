@@ -11,7 +11,6 @@ import { WishlistProvider } from './context/WishlistContext'
 import Home from './pages/Home'
 import Collections from './pages/Collections'
 import ProductDetail from './pages/ProductDetail'
-import Configurator from './pages/Configurator'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import OrderConfirmation from './pages/OrderConfirmation'
@@ -47,8 +46,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/collections" element={<Collections />} />
               <Route path="/suits/:slug" element={<ProductDetail />} />
-              <Route path="/configure" element={<Configurator />} />
-              <Route path="/configure/:slug" element={<Configurator />} />
               <Route path="/measurement-guide" element={<MeasurementGuide />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />

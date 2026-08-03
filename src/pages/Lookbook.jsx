@@ -16,11 +16,11 @@ export default function Lookbook() {
           The Lookbook
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
-          Cloth, against the desert.
+          Every frame in the house.
         </h1>
-        <p className="reveal text-obsidian-400 text-sm max-w-[520px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
-          The full collection, shot on location. Every look is shoppable, so tap a frame to open
-          the suit behind it.
+        <p className="reveal text-obsidian-500 text-base max-w-[540px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
+          The complete archive, from the desert road to Lake Como. Every photograph is
+          shoppable, so tap a frame to open the suit behind it.
         </p>
       </section>
 

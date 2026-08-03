@@ -1,12 +1,14 @@
 // Editorial + support content for the storefront. All static; swap copy
 // freely; structure is what the pages render from.
+import { products } from './products'
+
 const look = (color) => `/images/looks/${color}`
 
 export const faqs = [
   {
-    group: 'Ordering & Bespoke',
+    group: 'Ordering & Fit',
     items: [
-      { q: 'What is the difference between a house look and a bespoke build?', a: 'House looks are our six signature suits, cut to your chosen size or custom measurements at $999. A bespoke build starts from an empty bolt in the Configurator, where you choose cloth, lapel, buttons and lining, and it is cut from scratch at $1,500 plus any premium options.' },
+      { q: 'Are the suits made to order?', a: 'Every one. Choose a look from the collection at $999, give us your measurements, and it is cut for you from that point. Nothing ships from a rack.' },
       { q: 'How long does a suit take?', a: 'Three to five weeks from the day your order is confirmed. Every suit is cut on the table for one person. We never pull from a rack.' },
       { q: 'Can I change my order after placing it?', a: 'Within 48 hours, yes. Write to the atelier and we will adjust cloth, options or measurements before cutting begins. Once your cloth is cut, the build is committed.' },
       { q: 'Do you make wedding parties?', a: 'We do. The groom locks a cloth and lapel spec, and each member of the party is measured and fitted individually against it. Book a fitting and mention the date; we plan backwards from it.' },
@@ -24,7 +26,7 @@ export const faqs = [
     group: 'Shipping & Returns',
     items: [
       { q: 'Where do you ship?', a: 'Canada and the United States today; worldwide by arrangement. Delivery is free on every suit.' },
-      { q: 'What is your return policy?', a: 'Ready to wear pieces return free within 30 days, unworn. Custom measured and bespoke pieces are cut for one body, so they exchange for alteration, not refund.' },
+      { q: 'What is your return policy?', a: 'Ready to wear pieces return free within 30 days, unworn. Custom measured pieces are cut for one body, so they exchange for alteration, not refund.' },
       { q: 'How is the suit delivered?', a: 'Pressed, hung and shipped in a rigid OMVRI garment box with tracking. Signature on delivery.' },
     ],
   },
@@ -40,7 +42,7 @@ export const faqs = [
 export const testimonials = [
   { name: 'Marcus T.', city: 'Toronto', quote: 'The first suit that has ever actually fit me. The measurement flow took ten minutes and the jacket landed like it was drawn on.', suit: 'The Meridian' },
   { name: 'Adaeze O.', city: 'Ottawa', quote: 'Wore the Vesper to my brother’s wedding and got asked about it more than the groom got congratulated.', suit: 'The Vesper' },
-  { name: 'Dev P.', city: 'New York', quote: 'Built mine in the configurator on a Tuesday night. Five weeks later it showed up better than the preview.', suit: 'Bespoke Build' },
+  { name: 'Dev P.', city: 'New York', quote: 'Sent my measurements on a Tuesday night. Five weeks later it showed up fitting better than anything I own.', suit: 'The Ashford' },
 ]
 
 // Star ratings are static demo content; wire to a real review platform later.
@@ -76,26 +78,18 @@ export const reviews = {
   ],
 }
 
-export const lookbook = [
-  { src: `${look('burgundy')}/cover.jpg`, title: 'The Vesper, Valley of Fire', product: 'vesper-ivory', span: 'tall' },
-  { src: `${look('black')}/walk-1.jpg`, title: 'The Meridian in motion', product: 'meridian-charcoal', span: 'tall' },
-  { src: `${look('grey')}/stool-1.jpg`, title: 'The Solstice, elevated', product: 'solstice-navy', span: 'tall' },
-  { src: `${look('brown')}/cover.jpg`, title: 'The Faro crossing', product: 'faro-tan', span: 'tall' },
-  { src: `${look('grey')}/chest-1.jpg`, title: 'Birdseye, up close', product: 'solstice-navy', span: 'square' },
-  { src: `${look('burgundy')}/reach-1.jpg`, title: 'Burgundy against sky', product: 'vesper-ivory', span: 'tall' },
-  { src: `${look('black')}/torso-1.jpg`, title: 'Black tie detail', product: 'meridian-charcoal', span: 'square' },
-  { src: `${look('brown')}/portrait-2.jpg`, title: 'Tan cotton-linen, low sun', product: 'faro-tan', span: 'tall' },
-  { src: `${look('grey')}/walk-1.jpg`, title: 'The Ashford leans in', product: 'ashford-stone', span: 'tall' },
-  { src: `${look('craft')}/artistry-1.jpg`, title: 'The OMVRI tab, by hand', product: null, span: 'square' },
-  { src: `${look('burgundy')}/stool-1.jpg`, title: 'Vesper, full length', product: 'vesper-ivory', span: 'tall' },
-  { src: `${look('grey')}/lapel-1.jpg`, title: 'Peak lapel study', product: 'ashford-stone', span: 'square' },
-  { src: `${look('black')}/back-2.jpg`, title: 'Meridian, from behind', product: 'meridian-charcoal', span: 'tall' },
-  { src: `${look('brown')}/cuff-1.jpg`, title: 'Four buttons, brown twill', product: 'faro-tan', span: 'square' },
-  { src: `${look('grey')}/wide-1.jpg`, title: 'Stone grey, open road', product: 'ashford-stone', span: 'wide' },
-  { src: `${look('lario')}/cover.jpg`, title: 'The Lario, Lake Como', product: 'lario-black', span: 'tall' },
-  { src: `${look('lario')}/lapel-1.jpg`, title: 'Peak lapel, covered buttons', product: 'lario-black', span: 'square' },
-  { src: `${look('lario')}/edge-1.jpg`, title: 'At the water’s edge', product: 'lario-black', span: 'tall' },
-]
+// The lookbook is every photograph in the house, derived straight from the
+// product galleries so a new suit or a swapped shot appears here automatically.
+// Detail shots get a square tile, full looks get a tall one, which keeps the
+// masonry grid from marching in lockstep.
+export const lookbook = products.flatMap((p) =>
+  p.gallery.map((shot, n) => ({
+    src: shot.src,
+    title: shot.caption ? `${p.name}, ${shot.caption.split(' · ')[0].toLowerCase()}` : p.name,
+    product: p.slug,
+    span: shot.type === 'detail' ? 'square' : n % 4 === 3 ? 'square' : 'tall',
+  })),
+)
 
 export const craft = {
   image: `${look('craft')}/artistry-1.jpg`,

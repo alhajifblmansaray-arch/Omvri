@@ -4,7 +4,6 @@ import { products } from '../data/products'
 import { formatMoney } from '../lib/currency'
 
 const pageLinks = [
-  { label: 'Build Your Own Suit', to: '/configure' },
   { label: 'How to Measure', to: '/measurement-guide' },
   { label: 'Lookbook', to: '/lookbook' },
   { label: 'The House', to: '/house' },

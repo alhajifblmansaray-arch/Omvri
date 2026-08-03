@@ -54,11 +54,6 @@ export default function Cart() {
                     <div>
                       <div className="flex items-center gap-2.5 flex-wrap">
                         <span className="text-obsidian-900 font-medium">{item.name}</span>
-                        {item.configured && (
-                          <span className="text-[9px] tracking-[0.14em] uppercase text-gold-700 border border-gold-700/40 px-2 py-0.5">
-                            Bespoke
-                          </span>
-                        )}
                         {item.custom && (
                           <span className="text-[9px] tracking-[0.14em] uppercase text-gold-700 border border-gold-700/40 px-2 py-0.5">
                             Custom Sized
@@ -77,10 +72,6 @@ export default function Cart() {
                       ✕
                     </button>
                   </div>
-
-                  {item.config?.selections && (
-                    <ConfigSummary selections={item.config.selections} />
-                  )}
 
                   {item.custom && item.measurements && (
                     <CustomSummary measurements={item.measurements} />
@@ -203,19 +194,6 @@ function Check() {
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold-700 shrink-0">
       <path d="M4 12l5 5L20 6" />
     </svg>
-  )
-}
-
-function ConfigSummary({ selections }) {
-  return (
-    <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
-      {selections.map((s) => (
-        <span key={s.stepId} className="text-xs">
-          <span className="text-obsidian-400">{s.label}: </span>
-          <span className="text-obsidian-900">{s.name}</span>
-        </span>
-      ))}
-    </div>
   )
 }
 

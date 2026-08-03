@@ -32,8 +32,8 @@ export default function Collections() {
           <br className="hidden sm:block" /> Made to Measure.
         </h1>
         <p className="reveal text-obsidian-500 text-base max-w-[540px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
-          Seven looks, chosen from the atelier's current cloth. Every piece ships cut to your
-          measurements, or start from any of them in the configurator.
+          Seven looks, chosen from the atelier's current cloth. Every piece is cut to your
+          own measurements and made for one person only.
         </p>
       </section>
 
@@ -71,22 +71,22 @@ export default function Collections() {
         </div>
       </section>
 
-      {/* configurator cross-sell */}
+      {/* made to measure cross-sell */}
       <section className="bg-ivory border-t border-obsidian-900/10">
         <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <h2 className="font-display text-4xl md:text-5xl text-obsidian-900 mb-6">
-              Or start from nothing at all.
+              Cut to your measure.
             </h2>
             <p className="text-obsidian-500 text-base leading-relaxed mb-10 max-w-[440px] mx-auto md:mx-0">
-              Choose your cloth, your lapel, your lining. Build a suit that exists nowhere
-              else but on you.
+              Every look in the house can be made to your own measurements. Twelve numbers,
+              ten minutes with a soft tape, and the suit is cut for one person only.
             </p>
             <Link
-              to="/configure"
+              to="/measurement-guide"
               className="inline-block px-9 py-4 bg-gold-700 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-800 transition-colors duration-450"
             >
-              Enter the Configurator
+              How to Measure
             </Link>
           </div>
           <div className="aspect-[4/5] max-w-sm mx-auto w-full bg-white border border-obsidian-900/10 overflow-hidden">

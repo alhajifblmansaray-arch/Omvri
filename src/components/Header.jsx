@@ -6,7 +6,6 @@ import SearchOverlay from './SearchOverlay'
 
 const menuLinks = [
   ['Collections', '/collections'],
-  ['Build Your Own', '/configure'],
   ['Lookbook', '/lookbook'],
   ['The House', '/house'],
   ['My Wardrobe', '/account'],

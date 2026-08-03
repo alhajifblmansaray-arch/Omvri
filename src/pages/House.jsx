@@ -110,10 +110,10 @@ export default function House() {
             Shop the Collection
           </Link>
           <Link
-            to="/configure"
+            to="/lookbook"
             className="px-9 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
           >
-            Start a Bespoke Build
+            See the Lookbook
           </Link>
         </div>
       </section>
