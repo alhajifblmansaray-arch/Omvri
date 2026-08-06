@@ -18,6 +18,21 @@ const menuSmall = [
   ['Contact', '/contact'],
 ]
 
+// Icons sit in their own tappable circle: dark enough to read at a glance,
+// with a gold wash and lift on hover so they feel alive rather than greyed out.
+const iconBtn =
+  'w-9 h-9 rounded-full flex items-center justify-center text-obsidian-800 ' +
+  'hover:text-gold-600 hover:bg-gold-700/10 active:scale-95 ' +
+  'transition-all duration-300 ease-signature'
+
+function Badge({ children }) {
+  return (
+    <span className="absolute top-0.5 right-0.5 min-w-[17px] h-[17px] px-1 rounded-full bg-gold-600 text-white text-[10px] font-sans font-semibold flex items-center justify-center ring-2 ring-white shadow-sm">
+      {children}
+    </span>
+  )
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -56,55 +71,47 @@ export default function Header() {
             Omvri
           </Link>
 
-          <div className="flex items-center gap-5 md:gap-6">
-            <button
-              aria-label="Search"
-              onClick={() => setSearchOpen(true)}
-              className="text-obsidian-400 hover:text-gold-700 transition-colors duration-450"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <div className="flex items-center gap-2 md:gap-3">
+            <button aria-label="Search" onClick={() => setSearchOpen(true)} className={iconBtn}>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
                 <circle cx="11" cy="11" r="7" />
                 <path d="M20 20l-3.5-3.5" />
               </svg>
             </button>
+
             <button
               aria-label="Wishlist"
               onClick={() => navigate('/account')}
-              className="relative hidden sm:block text-obsidian-400 hover:text-gold-700 transition-colors duration-450"
+              className={`relative hidden sm:flex ${iconBtn}`}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill={wishCount > 0 ? 'currentColor' : 'none'}
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinejoin="round"
+                className={wishCount > 0 ? 'text-gold-600' : ''}
+              >
                 <path d="M12 21C7 16.5 3 13.2 3 9.1 3 6.3 5.2 4 8 4c1.6 0 3.1.8 4 2 .9-1.2 2.4-2 4-2 2.8 0 5 2.3 5 5.1 0 4.1-4 7.4-9 11.9Z" />
               </svg>
-              {wishCount > 0 && (
-                <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-gold-700 text-white text-[9px] flex items-center justify-center font-sans font-medium">
-                  {wishCount}
-                </span>
-              )}
+              {wishCount > 0 && <Badge>{wishCount}</Badge>}
             </button>
-            <button
-              aria-label="Account"
-              onClick={() => navigate('/account')}
-              className="text-obsidian-400 hover:text-gold-700 transition-colors duration-450"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+
+            <button aria-label="Account" onClick={() => navigate('/account')} className={iconBtn}>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
                 <circle cx="12" cy="8" r="4" />
                 <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" />
               </svg>
             </button>
-            <button
-              aria-label="Bag"
-              onClick={() => navigate('/cart')}
-              className="relative text-obsidian-400 hover:text-gold-700 transition-colors duration-450"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+
+            <button aria-label="Bag" onClick={() => navigate('/cart')} className={`relative ${iconBtn}`}>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
                 <path d="M6 8h12l-1 13H7L6 8Z" />
                 <path d="M9 8V6a3 3 0 0 1 6 0v2" />
               </svg>
-              {items.length > 0 && (
-                <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-gold-700 text-white text-[9px] flex items-center justify-center font-sans font-medium">
-                  {items.length}
-                </span>
-              )}
+              {items.length > 0 && <Badge>{items.length}</Badge>}
             </button>
           </div>
         </div>

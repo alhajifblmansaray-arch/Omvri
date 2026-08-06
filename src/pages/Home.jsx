@@ -3,25 +3,6 @@ import { products } from '../data/products'
 import { formatMoney } from '../lib/currency'
 import { testimonials, lookbook, craft } from '../data/content'
 
-const process = [
-  {
-    title: 'Choose the cloth',
-    body: 'Start from a house look or an empty bolt. Every cloth is milled in Italy or England and cut for one person only.',
-  },
-  {
-    title: 'Take your measure',
-    body: 'Twelve numbers, taken at home in ten minutes with a soft tape. Our guide walks you through each one.',
-  },
-  {
-    title: 'Cut by hand',
-    body: 'Your pattern is drafted from scratch and cut on the table. No grading, no size chart, no shortcuts.',
-  },
-  {
-    title: 'The final fitting',
-    body: 'The suit arrives in three to five weeks. We adjust it in the atelier until nothing needs saying.',
-  },
-]
-
 export default function Home() {
   return (
     <div>
@@ -81,42 +62,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* the atelier process, handing off into the made to measure flow */}
-      <section className="bg-ivory border-t border-obsidian-900/10">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-28 md:py-32">
-          <div className="max-w-[560px] mb-16">
+      {/* weddings and parties, copy sits in the banner's open left side */}
+      <section className="relative border-y border-obsidian-900/10 bg-[#e9e1d6]">
+        {/* banner: background on desktop, stacked image on small screens */}
+        <img
+          src="/images/looks/party/banner.jpg"
+          alt="Five men in black tie, dressed by the atelier"
+          loading="lazy"
+          className="w-full h-[52vw] max-h-[300px] object-cover object-right md:absolute md:inset-0 md:h-full md:max-h-none"
+        />
+
+        <div className="relative max-w-[1600px] mx-auto px-6 md:px-10 py-14 md:py-32">
+          <div className="max-w-[520px] md:max-w-[46%]">
             <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-5">
-              The Atelier
+              Weddings &amp; Parties
             </span>
-            <h3 className="font-display text-4xl md:text-5xl text-obsidian-900 leading-[1.1]">
-              Four steps between you and a suit that fits.
+            <h3 className="font-display text-4xl md:text-5xl lg:text-6xl text-obsidian-900 leading-[1.08] mb-6">
+              Dressing more
+              <br className="hidden sm:block" /> than one.
             </h3>
-          </div>
+            <p className="text-obsidian-600 text-base leading-relaxed mb-9 max-w-[430px]">
+              Grooms, groomsmen, whole parties. We lock one cloth and one silhouette, then cut
+              every suit to the man wearing it. One point of contact, one delivery date, and
+              nobody left in a rental.
+            </p>
 
-          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
-            {process.map((s, i) => (
-              <li key={s.title} className="border-t border-obsidian-900/15 pt-6">
-                <span className="font-display text-3xl text-gold-700 block mb-4">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h4 className="font-display text-2xl text-obsidian-900 mb-3">{s.title}</h4>
-                <p className="text-sm text-obsidian-400 leading-relaxed">{s.body}</p>
-              </li>
-            ))}
-          </ol>
+            <ul className="space-y-2.5 mb-10">
+              {[
+                'Six suits or more, priced together',
+                'Measurements taken in person or at home',
+                'Everything finished for the same date',
+              ].map((line) => (
+                <li key={line} className="flex items-start gap-3 text-sm text-obsidian-700">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="text-gold-600 mt-1 shrink-0">
+                    <path d="M4 12l5 5L20 6" />
+                  </svg>
+                  {line}
+                </li>
+              ))}
+            </ul>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-20">
             <Link
-              to="/collections"
-              className="w-full sm:w-auto text-center px-10 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+              to="/contact?topic=Wedding%20party"
+              className="inline-block px-10 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
             >
-              Start Your Suit
-            </Link>
-            <Link
-              to="/measurement-guide"
-              className="w-full sm:w-auto text-center px-10 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
-            >
-              How to Measure
+              Consult With Us
             </Link>
           </div>
         </div>

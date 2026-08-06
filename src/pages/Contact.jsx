@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { contact } from '../data/content'
 
 const topics = ['General inquiry', 'Book a fitting', 'Wedding party', 'Existing order', 'Press']
 
 export default function Contact() {
-  const [form, setForm] = useState({ topic: topics[0] })
+  const [params] = useSearchParams()
+  // arriving from a "consult with us" link preselects what it is about
+  const preset = topics.find((t) => t === params.get('topic'))
+  const [form, setForm] = useState({ topic: preset || topics[0] })
   const [sent, setSent] = useState(false)
   const [errors, setErrors] = useState({})
 
