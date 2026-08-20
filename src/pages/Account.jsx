@@ -123,7 +123,7 @@ function Orders() {
                   <div className="space-y-4">
                     {o.items.map((item) => (
                       <div key={item.lineId} className="flex gap-4">
-                        <div className="w-14 h-18 bg-ivory shrink-0 overflow-hidden">
+                        <div className="w-14 h-18 bg-ivory shrink-0 overflow-hidden rounded-lg">
                           <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top" />
                         </div>
                         <div className="text-sm">
@@ -229,7 +229,7 @@ function Wishlist() {
     <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
       {saved.map((p) => (
         <Link key={p.id} to={`/suits/${p.slug}`} className="group">
-          <div className="relative aspect-[3/4] bg-ivory overflow-hidden mb-4">
+          <div className="relative aspect-[3/4] bg-ivory overflow-hidden rounded-xl card-raise mb-4">
             <img
               src={p.hero}
               alt={p.name}

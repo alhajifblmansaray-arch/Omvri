@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       {/* full-bleed video hero */}
-      <section className="relative h-[100svh] overflow-hidden bg-ivory">
+      <section className="relative h-[92svh] mx-3 md:mx-5 mt-3 overflow-hidden rounded-3xl panel-raise bg-ivory">
         <video
           className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
           src="/video/hero.mp4"
@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       {/* weddings and parties, copy sits in the banner's open left side */}
-      <section className="relative border-y border-obsidian-900/10 bg-[#e9e1d6]">
+      <section className="relative mx-4 md:mx-10 my-10 rounded-3xl overflow-hidden panel-raise bg-[#e9e1d6]">
         {/* banner: background on desktop, stacked image on small screens */}
         <img
           src="/images/looks/party/banner.jpg"
@@ -133,7 +133,7 @@ export default function Home() {
 
       {/* craft band, the OMVRI tab */}
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="aspect-[4/5] max-w-md w-full mx-auto overflow-hidden bg-ivory order-2 md:order-1">
+        <div className="aspect-[4/5] max-w-md w-full mx-auto overflow-hidden rounded-2xl card-raise bg-ivory order-2 md:order-1">
           <img src={craft.image} alt="The OMVRI cuff tab, hand-embroidered in gold thread" loading="lazy" className="w-full h-full object-cover" />
         </div>
         <div className="text-center md:text-left order-1 md:order-2">
@@ -191,7 +191,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
           {lookbook.slice(0, 4).map((f) => (
-            <Link key={f.src} to="/lookbook" className="group relative aspect-[3/4] overflow-hidden bg-ivory">
+            <Link key={f.src} to="/lookbook" className="group relative aspect-[3/4] overflow-hidden rounded-xl card-raise bg-ivory">
               <img
                 src={f.src}
                 alt={f.title}

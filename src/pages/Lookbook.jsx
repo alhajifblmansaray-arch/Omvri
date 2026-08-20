@@ -29,7 +29,7 @@ export default function Lookbook() {
           {lookbook.map((f, i) => {
             const product = f.product ? getProductBySlug(f.product) : null
             const inner = (
-              <div className="relative w-full h-full overflow-hidden group bg-ivory">
+              <div className="relative w-full h-full overflow-hidden rounded-xl card-raise group bg-ivory">
                 <img
                   src={f.src}
                   alt={f.title}

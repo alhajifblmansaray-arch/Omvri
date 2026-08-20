@@ -89,7 +89,7 @@ export default function Collections() {
               How to Measure
             </Link>
           </div>
-          <div className="aspect-[4/5] max-w-sm mx-auto w-full bg-white border border-obsidian-900/10 overflow-hidden">
+          <div className="aspect-[4/5] max-w-sm mx-auto w-full bg-white rounded-2xl card-raise overflow-hidden">
             <img
               src="/images/looks/lario/portrait-1.jpg"
               alt=""

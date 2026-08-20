@@ -67,13 +67,13 @@ export default function ProductDetail() {
     <div className="pt-20">
       <div className="lg:grid lg:grid-cols-[60%_40%]">
         {/* scrolling image column, the craft story */}
-        <div className="relative">
+        <div className="relative px-4 md:px-6 space-y-5">
           {product.gallery.map((shot, i) => (
             <figure key={i} className="relative m-0">
               <img
                 src={shot.src}
                 alt={shot.caption || `${product.name}, view ${i + 1}`}
-                className="w-full object-cover"
+                className="w-full object-cover rounded-2xl card-raise"
                 loading={i > 1 ? 'lazy' : undefined}
               />
               {shot.caption && (
@@ -222,7 +222,7 @@ export default function ProductDetail() {
             .slice(0, 3)
             .map((p) => (
               <Link key={p.id} to={`/suits/${p.slug}`} className="group">
-                <div className="aspect-[3/4] bg-ivory overflow-hidden mb-4">
+                <div className="aspect-[3/4] bg-ivory overflow-hidden rounded-xl card-raise mb-4">
                   <img
                     src={p.hero}
                     alt={p.name}

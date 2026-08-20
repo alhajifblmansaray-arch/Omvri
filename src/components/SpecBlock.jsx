@@ -6,8 +6,8 @@ export default function SpecBlock({ spec, image, name }) {
   const rows = Object.entries(spec)
 
   return (
-    <section className="border-t border-obsidian-900/10">
-      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2">
+    <section className="px-4 md:px-10 py-10">
+      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 bg-white rounded-3xl overflow-hidden panel-raise">
         {image && (
           <div className="relative min-h-[320px] md:min-h-[560px] bg-ivory order-1 md:order-none overflow-hidden">
             <img

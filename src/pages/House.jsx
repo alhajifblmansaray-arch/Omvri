@@ -50,13 +50,13 @@ export default function House() {
       {/* craft band */}
       <section className="max-w-[1300px] mx-auto px-6 md:px-10 pb-24">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 items-start">
-          <div className="aspect-[3/4] overflow-hidden">
+          <div className="aspect-[3/4] overflow-hidden rounded-2xl card-raise">
             <img src={craft.cuffBlack} alt="Black satin cuff with OMVRI tab" className="w-full h-full object-cover" loading="lazy" />
           </div>
-          <div className="aspect-[3/4] overflow-hidden md:mt-16">
+          <div className="aspect-[3/4] overflow-hidden rounded-2xl card-raise md:mt-16">
             <img src={craft.image} alt="OMVRI tab embroidered by hand in gold thread" className="w-full h-full object-cover" loading="lazy" />
           </div>
-          <div className="aspect-[3/4] overflow-hidden hidden md:block mt-8">
+          <div className="aspect-[3/4] overflow-hidden rounded-2xl card-raise hidden md:block mt-8">
             <img src={craft.lapelGrey} alt="Grey peak lapel with silk pocket square" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>

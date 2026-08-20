@@ -46,7 +46,7 @@ export default function OrderConfirmation() {
         <div className="border border-obsidian-900/10">
           {order.items.map((item) => (
             <div key={item.lineId} className="flex gap-6 p-6 border-b border-obsidian-900/10">
-              <div className="w-24 h-32 bg-ivory shrink-0 overflow-hidden">
+              <div className="w-24 h-32 bg-ivory shrink-0 overflow-hidden rounded-xl">
                 <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top" />
               </div>
               <div className="flex-1">

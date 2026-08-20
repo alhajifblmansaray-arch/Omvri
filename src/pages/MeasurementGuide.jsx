@@ -153,7 +153,7 @@ export default function MeasurementGuide() {
           <h2 className="font-display text-3xl text-obsidian-900 mb-8 text-center">Video Tutorials</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {['Measuring the Jacket', 'Measuring the Trouser'].map((label) => (
-              <div key={label} className="aspect-video bg-white border border-obsidian-900/10 flex flex-col items-center justify-center gap-3">
+              <div key={label} className="aspect-video bg-white rounded-2xl card-raise flex flex-col items-center justify-center gap-3">
                 <span className="w-14 h-14 rounded-full border border-obsidian-900/20 flex items-center justify-center text-obsidian-400">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
                 </span>

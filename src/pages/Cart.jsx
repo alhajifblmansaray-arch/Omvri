@@ -46,7 +46,7 @@ export default function Cart() {
           <div className="space-y-px bg-obsidian-900/5">
             {items.map((item) => (
               <div key={item.lineId} className="bg-white flex gap-6 p-6 border border-obsidian-900/10">
-                <div className="w-32 h-40 bg-ivory shrink-0 overflow-hidden">
+                <div className="w-32 h-40 bg-ivory shrink-0 overflow-hidden rounded-xl">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="flex-1 flex flex-col">

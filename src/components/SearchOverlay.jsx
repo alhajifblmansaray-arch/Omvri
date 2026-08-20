@@ -75,7 +75,7 @@ export default function SearchOverlay({ open, onClose }) {
                   onClick={onClose}
                   className="flex items-center gap-4 p-2 -mx-2 hover:bg-ivory transition-colors duration-300 group"
                 >
-                  <div className="w-12 h-14 bg-ivory overflow-hidden shrink-0">
+                  <div className="w-12 h-14 bg-ivory overflow-hidden shrink-0 rounded-lg">
                     <img src={p.hero} alt={p.name} className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="flex-1">
