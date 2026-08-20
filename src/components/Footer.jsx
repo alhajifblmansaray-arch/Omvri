@@ -6,6 +6,7 @@ const cols = [
   {
     title: 'Shop',
     links: [
+      ['Featured', '/featured'],
       ['Collections', '/collections'],
       ['Lookbook', '/lookbook'],
       ['Bag', '/cart'],

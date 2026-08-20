@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { products } from '../data/products'
+import { featuredProducts } from '../data/products'
 import { formatMoney } from '../lib/currency'
 import { testimonials, lookbook, craft } from '../data/content'
+import Stars, { ratingFor } from '../components/Stars'
 
 export default function Home() {
   return (
@@ -19,47 +20,65 @@ export default function Home() {
         />
       </section>
 
-      {/* editorial intro */}
-      <section id="about" className="max-w-[900px] mx-auto px-6 py-32 text-center">
-        <h2 className="font-display text-3xl md:text-4xl text-obsidian-900 mb-6 leading-snug">
-          Every stitch placed by hand, every measurement taken in person.
-        </h2>
-        <p className="text-obsidian-400 text-sm leading-relaxed max-w-[560px] mx-auto">
-          Omvri works with a small circle of mills across Italy and England, cutting each
-          garment to the individual, not the size chart. The result is a suit that fits
-          the way a bespoke suit should: like it was never made for anyone else.
-        </p>
-      </section>
-
-      {/* featured looks strip */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-32">
+      {/* shoppable strip sits directly under the hero, before any essay */}
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-28">
         <div className="flex items-end justify-between mb-10">
-          <h3 className="font-display text-3xl text-obsidian-900">Featured Looks</h3>
-          <Link to="/collections" className="text-[11px] tracking-[0.16em] uppercase text-gold-700 hover:text-gold-800 transition-colors duration-450">
+          <div>
+            <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-3">
+              The Featured Edit
+            </span>
+            <h3 className="font-display text-3xl md:text-4xl text-obsidian-900">
+              Cutting most this season
+            </h3>
+          </div>
+          <Link to="/featured" className="text-[11px] tracking-[0.16em] uppercase text-gold-700 hover:text-gold-800 transition-colors duration-450 shrink-0">
             View All
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-obsidian-900/10">
-          {products.slice(0, 4).map((p) => (
-            <Link key={p.id} to={`/suits/${p.slug}`} className="group bg-white">
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src={p.hero}
-                  alt={p.name}
-                  className={`w-full h-full object-cover transition-transform duration-[700ms] ease-signature group-hover:scale-105 ${
-                    p.id === 'vesper-ivory' ? 'object-[center_14%]' : 'object-top'
-                  }`}
-                />
-              </div>
-              <div className="px-1 pt-5 pb-6">
-                <div className="text-obsidian-900 font-display text-xl group-hover:text-gold-700 transition-colors duration-450">
-                  {p.name}
+          {featuredProducts().map((p) => {
+            const rating = ratingFor(p.id)
+            return (
+              <Link key={p.id} to={`/suits/${p.slug}`} className="group bg-white">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={p.hero}
+                    alt={p.name}
+                    className={`w-full h-full object-cover transition-transform duration-[700ms] ease-signature group-hover:scale-105 ${
+                      p.id === 'vesper-ivory' ? 'object-[center_14%]' : 'object-top'
+                    }`}
+                  />
                 </div>
-                <div className="text-obsidian-400 text-xs mt-1">{p.fabric} · {formatMoney(p.price)}</div>
-              </div>
-            </Link>
-          ))}
+                <div className="px-1 pt-5 pb-6">
+                  <div className="text-obsidian-900 font-display text-xl group-hover:text-gold-700 transition-colors duration-450">
+                    {p.name}
+                  </div>
+                  <div className="text-obsidian-600 text-sm mt-1">
+                    {p.fabric} · {formatMoney(p.price)}
+                  </div>
+                  {rating && (
+                    <span className="flex items-center gap-1.5 mt-2">
+                      <Stars n={Math.round(rating.avg)} size={11} />
+                      <span className="text-xs text-obsidian-500">({rating.count})</span>
+                    </span>
+                  )}
+                </div>
+              </Link>
+            )
+          })}
         </div>
+      </section>
+
+      {/* editorial intro */}
+      <section id="about" className="max-w-[900px] mx-auto px-6 pb-28 text-center">
+        <h2 className="font-display text-3xl md:text-4xl text-obsidian-900 mb-6 leading-snug">
+          Every stitch placed by hand, every measurement taken in person.
+        </h2>
+        <p className="text-obsidian-600 text-base leading-relaxed max-w-[560px] mx-auto">
+          Omvri works with a small circle of mills across Italy and England, cutting each
+          garment to the individual, not the size chart. The result is a suit that fits
+          the way a bespoke suit should: like it was never made for anyone else.
+        </p>
       </section>
 
       {/* weddings and parties, copy sits in the banner's open left side */}

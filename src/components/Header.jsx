@@ -5,6 +5,7 @@ import { useWishlist } from '../context/WishlistContext'
 import SearchOverlay from './SearchOverlay'
 
 const menuLinks = [
+  ['Featured', '/featured'],
   ['Collections', '/collections'],
   ['Lookbook', '/lookbook'],
   ['The House', '/house'],

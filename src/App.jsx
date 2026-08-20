@@ -10,6 +10,7 @@ import { MeasurementsProvider } from './context/MeasurementsContext'
 import { WishlistProvider } from './context/WishlistContext'
 import Home from './pages/Home'
 import Collections from './pages/Collections'
+import Featured from './pages/Featured'
 import ProductDetail from './pages/ProductDetail'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
@@ -45,6 +46,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/collections" element={<Collections />} />
+              <Route path="/featured" element={<Featured />} />
               <Route path="/suits/:slug" element={<ProductDetail />} />
               <Route path="/measurement-guide" element={<MeasurementGuide />} />
               <Route path="/cart" element={<Cart />} />

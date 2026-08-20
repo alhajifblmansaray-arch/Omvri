@@ -147,6 +147,13 @@ export const products = [
 
 export const getProductBySlug = (slug) => products.find((p) => p.slug === slug)
 
+// The Featured edit: a short, rotating selection that paid traffic lands on
+// instead of the homepage. Reorder this list to change what the campaign sells.
+export const featuredSlugs = ['lario-black', 'meridian-charcoal', 'vesper-ivory', 'harlow-forest']
+
+export const featuredProducts = () =>
+  featuredSlugs.map((s) => getProductBySlug(s)).filter(Boolean)
+
 export const sizeMatrix = {
   lengths: ['Short', 'Regular', 'Long'],
   sizes: [32, 34, 36, 38, 40, 42, 44, 46, 48, 50],

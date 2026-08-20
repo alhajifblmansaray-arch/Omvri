@@ -4,6 +4,7 @@ import { products } from '../data/products'
 import { formatMoney } from '../lib/currency'
 
 const pageLinks = [
+  { label: 'The Featured Edit', to: '/featured' },
   { label: 'How to Measure', to: '/measurement-guide' },
   { label: 'Lookbook', to: '/lookbook' },
   { label: 'The House', to: '/house' },

@@ -8,6 +8,8 @@ import SaveForLaterPanel from '../components/SaveForLaterPanel'
 import CustomMeasurementsPanel from '../components/CustomMeasurementsPanel'
 import WishlistButton from '../components/WishlistButton'
 import Reviews from '../components/Reviews'
+import Stars, { ratingFor } from '../components/Stars'
+import PartyBand from '../components/PartyBand'
 
 const accordionSections = [
   {
@@ -20,7 +22,7 @@ const accordionSections = [
   },
   {
     title: 'Delivery and Returns',
-    body: 'Free shipping and returns. Delivery in 2 to 4 business days, cut to your measurements. Pick-up in store and get it customized at no charge.',
+    body: 'Free delivery and returns. Your suit is cut after you order and arrives in three to five weeks, pressed and hung in a rigid garment box. First alterations are on the house.',
   },
 ]
 
@@ -34,6 +36,7 @@ export default function ProductDetail() {
   const resume = location.state?.openCustomize
   const [panel, setPanel] = useState(resume ? 'custom' : null) // null | 'custom' | 'look' | 'save'
   const [openSection, setOpenSection] = useState(null)
+  const rating = ratingFor(product?.id)
 
   if (!product) {
     return <div className="pt-40 text-center text-obsidian-400 py-40">Suit not found.</div>
@@ -67,7 +70,7 @@ export default function ProductDetail() {
                 loading={i > 1 ? 'lazy' : undefined}
               />
               {shot.caption && (
-                <figcaption className="px-6 md:px-12 py-6 text-sm text-obsidian-400 leading-relaxed max-w-[480px]">
+                <figcaption className="px-6 md:px-12 py-6 text-sm text-obsidian-600 leading-relaxed max-w-[480px]">
                   <span className="text-gold-700 uppercase tracking-[0.14em] text-[11px] block mb-1.5">
                     {shot.caption.split(' · ')[0]}
                   </span>
@@ -90,18 +93,32 @@ export default function ProductDetail() {
               </h1>
               <WishlistButton productId={product.id} className="mt-4 border border-obsidian-900/10" />
             </div>
-            <div className="text-obsidian-400 text-sm mt-2">{product.fabric}</div>
-            <div className="text-xl text-obsidian-900 mt-5">
+            {/* rating sits with the price, not buried at the foot of the page */}
+            {rating && (
+              <a
+                href="#reviews"
+                className="flex items-center gap-2 mt-3 text-sm text-obsidian-600 hover:text-gold-700 transition-colors duration-300 w-fit"
+              >
+                <Stars n={Math.round(rating.avg)} size={13} />
+                <span className="text-obsidian-900">{rating.avg.toFixed(1)}</span>
+                <span className="text-obsidian-500">
+                  ({rating.count} review{rating.count > 1 ? 's' : ''})
+                </span>
+              </a>
+            )}
+
+            <div className="text-obsidian-600 text-sm mt-3">{product.fabric}</div>
+            <div className="text-2xl text-obsidian-900 mt-4">
               {formatMoney(product.price)}{' '}
-              <span className="text-xs text-obsidian-400 uppercase">{currencyCode()}</span>
+              <span className="text-xs text-obsidian-500 uppercase">{currencyCode()}</span>
             </div>
 
-            <p className="text-sm text-obsidian-400 leading-relaxed mt-6 max-w-[420px]">
+            <p className="text-[15px] text-obsidian-600 leading-relaxed mt-5 max-w-[420px]">
               {product.description}
             </p>
 
-            {/* CTA row: bookmark / customize / select size */}
-            <div className="flex items-stretch gap-3 mt-9">
+            {/* CTA row: bookmark / customize with the price stated on the button */}
+            <div className="flex items-stretch gap-3 mt-8">
               <button
                 aria-label="Save for later"
                 onClick={() => setPanel('save')}
@@ -115,18 +132,21 @@ export default function ProductDetail() {
                 onClick={() => setPanel('custom')}
                 className="flex-1 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
               >
-                Customize
+                Customize · {formatMoney(product.price)}
               </button>
             </div>
 
-            <div className="flex items-center gap-6 mt-8 text-xs text-obsidian-400">
-              <span className="flex items-center gap-2">
-                <Check /> Free shipping &amp; returns
-              </span>
-              <span className="flex items-center gap-2">
-                <Check /> Pick-up in store, customized
-              </span>
-            </div>
+            <ul className="mt-6 space-y-2">
+              {[
+                'Cut to your measurements, made to order',
+                'First alterations free, repairs for life',
+                'Free delivery and returns · 3 to 5 weeks',
+              ].map((line) => (
+                <li key={line} className="flex items-start gap-2.5 text-[13px] text-obsidian-600">
+                  <Check /> {line}
+                </li>
+              ))}
+            </ul>
 
             {/* accordion */}
             <div className="mt-10">
@@ -154,6 +174,9 @@ export default function ProductDetail() {
 
       {/* reviews */}
       <Reviews productId={product.id} />
+
+      {/* house cross-sell: dress the whole party in this suit */}
+      <PartyBand productName={product.name} />
 
       {/* related suits */}
       <section className="max-w-[1300px] mx-auto px-6 md:px-10 py-20 border-t border-obsidian-900/10">
@@ -209,7 +232,7 @@ export default function ProductDetail() {
 
 function Check() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold-700">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="text-gold-600 mt-1 shrink-0">
       <path d="M4 12l5 5L20 6" />
     </svg>
   )

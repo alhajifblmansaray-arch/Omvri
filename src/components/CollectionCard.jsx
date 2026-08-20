@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { formatMoney, currencyCode } from '../lib/currency'
 import WishlistButton from './WishlistButton'
+import Stars, { ratingFor } from './Stars'
 
 // Hovering a card walks slowly through that suit's gallery on its own and
 // crossfades between shots. Leaving the card settles it back on the cover.
@@ -9,6 +10,7 @@ const HOLD_MS = 1600
 
 export default function CollectionCard({ product, index = 0 }) {
   const shots = product.gallery.map((g) => g.src)
+  const rating = ratingFor(product.id)
   const [i, setI] = useState(0)
   const [hover, setHover] = useState(false)
   const timer = useRef(null)
@@ -80,7 +82,15 @@ export default function CollectionCard({ product, index = 0 }) {
           <span className="text-[10px] text-obsidian-500 uppercase">{currencyCode()}</span>
         </span>
       </div>
-      <div className="text-sm text-obsidian-500 mt-1">{product.fabric}</div>
+      <div className="flex items-center gap-3 mt-1">
+        <span className="text-sm text-obsidian-500">{product.fabric}</span>
+        {rating && (
+          <span className="flex items-center gap-1.5 shrink-0">
+            <Stars n={Math.round(rating.avg)} size={11} />
+            <span className="text-xs text-obsidian-500">({rating.count})</span>
+          </span>
+        )}
+      </div>
     </Link>
   )
 }
