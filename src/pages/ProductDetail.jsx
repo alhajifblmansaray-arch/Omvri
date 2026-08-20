@@ -10,19 +10,26 @@ import WishlistButton from '../components/WishlistButton'
 import Reviews from '../components/Reviews'
 import Stars, { ratingFor } from '../components/Stars'
 import PartyBand from '../components/PartyBand'
+import SpecBlock from '../components/SpecBlock'
 
+// The education stack. Same four headings on every suit so the page reads the
+// same way twice, which is the point of a template.
 const accordionSections = [
   {
-    title: 'Size & Fit',
-    body: 'Cut to a tailored fit: trim through the chest and waist without pulling, with room in the blade for movement. Between sizes, size up. The atelier takes it in at your fitting.',
+    title: 'The Construction',
+    body: 'Half canvas through the chest, hand set collar, functional four button cuffs and a hand finished buttonhole. The canvas floats against the cloth rather than being fused to it, which is why the jacket takes the shape of your chest over time instead of fighting it.',
   },
   {
-    title: 'Details & Care',
-    body: 'Half canvas construction, hand-set collar, functional four-button cuffs. Dry clean sparingly; steam between wears and rest the garment a day between outings.',
+    title: 'Fit & Sizing',
+    body: 'Cut to a tailored fit: trim through the chest and waist without pulling, with room in the blade for movement. Every suit is cut to the twelve measurements you give us, so there is no size to choose. If you are unsure of a number, the guide walks you through taking it.',
   },
   {
-    title: 'Delivery and Returns',
-    body: 'Free delivery and returns. Your suit is cut after you order and arrives in three to five weeks, pressed and hung in a rigid garment box. First alterations are on the house.',
+    title: 'Care & Repairs',
+    body: 'Brush after wearing and rest the suit a day between outings. Dry clean two or three times a year at most, and steam rather than iron the lapel roll. If we made it, we mend it: buttons, linings, seams and edges, for as long as the garment lives.',
+  },
+  {
+    title: 'Delivery & Returns',
+    body: 'Free delivery and returns. Your cloth is cut after you order and the suit arrives in three to five weeks, pressed and hung in a rigid garment box with signature on delivery. First alterations are on the house.',
   },
 ]
 
@@ -93,6 +100,11 @@ export default function ProductDetail() {
               </h1>
               <WishlistButton productId={product.id} className="mt-4 border border-obsidian-900/10" />
             </div>
+            {product.descriptor && (
+              <div className="text-[11px] tracking-[0.14em] uppercase text-obsidian-500 mt-2">
+                {product.descriptor}
+              </div>
+            )}
             {/* rating sits with the price, not buried at the foot of the page */}
             {rating && (
               <a
@@ -107,15 +119,31 @@ export default function ProductDetail() {
               </a>
             )}
 
-            <div className="text-obsidian-600 text-sm mt-3">{product.fabric}</div>
-            <div className="text-2xl text-obsidian-900 mt-4">
-              {formatMoney(product.price)}{' '}
-              <span className="text-xs text-obsidian-500 uppercase">{currencyCode()}</span>
-            </div>
-
             <p className="text-[15px] text-obsidian-600 leading-relaxed mt-5 max-w-[420px]">
               {product.description}
             </p>
+
+            {/* the cloth, shown rather than only named. stands where a beauty
+                brand would put its shade selector. */}
+            {product.swatch && (
+              <div className="flex items-center gap-4 mt-7 pt-6 border-t border-obsidian-900/10">
+                <div className="w-14 h-14 rounded-full overflow-hidden bg-ivory shrink-0 ring-1 ring-obsidian-900/10">
+                  <img src={product.swatch} alt={product.fabric} className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div className="text-[10px] tracking-[0.16em] uppercase text-obsidian-500 mb-1">
+                    The cloth
+                  </div>
+                  <div className="text-sm text-obsidian-900">{product.fabric}</div>
+                  <div className="text-xs text-obsidian-500 mt-0.5">{product.mill}</div>
+                </div>
+              </div>
+            )}
+
+            <div className="text-2xl text-obsidian-900 mt-7">
+              {formatMoney(product.price)}{' '}
+              <span className="text-xs text-obsidian-500 uppercase">{currencyCode()}</span>
+            </div>
 
             {/* CTA row: bookmark / customize with the price stated on the button */}
             <div className="flex items-stretch gap-3 mt-8">
@@ -135,6 +163,10 @@ export default function ProductDetail() {
                 Customize · {formatMoney(product.price)}
               </button>
             </div>
+
+            <p className="text-xs text-obsidian-500 mt-3">
+              Or four interest free payments of {formatMoney(product.price / 4, 2)}.
+            </p>
 
             <ul className="mt-6 space-y-2">
               {[
@@ -171,6 +203,9 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
+
+      {/* what you are buying, in scannable rows */}
+      <SpecBlock spec={product.spec} image={product.swatch} name={product.name} />
 
       {/* reviews */}
       <Reviews productId={product.id} />
