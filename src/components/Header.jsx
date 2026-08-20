@@ -23,7 +23,7 @@ const menuSmall = [
 // with a gold wash and lift on hover so they feel alive rather than greyed out.
 const iconBtn =
   'w-9 h-9 rounded-full flex items-center justify-center text-obsidian-800 ' +
-  'hover:text-obsidian-900 hover:bg-gold-700/10 active:scale-95 ' +
+  'hover:text-obsidian-900 hover:bg-obsidian-900/8 active:scale-95 ' +
   'transition-all duration-300 ease-signature'
 
 function Badge({ children }) {

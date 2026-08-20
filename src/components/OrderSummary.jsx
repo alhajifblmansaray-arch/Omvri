@@ -18,7 +18,7 @@ export default function OrderSummary({ items, compact = false }) {
               <div className="flex items-center gap-2">
                 <span className="text-sm text-obsidian-900 truncate">{item.name}</span>
                 {item.custom && (
-                  <span className="text-[8px] tracking-[0.12em] uppercase text-obsidian-500 border border-gold-700/40 px-1.5 py-0.5 shrink-0">
+                  <span className="text-[8px] tracking-[0.12em] uppercase text-obsidian-600 bg-obsidian-900/5 rounded-full px-2 py-0.5 shrink-0">
                     Custom
                   </span>
                 )}

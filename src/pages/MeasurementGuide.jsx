@@ -99,7 +99,7 @@ export default function MeasurementGuide() {
                     aria-current={active}
                     className={`w-full text-left flex items-baseline gap-3 py-3 border-t transition-colors duration-300 ${
                       active
-                        ? 'border-gold-700 text-obsidian-900'
+                        ? 'border-obsidian-900 text-obsidian-900'
                         : 'border-obsidian-900/10 text-obsidian-400 hover:text-obsidian-900'
                     }`}
                   >
@@ -217,7 +217,7 @@ function Arrow({ dir, onClick, label }) {
     <button
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-4' : 'right-4'} w-11 h-11 rounded-full bg-white/90 backdrop-blur border border-obsidian-900/10 shadow-sm flex items-center justify-center text-obsidian-900 hover:border-gold-700 hover:text-obsidian-500 transition-colors duration-450`}
+      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-4' : 'right-4'} w-11 h-11 rounded-full bg-white/90 backdrop-blur border border-obsidian-900/10 shadow-sm flex items-center justify-center text-obsidian-900 hover:border-obsidian-900 hover:text-obsidian-500 transition-colors duration-450`}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d={isPrev ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'} />

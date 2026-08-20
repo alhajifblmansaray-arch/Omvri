@@ -24,7 +24,7 @@ export default function AddedToBagBar() {
       <div className="bg-obsidian-900 border-t border-gold/40 shadow-[0_-8px_30px_rgba(0,0,0,0.15)]">
         <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white" />
             <span className="text-sm text-white">
               Added to bag · <span className="text-obsidian-200">{shownRef.current?.name}</span>
             </span>

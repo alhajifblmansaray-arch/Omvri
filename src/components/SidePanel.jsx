@@ -32,7 +32,7 @@ export default function SidePanel({ open, onClose, onBack, title, children, foot
             <button
               aria-label="Back"
               onClick={onBack}
-              className="w-9 h-9 rounded-full border border-obsidian-900/15 flex items-center justify-center text-obsidian-900 hover:border-gold-700 hover:text-obsidian-500 transition-colors duration-450"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-obsidian-800 hover:bg-obsidian-900/5 transition-all duration-300"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M15 5l-7 7 7 7" />

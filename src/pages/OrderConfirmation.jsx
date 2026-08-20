@@ -26,7 +26,7 @@ export default function OrderConfirmation() {
     <div className="pt-20">
       <div className="max-w-[820px] mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <span className="w-14 h-14 rounded-full border border-gold-700 text-obsidian-500 flex items-center justify-center mx-auto mb-7">
+          <span className="w-14 h-14 rounded-full bg-obsidian-900 text-white flex items-center justify-center mx-auto mb-7">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M4 12l5 5L20 6" />
             </svg>
@@ -53,7 +53,7 @@ export default function OrderConfirmation() {
                 <div className="flex items-center gap-2.5">
                   <span className="text-obsidian-900 font-medium">{item.name}</span>
                   {item.custom && (
-                    <span className="text-[9px] tracking-[0.14em] uppercase text-obsidian-500 border border-gold-700/40 px-2 py-0.5">
+                    <span className="text-[9px] tracking-[0.14em] uppercase text-obsidian-600 bg-obsidian-900/5 rounded-full px-2.5 py-1">
                       Custom Sized
                     </span>
                   )}

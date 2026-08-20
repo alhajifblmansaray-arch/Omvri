@@ -74,7 +74,7 @@ export default function SizeSelectPanel({ product, onAdd }) {
             }
             className={`px-8 py-3.5 text-[11px] tracking-[0.18em] uppercase transition-colors duration-450 ${
               selected
-                ? 'bg-obsidian-900 text-white hover:bg-gold-700'
+                ? 'btn btn-primary w-full'
                 : 'bg-obsidian-100 text-obsidian-300 cursor-not-allowed'
             }`}
           >

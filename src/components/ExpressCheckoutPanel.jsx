@@ -67,7 +67,7 @@ export default function ExpressCheckoutPanel({ onClose }) {
             className={`w-full py-4 flex items-center justify-center gap-2.5 text-sm transition-colors duration-450 ${
               authorizing === w.id
                 ? 'bg-obsidian-700 text-white'
-                : 'bg-obsidian-900 text-white hover:bg-gold-700 disabled:opacity-40'
+                : 'btn btn-primary w-full disabled:opacity-40'
             }`}
           >
             <span className="text-base leading-none">{w.glyph}</span>

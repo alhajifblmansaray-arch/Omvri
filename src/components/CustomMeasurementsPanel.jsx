@@ -51,13 +51,13 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
     <div className="flex flex-col h-full">
       {/* unit toggle + guide link */}
       <div className="flex items-center justify-between mb-6">
-        <div className="inline-flex border border-obsidian-900/15 text-[11px] tracking-[0.12em] uppercase">
+        <div className="inline-flex surface-soft p-1 rounded-full text-[11px] tracking-[0.12em] uppercase">
           {['in', 'cm'].map((u) => (
             <button
               key={u}
               onClick={() => setUnit(u)}
-              className={`px-4 py-2 transition-colors duration-300 ${
-                unit === u ? 'bg-obsidian-900 text-white' : 'text-obsidian-500 hover:text-obsidian-900'
+              className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                unit === u ? 'bg-obsidian-900 text-white shadow-md' : 'text-obsidian-500 hover:text-obsidian-900'
               }`}
             >
               {u === 'in' ? 'Inches' : 'Cm'}
@@ -88,7 +88,7 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
               <span
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] transition-colors duration-300 ${
                   i < step
-                    ? 'bg-gold-700 text-white'
+                    ? 'bg-obsidian-900 text-white'
                     : i === step
                       ? 'bg-obsidian-900 text-white'
                       : 'border border-obsidian-900/20 text-obsidian-400'
@@ -153,11 +153,11 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
       </div>
 
       {/* sticky footer */}
-      <div className="sticky bottom-0 bg-white mt-6 pt-4 border-t border-obsidian-900/10">
+      <div className="sticky bottom-0 bg-white mt-6 pt-4">
         {savedAt && step === 2 && (
-          <p className="text-xs text-obsidian-500 mb-3 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold-700" />
-            Your custom measurements have been saved successfully.
+          <p className="surface-soft text-xs text-obsidian-700 mb-3 px-4 py-3 flex items-center gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-obsidian-900 shrink-0" />
+            Your measurements are saved to this device.
           </p>
         )}
         <div className="flex items-center gap-3">
@@ -180,11 +180,11 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
             <button
               onClick={handleSaveAndAdd}
               disabled={!allComplete}
-              className={`flex-1 py-4 text-[11px] tracking-[0.16em] uppercase transition-colors duration-450 ${
+              className={
                 allComplete
-                  ? 'bg-obsidian-900 text-white hover:bg-gold-700'
-                  : 'bg-obsidian-100 text-obsidian-300 cursor-not-allowed'
-              }`}
+                  ? 'btn btn-primary flex-1'
+                  : 'btn flex-1 bg-obsidian-100 text-obsidian-300 cursor-not-allowed'
+              }
             >
               Save &amp; Add to Bag
             </button>
@@ -199,7 +199,7 @@ function StepFields({ title, diagram, fields, values, unit, touched, setTouched,
   return (
     <div>
       <h3 className="text-[11px] tracking-[0.14em] uppercase text-obsidian-500 mb-4">{title}</h3>
-      <div className="mb-6">{diagram}</div>
+      <div className="surface-soft overflow-hidden mb-6">{diagram}</div>
       <div className="grid grid-cols-2 gap-4">
         {fields.map((f) => {
           const err = touched[f.key] ? fieldError(values[f.key]) : null
@@ -207,8 +207,8 @@ function StepFields({ title, diagram, fields, values, unit, touched, setTouched,
             <label key={f.key} className="block">
               <span className="text-xs text-obsidian-500 mb-1.5 block">{f.label}</span>
               <div
-                className={`flex items-center border transition-colors duration-300 ${
-                  err ? 'border-red-400' : 'border-obsidian-900/20 focus-within:border-gold-700'
+                className={`flex items-center bg-white rounded-xl border transition-colors duration-300 ${
+                  err ? 'border-red-400' : 'border-obsidian-900/20 focus-within:border-obsidian-900'
                 }`}
               >
                 <input
@@ -220,7 +220,7 @@ function StepFields({ title, diagram, fields, values, unit, touched, setTouched,
                   onChange={(e) => setValue(f.key, e.target.value)}
                   onFocus={() => onFocusField?.(f.key)}
                   onBlur={() => setTouched((t) => ({ ...t, [f.key]: true }))}
-                  className="w-full bg-transparent outline-none px-3 py-2.5 text-obsidian-900"
+                  className="w-full bg-transparent outline-none px-4 py-3 text-obsidian-900 rounded-xl"
                 />
                 <span className="px-3 text-xs text-obsidian-400 shrink-0">{unit}</span>
               </div>
@@ -254,12 +254,14 @@ function ReviewStep({ values, unit, onEdit }) {
               Edit
             </button>
           </div>
-          <dl className="divide-y divide-obsidian-900/10 border-t border-obsidian-900/10">
+          <dl className="grid grid-cols-2 gap-2">
             {group.fields.map((f) => (
-              <div key={f.key} className="flex justify-between py-2.5 text-sm">
-                <dt className="text-obsidian-400">{f.label}</dt>
-                <dd className="text-obsidian-900">
-                  {values[f.key] ? `${values[f.key]} ${unit}` : '·'}
+              <div key={f.key} className="surface-soft px-4 py-3">
+                <dt className="text-[10px] tracking-[0.12em] uppercase text-obsidian-500 mb-1">
+                  {f.label}
+                </dt>
+                <dd className="text-obsidian-900 text-sm">
+                  {values[f.key] ? `${values[f.key]} ${unit}` : 'Not set'}
                 </dd>
               </div>
             ))}

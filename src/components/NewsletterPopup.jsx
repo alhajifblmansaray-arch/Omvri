@@ -80,7 +80,7 @@ export default function NewsletterPopup() {
         <div className="flex flex-col justify-center px-8 sm:px-11 py-12 sm:py-16">
           {submitted ? (
             <div className="text-center py-6">
-              <span className="w-12 h-12 rounded-full border border-gold-700 text-obsidian-500 flex items-center justify-center mx-auto mb-5">
+              <span className="w-12 h-12 rounded-full bg-obsidian-900 text-white flex items-center justify-center mx-auto mb-5">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <path d="M4 12l5 5L20 6" />
                 </svg>

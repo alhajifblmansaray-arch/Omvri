@@ -55,7 +55,7 @@ export default function Cart() {
                       <div className="flex items-center gap-2.5 flex-wrap">
                         <span className="text-obsidian-900 font-medium">{item.name}</span>
                         {item.custom && (
-                          <span className="text-[9px] tracking-[0.14em] uppercase text-obsidian-500 border border-gold-700/40 px-2 py-0.5">
+                          <span className="text-[9px] tracking-[0.14em] uppercase text-obsidian-600 bg-obsidian-900/5 rounded-full px-2.5 py-1">
                             Custom Sized
                           </span>
                         )}
@@ -161,7 +161,7 @@ export default function Cart() {
 
             <button
               onClick={() => navigate('/checkout')}
-              className="w-full mt-5 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+              className="w-full mt-5 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-obsidian-900 transition-colors duration-450"
             >
               Checkout
             </button>

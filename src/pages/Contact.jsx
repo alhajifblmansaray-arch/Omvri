@@ -50,7 +50,7 @@ export default function Contact() {
           {/* form */}
           {sent ? (
             <div className="surface px-8 py-20 text-center">
-              <span className="w-14 h-14 rounded-full border border-gold-700 text-obsidian-500 flex items-center justify-center mx-auto mb-6">
+              <span className="w-14 h-14 rounded-full bg-obsidian-900 text-white flex items-center justify-center mx-auto mb-6">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M4 12l5 5L20 6" />
                 </svg>

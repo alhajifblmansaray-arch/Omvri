@@ -22,7 +22,7 @@ export default function SaveForLaterPanel() {
       }}
       className="pt-4 space-y-6"
     >
-      <div className="relative border border-obsidian-900/20 focus-within:border-gold-700 transition-colors duration-450 px-4 pt-5 pb-2">
+      <div className="relative bg-white rounded-xl border border-obsidian-900/20 focus-within:border-obsidian-900 transition-colors duration-450 px-4 pt-5 pb-2">
         <label className="absolute -top-2.5 left-3 bg-white px-1.5 text-xs text-obsidian-400">
           Email
         </label>

@@ -46,7 +46,7 @@ export default function SearchOverlay({ open, onClose }) {
   return (
     <div className="fixed inset-0 z-[60] bg-white/97 backdrop-blur-sm overflow-y-auto" onClick={onClose}>
       <div className="max-w-[760px] mx-auto px-6 pt-28 pb-20" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center gap-4 border-b border-obsidian-900 pb-4">
+        <div className="surface flex items-center gap-4 px-6 py-4">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-obsidian-400 shrink-0">
             <circle cx="11" cy="11" r="7" />
             <path d="M20 20l-3.5-3.5" />
@@ -67,13 +67,13 @@ export default function SearchOverlay({ open, onClose }) {
         {matchedProducts.length > 0 && (
           <div className="mt-10">
             <div className="text-[10px] tracking-[0.16em] uppercase text-obsidian-400 mb-4">Suits</div>
-            <div className="space-y-1">
+            <div className="space-y-2">
               {matchedProducts.map((p) => (
                 <Link
                   key={p.id}
                   to={`/suits/${p.slug}`}
                   onClick={onClose}
-                  className="flex items-center gap-4 p-2 -mx-2 hover:bg-ivory transition-colors duration-300 group"
+                  className="surface-soft surface-hover flex items-center gap-4 p-3 group"
                 >
                   <div className="w-12 h-14 bg-ivory overflow-hidden shrink-0 rounded-lg">
                     <img src={p.hero} alt={p.name} className="w-full h-full object-cover object-top" />
@@ -99,7 +99,7 @@ export default function SearchOverlay({ open, onClose }) {
                 key={l.to}
                 to={l.to}
                 onClick={onClose}
-                className="px-4 py-2 border border-obsidian-900/15 text-sm text-obsidian-900 hover:border-gold-700 hover:text-obsidian-500 transition-colors duration-300"
+                className="surface-soft surface-hover px-5 py-2.5 rounded-full text-sm text-obsidian-900"
               >
                 {l.label}
               </Link>

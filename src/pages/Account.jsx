@@ -107,7 +107,7 @@ function Orders() {
               <span className="text-xs text-obsidian-400">
                 {new Date(o.placedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
               </span>
-              <span className="text-[10px] tracking-[0.14em] uppercase text-obsidian-500 border border-gold-700/40 px-2 py-0.5">
+              <span className="text-[10px] tracking-[0.14em] uppercase text-obsidian-600 bg-obsidian-900/5 rounded-full px-2.5 py-1">
                 {stage.label}
               </span>
               <span className="ml-auto text-obsidian-900">{formatMoney(o.totals.total, 2)}</span>

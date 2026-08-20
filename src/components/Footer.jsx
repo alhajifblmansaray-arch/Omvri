@@ -90,14 +90,14 @@ export default function Footer() {
               <p className="text-xs text-obsidian-400 leading-relaxed mb-4">
                 New cloths, new looks, no noise. One letter a month.
               </p>
-              <div className="flex border-b border-obsidian-900/30 focus-within:border-gold-700 transition-colors duration-300">
+              <div className="flex items-center bg-white rounded-full border border-obsidian-900/15 focus-within:border-obsidian-900 transition-colors duration-300 pl-4 pr-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   aria-label="Email for newsletter"
-                  className="flex-1 min-w-0 bg-transparent outline-none py-2 text-sm text-obsidian-900 placeholder-obsidian-300"
+                  className="flex-1 min-w-0 bg-transparent outline-none py-2.5 text-sm text-obsidian-900 placeholder-obsidian-300"
                 />
                 <button type="submit" aria-label="Subscribe" className="text-obsidian-900 hover:text-obsidian-500 transition-colors duration-300 px-1">
                   →

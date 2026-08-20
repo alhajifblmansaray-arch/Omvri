@@ -25,13 +25,13 @@ export default function OrderTimeline({ order }) {
             {/* connector */}
             {i < orderStages.length - 1 && (
               <span
-                className={`absolute left-[11px] top-6 bottom-0 w-px ${done ? 'bg-gold-700' : 'bg-obsidian-900/15'}`}
+                className={`absolute left-[11px] top-6 bottom-0 w-px ${done ? 'bg-obsidian-900' : 'bg-obsidian-900/15'}`}
               />
             )}
             <span
               className={`relative z-10 w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-[10px] transition-colors duration-300 ${
                 done
-                  ? 'bg-gold-700 text-white'
+                  ? 'bg-obsidian-900 text-white'
                   : active
                     ? 'bg-obsidian-900 text-white'
                     : 'border border-obsidian-900/20 bg-white text-obsidian-300'

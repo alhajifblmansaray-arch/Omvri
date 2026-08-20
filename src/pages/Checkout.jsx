@@ -108,7 +108,7 @@ export default function Checkout() {
                           ? 'bg-obsidian-900 text-white'
                           : i === step
                             ? 'bg-obsidian-900 text-white'
-                            : 'border border-obsidian-900/20 text-obsidian-400'
+                            : 'border border-obsidian-900/20 text-obsidian-500'
                       }`}
                     >
                       {i < step ? '✓' : i + 1}
