@@ -27,10 +27,10 @@ export default function SpecBlock({ spec, image, name }) {
             What you are actually buying.
           </h2>
 
-          <dl className="space-y-0">
+          <dl className="space-y-2.5">
             {rows.map(([label, value]) => (
-              <div key={label} className="border-t border-obsidian-900/10 py-5">
-                <dt className="text-[10px] tracking-[0.16em] uppercase text-obsidian-500 mb-2">
+              <div key={label} className="surface-soft px-5 py-4">
+                <dt className="text-[10px] tracking-[0.16em] uppercase text-obsidian-500 mb-1.5">
                   {label}
                 </dt>
                 <dd className="text-[15px] text-obsidian-800 leading-relaxed">{value}</dd>

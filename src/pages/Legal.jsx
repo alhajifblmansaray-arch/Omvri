@@ -48,7 +48,7 @@ export default function Legal({ kind = 'terms' }) {
 
       <section className="max-w-[720px] mx-auto px-6 pb-28">
         {c.sections.map(([h, body], i) => (
-          <div key={h} className="border-t border-obsidian-900/10 py-7">
+          <div key={h} className="surface-soft px-7 py-6 mb-3">
             <div className="flex items-baseline gap-4 mb-2.5">
               <span className="font-display text-lg text-obsidian-500">{String(i + 1).padStart(2, '0')}</span>
               <h2 className="text-obsidian-900">{h}</h2>

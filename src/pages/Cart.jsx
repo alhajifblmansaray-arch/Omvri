@@ -43,9 +43,9 @@ export default function Cart() {
 
         <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-14 items-start">
           {/* line items */}
-          <div className="space-y-px bg-obsidian-900/5">
+          <div className="space-y-4">
             {items.map((item) => (
-              <div key={item.lineId} className="bg-white flex gap-6 p-6 border border-obsidian-900/10">
+              <div key={item.lineId} className="surface flex gap-6 p-6">
                 <div className="w-32 h-40 bg-ivory shrink-0 overflow-hidden rounded-xl">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top" />
                 </div>
@@ -84,7 +84,7 @@ export default function Cart() {
                         <select
                           value={item.qty || 1}
                           onChange={(e) => updateItem(item.lineId, { qty: Number(e.target.value) })}
-                          className="border border-obsidian-900/15 bg-white text-obsidian-900 py-1.5 pl-2 pr-1 outline-none focus:border-gold-700"
+                          className="rounded-full border border-obsidian-900/15 bg-white text-obsidian-900 py-1.5 pl-3 pr-2 outline-none focus:border-obsidian-900"
                         >
                           {[1, 2, 3, 4, 5].map((n) => (
                             <option key={n} value={n}>{n}</option>
@@ -110,7 +110,7 @@ export default function Cart() {
             ))}
 
             {/* gift wrap add-on */}
-            <div className="bg-white flex items-center gap-6 p-6 border border-obsidian-900/10">
+            <div className="surface flex items-center gap-6 p-6">
               <div className="w-32 h-20 bg-ivory shrink-0 flex items-center justify-center">
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-obsidian-900">
                   <rect x="3" y="8" width="18" height="13" />
@@ -146,11 +146,11 @@ export default function Cart() {
               </li>
             </ul>
 
-            <div className="flex items-center justify-between py-3 text-sm border-t border-obsidian-900/10">
+            <div className="flex items-center justify-between py-3 text-sm">
               <span className="text-obsidian-400">Delivery costs</span>
               <span className="text-obsidian-900">Free</span>
             </div>
-            <div className="flex items-baseline justify-between py-3 border-t border-obsidian-900/10">
+            <div className="flex items-baseline justify-between py-3 border-t border-obsidian-900/10 mt-1">
               <span className="text-xl text-obsidian-900">
                 Total <span className="text-xs text-obsidian-400">Excl. Sales Tax</span>
               </span>

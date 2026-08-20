@@ -46,9 +46,9 @@ export default function ShippingReturns() {
         {sections.map((s) => (
           <div key={s.title} className="mb-16">
             <h2 className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-5">{s.title}</h2>
-            <div className="border border-obsidian-900/10 divide-y divide-obsidian-900/10">
+            <div className="space-y-3">
               {s.rows.map(([what, when, cost]) => (
-                <div key={what} className="grid grid-cols-[1fr_auto] sm:grid-cols-[1.2fr_1.4fr_auto] gap-3 px-5 py-4 text-sm items-baseline">
+                <div key={what} className="surface-soft grid grid-cols-[1fr_auto] sm:grid-cols-[1.2fr_1.4fr_auto] gap-3 px-6 py-4 text-sm items-baseline">
                   <span className="text-obsidian-900">{what}</span>
                   <span className="text-obsidian-400 hidden sm:block">{when}</span>
                   <span className="text-obsidian-900 text-right">{cost}</span>
@@ -61,16 +61,16 @@ export default function ShippingReturns() {
         ))}
 
         <h2 className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-5">Returns</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
           {returns.map((r) => (
-            <div key={r.title} className="border-t border-obsidian-900/15 pt-5">
+            <div key={r.title} className="surface surface-hover px-7 py-6">
               <h3 className="text-obsidian-900 mb-2">{r.title}</h3>
               <p className="text-sm text-obsidian-400 leading-relaxed">{r.body}</p>
             </div>
           ))}
         </div>
 
-        <div className="bg-ivory border border-obsidian-900/10 px-8 py-10 text-center">
+        <div className="surface-soft px-8 py-10 text-center">
           <p className="text-sm text-obsidian-400 mb-6">
             Tracking a suit already on the table?
           </p>

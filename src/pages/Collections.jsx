@@ -39,7 +39,7 @@ export default function Collections() {
 
       {/* sort bar */}
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-10">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-y border-obsidian-900/10 py-4">
+        <div className="surface-soft flex flex-wrap items-center justify-between gap-4 px-6 py-4">
           <span className="text-sm text-obsidian-500">
             {shown.length} suits
           </span>
@@ -48,7 +48,7 @@ export default function Collections() {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="border border-obsidian-900/15 bg-white text-obsidian-900 text-sm py-2 pl-3 pr-2 outline-none focus:border-gold-700"
+              className="rounded-full bg-white text-obsidian-900 text-sm py-2 pl-4 pr-3 outline-none border border-obsidian-900/15 focus:border-obsidian-900"
             >
               {sorts.map(([v, label]) => (
                 <option key={v} value={v}>

@@ -11,7 +11,7 @@ export default function PartyBand({ productName }) {
             Weddings &amp; Parties
           </span>
           <h2 className="font-display text-3xl md:text-4xl text-obsidian-900 leading-[1.1] mb-4">
-            Need {productName ? `the ${productName}` : 'this'} for the
+            Need {productName || 'this'} for the
             <br className="hidden sm:block" /> whole party?
           </h2>
           <p className="text-obsidian-600 text-[15px] leading-relaxed mb-7 max-w-[420px]">

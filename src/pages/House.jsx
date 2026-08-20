@@ -71,9 +71,9 @@ export default function House() {
           <h2 className="font-display text-3xl md:text-4xl text-obsidian-900 text-center mb-16">
             What the house believes
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {values.map((v, i) => (
-              <div key={v.title} className="border-t border-obsidian-900/15 pt-6">
+              <div key={v.title} className="surface surface-hover px-7 py-7">
                 <div className="flex items-baseline gap-4 mb-3">
                   <span className="font-display text-xl text-obsidian-500">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="font-display text-2xl text-obsidian-900">{v.title}</h3>
@@ -87,9 +87,9 @@ export default function House() {
 
       {/* numbers */}
       <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {numbers.map(([n, label]) => (
-            <div key={label}>
+            <div key={label} className="surface-soft px-4 py-8">
               <div className="font-display text-5xl text-obsidian-900 mb-3">{n}</div>
               <div className="text-xs text-obsidian-400 leading-relaxed max-w-[160px] mx-auto">{label}</div>
             </div>

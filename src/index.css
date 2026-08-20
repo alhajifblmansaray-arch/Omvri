@@ -173,6 +173,36 @@ h1, h2, h3, h4 {
   box-shadow: 0 4px 24px -12px rgba(23, 22, 26, 0.3);
 }
 
+/* ---------------------------------------------------------------------------
+   Surfaces. Content sits on rounded cards instead of being separated by rules,
+   so the whole site reads as stacked objects rather than ruled paper.
+   --------------------------------------------------------------------------- */
+.surface {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow:
+    0 1px 2px rgba(23, 22, 26, 0.04),
+    0 10px 24px -14px rgba(23, 22, 26, 0.18);
+}
+
+.surface-soft {
+  background: var(--paper-dim);
+  border-radius: 1rem;
+}
+
+/* a surface that reacts to the pointer, for lists of clickable rows */
+.surface-hover {
+  transition:
+    transform 300ms var(--ease-signature),
+    box-shadow 300ms var(--ease-signature);
+}
+.surface-hover:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 2px 4px rgba(23, 22, 26, 0.06),
+    0 20px 36px -18px rgba(23, 22, 26, 0.28);
+}
+
 /* Ken Burns slow drift, used on hero and lookbook imagery */
 .kenburns {
   animation: kenburns 18s var(--ease-signature) forwards;
@@ -187,16 +217,26 @@ h1, h2, h3, h4 {
   transition: opacity 1200ms var(--ease-signature);
 }
 
-/* accordion pattern — shared across PDP details, size & fit, etc */
+/* accordion pattern — each row is its own rounded card, no rules between */
 .accordion-item {
-  border-top: 1px solid var(--hairline);
+  background: var(--paper-dim);
+  border-radius: 1rem;
+  margin-bottom: 0.6rem;
+  overflow: hidden;
+  transition: box-shadow 300ms var(--ease-signature);
+}
+.accordion-item:hover,
+.accordion-item[data-open='true'] {
+  box-shadow:
+    0 1px 2px rgba(23, 22, 26, 0.04),
+    0 10px 24px -14px rgba(23, 22, 26, 0.2);
 }
 .accordion-trigger {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 0;
+  padding: 1.15rem 1.35rem;
   background: none;
   border: none;
   color: var(--ink);
@@ -224,7 +264,7 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 .accordion-content {
-  padding-bottom: 1.5rem;
+  padding: 0 1.35rem 1.35rem;
   font-size: 0.9rem;
   line-height: 1.7;
   color: var(--ink-dim);

@@ -36,7 +36,7 @@ export default function TrackOrder() {
             onChange={(e) => setQ(e.target.value)}
             placeholder="OMV-000000"
             aria-label="Order number"
-            className="flex-1 bg-transparent outline-none px-4 py-3.5 text-obsidian-900 border border-obsidian-900/20 focus:border-gold-700 transition-colors duration-300 tracking-[0.08em]"
+            className="flex-1 bg-white outline-none px-5 py-3.5 rounded-full text-obsidian-900 border border-obsidian-900/20 focus:border-obsidian-900 transition-colors duration-300 tracking-[0.08em]"
           />
           <button
             type="submit"
@@ -47,7 +47,7 @@ export default function TrackOrder() {
         </form>
 
         {searched && !order && (
-          <div className="border border-obsidian-900/10 px-8 py-12 text-center">
+          <div className="surface px-8 py-12 text-center">
             <h2 className="font-display text-2xl text-obsidian-900 mb-3">Not found.</h2>
             <p className="text-sm text-obsidian-400 leading-relaxed max-w-[380px] mx-auto">
               No order “{searched}” on this device. Check the number in your confirmation email, or{' '}
@@ -60,7 +60,7 @@ export default function TrackOrder() {
         )}
 
         {order && (
-          <div className="border border-obsidian-900/10 p-8">
+          <div className="surface p-8">
             <div className="flex flex-wrap items-baseline justify-between gap-2 mb-8">
               <h2 className="font-display text-2xl text-obsidian-900">{order.id}</h2>
               <span className="text-xs text-obsidian-400">

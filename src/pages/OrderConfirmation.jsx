@@ -43,9 +43,9 @@ export default function OrderConfirmation() {
           </p>
         </div>
 
-        <div className="border border-obsidian-900/10">
+        <div className="surface overflow-hidden">
           {order.items.map((item) => (
-            <div key={item.lineId} className="flex gap-6 p-6 border-b border-obsidian-900/10">
+            <div key={item.lineId} className="flex gap-6 p-6">
               <div className="w-24 h-32 bg-ivory shrink-0 overflow-hidden rounded-xl">
                 <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top" />
               </div>
@@ -148,7 +148,7 @@ function Line({ label, value }) {
 
 function Detail({ title, children }) {
   return (
-    <div className="border-t border-obsidian-900/15 pt-4">
+    <div className="surface-soft px-6 py-5">
       <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-2">{title}</div>
       <div className="text-sm text-obsidian-400 leading-relaxed">{children}</div>
     </div>

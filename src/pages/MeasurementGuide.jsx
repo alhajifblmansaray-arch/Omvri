@@ -71,13 +71,13 @@ export default function MeasurementGuide() {
       <section className="max-w-[1300px] mx-auto px-6 md:px-10 pb-24">
         {/* set switch */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex border border-obsidian-900/15">
+          <div className="inline-flex surface-soft p-1 rounded-full">
             {Object.entries(sets).map(([k, v]) => (
               <button
                 key={k}
                 onClick={() => switchSet(k)}
-                className={`px-8 py-3 text-[11px] tracking-[0.14em] uppercase transition-colors duration-300 ${
-                  set === k ? 'bg-obsidian-900 text-white' : 'text-obsidian-500 hover:text-obsidian-900'
+                className={`px-8 py-2.5 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-300 ${
+                  set === k ? 'bg-obsidian-900 text-white shadow-md' : 'text-obsidian-500 hover:text-obsidian-900'
                 }`}
               >
                 {v.label}
@@ -114,13 +114,13 @@ export default function MeasurementGuide() {
           </ol>
 
           {/* stage */}
-          <div className="border border-obsidian-900/10 bg-white">
+          <div className="surface overflow-hidden">
             <div className="relative">
               <Stage slide={slide} />
               <Arrow dir="prev" onClick={() => go(-1)} label={`Previous: ${slides[(i - 1 + slides.length) % slides.length].label}`} />
               <Arrow dir="next" onClick={() => go(1)} label={`Next: ${slides[(i + 1) % slides.length].label}`} />
             </div>
-            <div className="flex items-center justify-between px-5 py-4 border-t border-obsidian-900/10">
+            <div className="flex items-center justify-between px-5 py-4">
               <span className="text-[11px] tracking-[0.12em] uppercase text-obsidian-900">
                 <span className="text-obsidian-500">{i + 1}</span>
                 <span className="text-obsidian-300"> / {slides.length}</span>

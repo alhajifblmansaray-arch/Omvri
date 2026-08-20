@@ -5,7 +5,7 @@ export default function OrderSummary({ items, compact = false }) {
   const totals = orderTotals(items)
 
   return (
-    <aside className={compact ? '' : 'border border-obsidian-900/10 p-6'}>
+    <aside className={compact ? '' : 'surface p-6'}>
       <h3 className="font-display text-xl text-obsidian-900 mb-5">Order summary</h3>
 
       <div className="space-y-4 mb-6">
@@ -50,7 +50,7 @@ export default function OrderSummary({ items, compact = false }) {
 
 function Line({ label, value }) {
   return (
-    <div className="flex items-center justify-between py-2 text-sm border-t border-obsidian-900/10">
+    <div className="flex items-center justify-between py-2 text-sm">
       <span className="text-obsidian-400">{label}</span>
       <span className="text-obsidian-900">{value}</span>
     </div>

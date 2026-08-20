@@ -49,7 +49,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-14 items-start">
           {/* form */}
           {sent ? (
-            <div className="border border-obsidian-900/10 px-8 py-20 text-center">
+            <div className="surface px-8 py-20 text-center">
               <span className="w-14 h-14 rounded-full border border-gold-700 text-obsidian-500 flex items-center justify-center mx-auto mb-6">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M4 12l5 5L20 6" />
@@ -128,8 +128,8 @@ export default function Contact() {
 }
 
 const inputCls = (err) =>
-  `w-full bg-transparent outline-none px-3 py-2.5 text-obsidian-900 border transition-colors duration-300 ${
-    err ? 'border-red-400' : 'border-obsidian-900/20 focus:border-gold-700'
+  `w-full bg-white outline-none px-4 py-3 rounded-xl text-obsidian-900 border transition-colors duration-300 ${
+    err ? 'border-red-400' : 'border-obsidian-900/20 focus:border-obsidian-900'
   }`
 
 function Field({ label, error, children }) {
@@ -144,7 +144,7 @@ function Field({ label, error, children }) {
 
 function Detail({ title, children }) {
   return (
-    <div className="border-t border-obsidian-900/15 pt-4">
+    <div className="surface-soft px-6 py-5">
       <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-2">{title}</div>
       <div className="text-sm text-obsidian-400 leading-relaxed">{children}</div>
     </div>

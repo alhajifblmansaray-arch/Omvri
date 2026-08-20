@@ -36,13 +36,15 @@ export default function Account() {
       <section className="max-w-[900px] mx-auto px-6 pb-28">
         {/* tabs */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex border border-obsidian-900/15">
+          <div className="inline-flex surface-soft p-1 rounded-full">
             {tabs.map(([k, label]) => (
               <button
                 key={k}
                 onClick={() => setTab(k)}
-                className={`px-6 sm:px-8 py-3 text-[11px] tracking-[0.14em] uppercase transition-colors duration-300 ${
-                  tab === k ? 'bg-obsidian-900 text-white' : 'text-obsidian-500 hover:text-obsidian-900'
+                className={`px-6 sm:px-8 py-2.5 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-300 ${
+                  tab === k
+                    ? 'bg-obsidian-900 text-white shadow-md'
+                    : 'text-obsidian-500 hover:text-obsidian-900'
                 }`}
               >
                 {label}
@@ -61,7 +63,7 @@ export default function Account() {
 
 function Empty({ title, body, cta, to }) {
   return (
-    <div className="text-center py-16 border border-obsidian-900/10">
+    <div className="surface text-center py-16 px-6">
       <h2 className="font-display text-2xl text-obsidian-900 mb-3">{title}</h2>
       <p className="text-sm text-obsidian-400 mb-8 max-w-[380px] mx-auto leading-relaxed">{body}</p>
       <Link
@@ -95,7 +97,7 @@ function Orders() {
         const open = openId === o.id
         const stage = orderStages[stageIndexFor(o)]
         return (
-          <div key={o.id} className="border border-obsidian-900/10">
+          <div key={o.id} className="surface overflow-hidden">
             <button
               onClick={() => setOpenId(open ? null : o.id)}
               aria-expanded={open}
@@ -168,7 +170,7 @@ function Measurements() {
   }
 
   return (
-    <div className="border border-obsidian-900/10 p-8">
+    <div className="surface p-8">
       <div className="flex items-baseline justify-between mb-8">
         <h2 className="font-display text-2xl text-obsidian-900">On file</h2>
         <span className="text-xs text-obsidian-400">
@@ -184,7 +186,7 @@ function Measurements() {
           <div key={g.title}>
             <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-3">{g.title}</div>
             {g.fields.map((f) => (
-              <div key={f.key} className="flex justify-between text-sm py-1.5 border-t border-obsidian-900/5">
+              <div key={f.key} className="flex justify-between text-sm py-2">
                 <span className="text-obsidian-400">{f.label}</span>
                 <span className="text-obsidian-900">{values[f.key] ? `${values[f.key]} ${unit}` : '·'}</span>
               </div>

@@ -105,7 +105,7 @@ export default function Checkout() {
                     <span
                       className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] transition-colors duration-300 ${
                         i < step
-                          ? 'bg-gold-700 text-white'
+                          ? 'bg-obsidian-900 text-white'
                           : i === step
                             ? 'bg-obsidian-900 text-white'
                             : 'border border-obsidian-900/20 text-obsidian-400'
@@ -244,8 +244,8 @@ function Field({ k, label, form, set, touched, setTouched, errOf, type = 'text',
         value={form[k] ?? ''}
         onChange={(e) => set(k, e.target.value)}
         onBlur={() => setTouched((t) => ({ ...t, [k]: true }))}
-        className={`w-full bg-transparent outline-none px-3 py-2.5 text-obsidian-900 border transition-colors duration-300 ${
-          err ? 'border-red-400' : 'border-obsidian-900/20 focus:border-gold-700'
+        className={`w-full bg-white outline-none px-4 py-3 rounded-xl text-obsidian-900 border transition-colors duration-300 ${
+          err ? 'border-red-400' : 'border-obsidian-900/20 focus:border-obsidian-900'
         }`}
       />
       {err && <span className="text-[11px] text-red-500 mt-1 block">{err}</span>}
@@ -255,7 +255,7 @@ function Field({ k, label, form, set, touched, setTouched, errOf, type = 'text',
 
 function Row({ label, value, onEdit }) {
   return (
-    <div className="flex items-start justify-between gap-6 border-t border-obsidian-900/10 py-4">
+    <div className="surface-soft flex items-start justify-between gap-6 px-6 py-4 mb-3">
       <div>
         <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-400 mb-1">{label}</div>
         <div className="text-sm text-obsidian-900">{value}</div>
