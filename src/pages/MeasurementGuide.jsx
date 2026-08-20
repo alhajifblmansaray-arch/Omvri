@@ -55,7 +55,7 @@ export default function MeasurementGuide() {
     <div className="pt-20">
       {/* hero */}
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           Sizing Assistance
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -103,7 +103,7 @@ export default function MeasurementGuide() {
                         : 'border-obsidian-900/10 text-obsidian-400 hover:text-obsidian-900'
                     }`}
                   >
-                    <span className={`font-display text-lg ${active ? 'text-gold-700' : 'text-obsidian-300'}`}>
+                    <span className={`font-display text-lg ${active ? 'text-obsidian-500' : 'text-obsidian-300'}`}>
                       {String(n + 1).padStart(2, '0')}
                     </span>
                     <span className="text-sm">{s.label}</span>
@@ -122,7 +122,7 @@ export default function MeasurementGuide() {
             </div>
             <div className="flex items-center justify-between px-5 py-4 border-t border-obsidian-900/10">
               <span className="text-[11px] tracking-[0.12em] uppercase text-obsidian-900">
-                <span className="text-gold-700">{i + 1}</span>
+                <span className="text-obsidian-500">{i + 1}</span>
                 <span className="text-obsidian-300"> / {slides.length}</span>
                 <span className="ml-2">{slide.label}</span>
               </span>
@@ -174,7 +174,7 @@ export default function MeasurementGuide() {
         <div className="text-center mt-14">
           <button
             onClick={goBack}
-            className="inline-block px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             {returnTo ? 'Back to your measurements' : 'Back to Shopping'}
           </button>
@@ -217,7 +217,7 @@ function Arrow({ dir, onClick, label }) {
     <button
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-4' : 'right-4'} w-11 h-11 rounded-full bg-white/90 backdrop-blur border border-obsidian-900/10 shadow-sm flex items-center justify-center text-obsidian-900 hover:border-gold-700 hover:text-gold-700 transition-colors duration-450`}
+      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-4' : 'right-4'} w-11 h-11 rounded-full bg-white/90 backdrop-blur border border-obsidian-900/10 shadow-sm flex items-center justify-center text-obsidian-900 hover:border-gold-700 hover:text-obsidian-500 transition-colors duration-450`}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d={isPrev ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'} />

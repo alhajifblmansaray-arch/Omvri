@@ -78,7 +78,7 @@ export default function ProductDetail() {
               />
               {shot.caption && (
                 <figcaption className="px-6 md:px-12 py-6 text-sm text-obsidian-600 leading-relaxed max-w-[480px]">
-                  <span className="text-gold-700 uppercase tracking-[0.14em] text-[11px] block mb-1.5">
+                  <span className="text-obsidian-500 uppercase tracking-[0.14em] text-[11px] block mb-1.5">
                     {shot.caption.split(' · ')[0]}
                   </span>
                   {shot.caption.split(' · ')[1]}
@@ -91,7 +91,7 @@ export default function ProductDetail() {
         {/* pinned right panel */}
         <div className="px-6 md:px-12 py-10 lg:py-0">
           <div className="lg:sticky lg:top-20 lg:h-[calc(100vh-5rem)] lg:overflow-y-auto lg:py-12">
-            <span className="text-[11px] tracking-widest2 uppercase text-gold-700">
+            <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500">
               {product.mill}
             </span>
             <div className="flex items-start justify-between gap-4">
@@ -109,7 +109,7 @@ export default function ProductDetail() {
             {rating && (
               <a
                 href="#reviews"
-                className="flex items-center gap-2 mt-3 text-sm text-obsidian-600 hover:text-gold-700 transition-colors duration-300 w-fit"
+                className="flex items-center gap-2 mt-3 text-sm text-obsidian-600 hover:text-obsidian-500 transition-colors duration-300 w-fit"
               >
                 <Stars n={Math.round(rating.avg)} size={13} />
                 <span className="text-obsidian-900">{rating.avg.toFixed(1)}</span>
@@ -150,7 +150,7 @@ export default function ProductDetail() {
               <button
                 aria-label="Save for later"
                 onClick={() => setPanel('save')}
-                className="w-[52px] border border-obsidian-900/15 flex items-center justify-center text-obsidian-900 hover:border-gold-700 hover:text-gold-700 transition-colors duration-450"
+                className="w-[54px] rounded-full btn btn-outline !px-0 shrink-0"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
                   <path d="M6 3h12v18l-6-4-6 4V3Z" />
@@ -158,7 +158,7 @@ export default function ProductDetail() {
               </button>
               <button
                 onClick={() => setPanel('custom')}
-                className="flex-1 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
+                className="btn btn-primary flex-1"
               >
                 Customize · {formatMoney(product.price)}
               </button>
@@ -231,7 +231,7 @@ export default function ProductDetail() {
                   />
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                  <h3 className="font-display text-lg md:text-xl text-obsidian-900 group-hover:text-gold-700 transition-colors duration-450">
+                  <h3 className="font-display text-lg md:text-xl text-obsidian-900 group-hover:text-obsidian-500 transition-colors duration-450">
                     {p.name}
                   </h3>
                   <span className="text-xs text-obsidian-400">{formatMoney(p.price)}</span>

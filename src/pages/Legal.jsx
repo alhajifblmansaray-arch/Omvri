@@ -35,7 +35,7 @@ export default function Legal({ kind = 'terms' }) {
   return (
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           {c.eyebrow}
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -50,7 +50,7 @@ export default function Legal({ kind = 'terms' }) {
         {c.sections.map(([h, body], i) => (
           <div key={h} className="border-t border-obsidian-900/10 py-7">
             <div className="flex items-baseline gap-4 mb-2.5">
-              <span className="font-display text-lg text-gold-700">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-display text-lg text-obsidian-500">{String(i + 1).padStart(2, '0')}</span>
               <h2 className="text-obsidian-900">{h}</h2>
             </div>
             <p className="text-sm text-obsidian-400 leading-relaxed pl-10">{body}</p>

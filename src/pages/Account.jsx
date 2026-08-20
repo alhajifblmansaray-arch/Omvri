@@ -21,7 +21,7 @@ export default function Account() {
   return (
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-12 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           My Wardrobe
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -66,7 +66,7 @@ function Empty({ title, body, cta, to }) {
       <p className="text-sm text-obsidian-400 mb-8 max-w-[380px] mx-auto leading-relaxed">{body}</p>
       <Link
         to={to}
-        className="inline-block px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+        className="btn btn-primary"
       >
         {cta}
       </Link>
@@ -105,7 +105,7 @@ function Orders() {
               <span className="text-xs text-obsidian-400">
                 {new Date(o.placedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
               </span>
-              <span className="text-[10px] tracking-[0.14em] uppercase text-gold-700 border border-gold-700/40 px-2 py-0.5">
+              <span className="text-[10px] tracking-[0.14em] uppercase text-obsidian-500 border border-gold-700/40 px-2 py-0.5">
                 {stage.label}
               </span>
               <span className="ml-auto text-obsidian-900">{formatMoney(o.totals.total, 2)}</span>
@@ -115,11 +115,11 @@ function Orders() {
             {open && (
               <div className="px-6 pb-8 border-t border-obsidian-900/10 pt-6 grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
-                  <div className="text-[11px] tracking-[0.12em] uppercase text-gold-700 mb-4">Production</div>
+                  <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-4">Production</div>
                   <OrderTimeline order={o} />
                 </div>
                 <div>
-                  <div className="text-[11px] tracking-[0.12em] uppercase text-gold-700 mb-4">Pieces</div>
+                  <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-4">Pieces</div>
                   <div className="space-y-4">
                     {o.items.map((item) => (
                       <div key={item.lineId} className="flex gap-4">
@@ -138,7 +138,7 @@ function Orders() {
                   </div>
                   <Link
                     to={`/order/${o.id}`}
-                    className="inline-block mt-6 text-[11px] tracking-[0.14em] uppercase text-gold-700 hover:underline"
+                    className="inline-block mt-6 text-[11px] tracking-[0.14em] uppercase text-obsidian-500 hover:underline"
                   >
                     View full order →
                   </Link>
@@ -182,7 +182,7 @@ function Measurements() {
           { title: 'Pants', fields: PANT_FIELDS },
         ].map((g) => (
           <div key={g.title}>
-            <div className="text-[11px] tracking-[0.12em] uppercase text-gold-700 mb-3">{g.title}</div>
+            <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-3">{g.title}</div>
             {g.fields.map((f) => (
               <div key={f.key} className="flex justify-between text-sm py-1.5 border-t border-obsidian-900/5">
                 <span className="text-obsidian-400">{f.label}</span>
@@ -195,13 +195,13 @@ function Measurements() {
       <div className="mt-8 flex flex-wrap gap-4">
         <Link
           to="/measurement-guide"
-          className="px-7 py-3.5 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.16em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+          className="btn btn-outline"
         >
           Review the Guide
         </Link>
         <Link
           to="/collections"
-          className="px-7 py-3.5 bg-obsidian-900 text-white text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
+          className="btn btn-primary"
         >
           Order With These
         </Link>
@@ -238,7 +238,7 @@ function Wishlist() {
             <WishlistButton productId={p.id} className="absolute top-3 right-3 bg-white/85" />
           </div>
           <div className="flex items-baseline justify-between">
-            <h3 className="font-display text-xl text-obsidian-900 group-hover:text-gold-700 transition-colors duration-450">
+            <h3 className="font-display text-xl text-obsidian-900 group-hover:text-obsidian-500 transition-colors duration-450">
               {p.name}
             </h3>
             <span className="text-xs text-obsidian-400">{formatMoney(p.price)}</span>

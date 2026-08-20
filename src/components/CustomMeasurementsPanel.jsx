@@ -71,7 +71,7 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
               state: { returnTo: location.pathname, returnStep: step },
             })
           }
-          className="text-[11px] tracking-[0.14em] uppercase text-gold-700 hover:text-gold-800 underline underline-offset-4 transition-colors duration-450"
+          className="text-[11px] tracking-[0.14em] uppercase text-obsidian-500 hover:text-obsidian-900 underline underline-offset-4 transition-colors duration-450"
         >
           How to Measure
         </button>
@@ -155,7 +155,7 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
       {/* sticky footer */}
       <div className="sticky bottom-0 bg-white mt-6 pt-4 border-t border-obsidian-900/10">
         {savedAt && step === 2 && (
-          <p className="text-xs text-gold-700 mb-3 flex items-center gap-2">
+          <p className="text-xs text-obsidian-500 mb-3 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-gold-700" />
             Your custom measurements have been saved successfully.
           </p>
@@ -164,7 +164,7 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
           {step > 0 && (
             <button
               onClick={() => setStep((s) => s - 1)}
-              className="px-6 py-3.5 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.16em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+              className="btn btn-outline"
             >
               Back
             </button>
@@ -172,7 +172,7 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
           {step < 2 ? (
             <button
               onClick={next}
-              className="flex-1 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
+              className="btn btn-primary flex-1"
             >
               Continue
             </button>
@@ -198,7 +198,7 @@ export default function CustomMeasurementsPanel({ product, onAdd, initialStep = 
 function StepFields({ title, diagram, fields, values, unit, touched, setTouched, setValue, onFocusField }) {
   return (
     <div>
-      <h3 className="text-[11px] tracking-[0.14em] uppercase text-gold-700 mb-4">{title}</h3>
+      <h3 className="text-[11px] tracking-[0.14em] uppercase text-obsidian-500 mb-4">{title}</h3>
       <div className="mb-6">{diagram}</div>
       <div className="grid grid-cols-2 gap-4">
         {fields.map((f) => {
@@ -240,7 +240,7 @@ function ReviewStep({ values, unit, onEdit }) {
   ]
   return (
     <div>
-      <h3 className="text-[11px] tracking-[0.14em] uppercase text-gold-700 mb-4">
+      <h3 className="text-[11px] tracking-[0.14em] uppercase text-obsidian-500 mb-4">
         Step 3 · Review &amp; Save
       </h3>
       {rows.map((group) => (
@@ -249,7 +249,7 @@ function ReviewStep({ values, unit, onEdit }) {
             <span className="font-display text-xl text-obsidian-900">{group.title}</span>
             <button
               onClick={() => onEdit(group.step)}
-              className="text-[11px] tracking-[0.14em] uppercase text-obsidian-400 hover:text-gold-700 transition-colors duration-450"
+              className="text-[11px] tracking-[0.14em] uppercase text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450"
             >
               Edit
             </button>

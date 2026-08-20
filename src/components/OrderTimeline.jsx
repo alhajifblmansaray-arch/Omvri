@@ -43,7 +43,7 @@ export default function OrderTimeline({ order }) {
               <div className={`text-sm ${active || done ? 'text-obsidian-900' : 'text-obsidian-400'}`}>
                 {s.label}
                 {active && (
-                  <span className="ml-2 text-[10px] tracking-[0.14em] uppercase text-gold-700">
+                  <span className="ml-2 text-[10px] tracking-[0.14em] uppercase text-obsidian-500">
                     Current stage
                   </span>
                 )}

@@ -12,7 +12,7 @@ export default function OrderConfirmation() {
       <div className="pt-20">
         <div className="max-w-[700px] mx-auto px-6 py-40 text-center">
           <h1 className="font-display text-4xl text-obsidian-900 mb-4">Order not found.</h1>
-          <Link to="/collections" className="text-[11px] tracking-[0.16em] uppercase text-gold-700">
+          <Link to="/collections" className="text-[11px] tracking-[0.16em] uppercase text-obsidian-500">
             Back to Collections
           </Link>
         </div>
@@ -26,12 +26,12 @@ export default function OrderConfirmation() {
     <div className="pt-20">
       <div className="max-w-[820px] mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <span className="w-14 h-14 rounded-full border border-gold-700 text-gold-700 flex items-center justify-center mx-auto mb-7">
+          <span className="w-14 h-14 rounded-full border border-gold-700 text-obsidian-500 flex items-center justify-center mx-auto mb-7">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M4 12l5 5L20 6" />
             </svg>
           </span>
-          <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 block mb-4">
+          <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-4">
             Order {order.id}
           </span>
           <h1 className="reveal font-display text-4xl md:text-5xl text-obsidian-900 mb-5">
@@ -53,7 +53,7 @@ export default function OrderConfirmation() {
                 <div className="flex items-center gap-2.5">
                   <span className="text-obsidian-900 font-medium">{item.name}</span>
                   {item.custom && (
-                    <span className="text-[9px] tracking-[0.14em] uppercase text-gold-700 border border-gold-700/40 px-2 py-0.5">
+                    <span className="text-[9px] tracking-[0.14em] uppercase text-obsidian-500 border border-gold-700/40 px-2 py-0.5">
                       Custom Sized
                     </span>
                   )}
@@ -67,7 +67,7 @@ export default function OrderConfirmation() {
                       { title: 'Pants', fields: PANT_FIELDS },
                     ].map((g) => (
                       <div key={g.title}>
-                        <div className="text-[10px] tracking-[0.12em] uppercase text-gold-700 mb-1.5">
+                        <div className="text-[10px] tracking-[0.12em] uppercase text-obsidian-500 mb-1.5">
                           {g.title}
                         </div>
                         {g.fields.map((f) => (
@@ -121,13 +121,13 @@ export default function OrderConfirmation() {
         <div className="text-center mt-16 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to={`/track?id=${order.id}`}
-            className="px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Track This Order
           </Link>
           <Link
             to="/collections"
-            className="px-9 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+            className="btn btn-outline"
           >
             Continue Shopping
           </Link>
@@ -149,7 +149,7 @@ function Line({ label, value }) {
 function Detail({ title, children }) {
   return (
     <div className="border-t border-obsidian-900/15 pt-4">
-      <div className="text-[11px] tracking-[0.12em] uppercase text-gold-700 mb-2">{title}</div>
+      <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-2">{title}</div>
       <div className="text-sm text-obsidian-400 leading-relaxed">{children}</div>
     </div>
   )

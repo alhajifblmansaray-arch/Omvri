@@ -12,7 +12,7 @@ export default function Lookbook() {
   return (
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The Lookbook
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -39,7 +39,7 @@ export default function Lookbook() {
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-obsidian-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-450">
                   <div className="text-white text-xs tracking-wide">{f.title}</div>
                   {product && (
-                    <div className="text-gold-400 text-[10px] tracking-[0.14em] uppercase mt-1">
+                    <div className="text-white/80 text-[10px] tracking-[0.14em] uppercase mt-1">
                       Shop {product.name}
                     </div>
                   )}
@@ -61,7 +61,7 @@ export default function Lookbook() {
         <div className="text-center mt-16">
           <Link
             to="/collections"
-            className="inline-block px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Shop All Suits
           </Link>

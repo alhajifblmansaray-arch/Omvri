@@ -47,7 +47,7 @@ export default function Checkout() {
           <h1 className="font-display text-4xl text-obsidian-900 mb-4">Your bag is empty.</h1>
           <Link
             to="/collections"
-            className="inline-block mt-6 px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="inline-block mt-6 btn btn-primary"
           >
             Shop Collections
           </Link>
@@ -189,7 +189,7 @@ export default function Checkout() {
               {step > 0 && (
                 <button
                   onClick={() => setStep((s) => s - 1)}
-                  className="px-6 py-3.5 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.16em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+                  className="btn btn-outline"
                 >
                   Back
                 </button>
@@ -197,14 +197,14 @@ export default function Checkout() {
               {step < 3 ? (
                 <button
                   onClick={next}
-                  className="flex-1 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
+                  className="btn btn-primary flex-1"
                 >
                   Continue
                 </button>
               ) : (
                 <button
                   onClick={placeOrder}
-                  className="flex-1 bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
+                  className="btn btn-primary flex-1"
                 >
                   Place order · {formatMoney(totals.total, 2)}
                 </button>
@@ -262,7 +262,7 @@ function Row({ label, value, onEdit }) {
       </div>
       <button
         onClick={onEdit}
-        className="text-[11px] tracking-[0.14em] uppercase text-obsidian-400 hover:text-gold-700 transition-colors duration-450 shrink-0"
+        className="text-[11px] tracking-[0.14em] uppercase text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450 shrink-0"
       >
         Edit
       </button>

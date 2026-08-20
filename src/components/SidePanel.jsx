@@ -20,7 +20,7 @@ export default function SidePanel({ open, onClose, onBack, title, children, foot
       />
 
       <aside
-        className={`fixed top-0 right-0 bottom-0 z-[60] w-full sm:w-[480px] lg:w-[40vw] lg:max-w-[560px] bg-white flex flex-col transition-transform duration-550 ease-signature ${
+        className={`fixed top-0 right-0 bottom-0 z-[60] w-full sm:w-[480px] lg:w-[40vw] lg:max-w-[560px] bg-white panel-raise flex flex-col transition-transform duration-550 ease-signature ${
           open ? 'translate-x-0 shadow-[-24px_0_60px_rgba(0,0,0,0.12)]' : 'translate-x-full'
         }`}
         role="dialog"
@@ -32,7 +32,7 @@ export default function SidePanel({ open, onClose, onBack, title, children, foot
             <button
               aria-label="Back"
               onClick={onBack}
-              className="w-9 h-9 rounded-full border border-obsidian-900/15 flex items-center justify-center text-obsidian-900 hover:border-gold-700 hover:text-gold-700 transition-colors duration-450"
+              className="w-9 h-9 rounded-full border border-obsidian-900/15 flex items-center justify-center text-obsidian-900 hover:border-gold-700 hover:text-obsidian-500 transition-colors duration-450"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M15 5l-7 7 7 7" />
@@ -44,7 +44,7 @@ export default function SidePanel({ open, onClose, onBack, title, children, foot
           <button
             aria-label="Close panel"
             onClick={onClose}
-            className="text-obsidian-400 hover:text-gold-700 transition-colors duration-450 text-xl leading-none"
+            className="text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450 text-xl leading-none"
           >
             ✕
           </button>

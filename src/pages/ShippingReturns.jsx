@@ -34,7 +34,7 @@ export default function ShippingReturns() {
   return (
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The Practical Part
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -45,7 +45,7 @@ export default function ShippingReturns() {
       <section className="max-w-[860px] mx-auto px-6 pb-24">
         {sections.map((s) => (
           <div key={s.title} className="mb-16">
-            <h2 className="text-[11px] tracking-[0.18em] uppercase text-gold-700 mb-5">{s.title}</h2>
+            <h2 className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-5">{s.title}</h2>
             <div className="border border-obsidian-900/10 divide-y divide-obsidian-900/10">
               {s.rows.map(([what, when, cost]) => (
                 <div key={what} className="grid grid-cols-[1fr_auto] sm:grid-cols-[1.2fr_1.4fr_auto] gap-3 px-5 py-4 text-sm items-baseline">
@@ -60,7 +60,7 @@ export default function ShippingReturns() {
           </div>
         ))}
 
-        <h2 className="text-[11px] tracking-[0.18em] uppercase text-gold-700 mb-5">Returns</h2>
+        <h2 className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-5">Returns</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10 mb-16">
           {returns.map((r) => (
             <div key={r.title} className="border-t border-obsidian-900/15 pt-5">
@@ -76,7 +76,7 @@ export default function ShippingReturns() {
           </p>
           <Link
             to="/track"
-            className="inline-block px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Track Your Order
           </Link>

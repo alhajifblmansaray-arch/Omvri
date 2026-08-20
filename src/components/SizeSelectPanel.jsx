@@ -24,7 +24,7 @@ export default function SizeSelectPanel({ product, onAdd }) {
   return (
     <div className="flex flex-col h-full">
       <div className="text-center mb-8">
-        <a href="#" className="text-sm text-obsidian-400 underline underline-offset-4 hover:text-gold-700 transition-colors duration-450">
+        <a href="#" className="text-sm text-obsidian-400 underline underline-offset-4 hover:text-obsidian-500 transition-colors duration-450">
           View size guide
         </a>
       </div>

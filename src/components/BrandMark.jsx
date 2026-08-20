@@ -8,7 +8,7 @@ export default function BrandMark() {
           className="font-display text-white leading-[0.85] tracking-[0.02em] select-none"
           style={{ fontSize: 'clamp(4.5rem, 21vw, 19rem)' }}
         >
-          Omvri<span className="text-gold-500">.</span>
+          Omvri<span className="text-white/50">.</span>
         </h2>
         <p className="font-display italic text-white/70 mt-6 md:mt-8 text-lg md:text-2xl">
           Cut for one person only.

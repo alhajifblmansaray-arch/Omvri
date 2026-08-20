@@ -24,7 +24,7 @@ export default function Collections() {
   return (
     <div className="pt-20">
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-14 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The Collection
         </span>
         <h1 className="reveal font-display text-5xl md:text-7xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -84,7 +84,7 @@ export default function Collections() {
             </p>
             <Link
               to="/measurement-guide"
-              className="inline-block px-9 py-4 bg-gold-700 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-800 transition-colors duration-450"
+              className="inline-block btn btn-primary"
             >
               How to Measure
             </Link>

@@ -66,7 +66,7 @@ export default function Footer() {
 
         {cols.map((c) => (
           <div key={c.title}>
-            <div className="text-[11px] tracking-[0.18em] uppercase text-gold-700 mb-4">{c.title}</div>
+            <div className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-4">{c.title}</div>
             <ul className="space-y-2.5 text-sm text-obsidian-400">
               {c.links.map(([label, to]) => (
                 <li key={label}>
@@ -80,10 +80,10 @@ export default function Footer() {
         ))}
 
         <div className="col-span-2 md:col-span-1">
-          <div className="text-[11px] tracking-[0.18em] uppercase text-gold-700 mb-4">The List</div>
+          <div className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-4">The List</div>
           {done ? (
             <p className="text-sm text-obsidian-400 leading-relaxed">
-              You are on the list. <span className="text-gold-700">✓</span>
+              You are on the list. <span className="text-obsidian-500">✓</span>
             </p>
           ) : (
             <form onSubmit={subscribe}>
@@ -99,7 +99,7 @@ export default function Footer() {
                   aria-label="Email for newsletter"
                   className="flex-1 min-w-0 bg-transparent outline-none py-2 text-sm text-obsidian-900 placeholder-obsidian-300"
                 />
-                <button type="submit" aria-label="Subscribe" className="text-obsidian-900 hover:text-gold-700 transition-colors duration-300 px-1">
+                <button type="submit" aria-label="Subscribe" className="text-obsidian-900 hover:text-obsidian-500 transition-colors duration-300 px-1">
                   →
                 </button>
               </div>

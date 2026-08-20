@@ -39,7 +39,7 @@ export default function CollectionCard({ product, index = 0 }) {
       onFocus={enter}
       onBlur={leave}
     >
-      <div className="relative overflow-hidden aspect-[4/5] bg-ivory border border-obsidian-900/5">
+      <div className="relative overflow-hidden rounded-xl aspect-[4/5] bg-ivory card-raise">
         {shots.map((src, n) => (
           <img
             key={src}
@@ -74,7 +74,7 @@ export default function CollectionCard({ product, index = 0 }) {
       </div>
 
       <div className="mt-4 flex items-baseline justify-between gap-4">
-        <h3 className="font-display text-2xl text-obsidian-900 group-hover:text-gold-700 transition-colors duration-450">
+        <h3 className="font-display text-2xl text-obsidian-900 group-hover:text-obsidian-500 transition-colors duration-450">
           {product.name}
         </h3>
         <span className="text-sm text-obsidian-900 shrink-0">

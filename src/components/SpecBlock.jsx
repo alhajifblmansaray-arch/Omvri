@@ -9,7 +9,7 @@ export default function SpecBlock({ spec, image, name }) {
     <section className="border-t border-obsidian-900/10">
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2">
         {image && (
-          <div className="relative min-h-[320px] md:min-h-[560px] bg-ivory order-1 md:order-none">
+          <div className="relative min-h-[320px] md:min-h-[560px] bg-ivory order-1 md:order-none overflow-hidden">
             <img
               src={image}
               alt={`${name}, cloth detail`}
@@ -20,7 +20,7 @@ export default function SpecBlock({ spec, image, name }) {
         )}
 
         <div className="px-6 md:px-12 py-14 md:py-20 flex flex-col justify-center">
-          <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-4">
+          <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-4">
             Meet the cloth
           </span>
           <h2 className="font-display text-3xl md:text-4xl text-obsidian-900 mb-10">

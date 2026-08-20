@@ -22,7 +22,7 @@ export default function Cart() {
           </p>
           <Link
             to="/collections"
-            className="inline-block px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Shop Collections
           </Link>
@@ -55,7 +55,7 @@ export default function Cart() {
                       <div className="flex items-center gap-2.5 flex-wrap">
                         <span className="text-obsidian-900 font-medium">{item.name}</span>
                         {item.custom && (
-                          <span className="text-[9px] tracking-[0.14em] uppercase text-gold-700 border border-gold-700/40 px-2 py-0.5">
+                          <span className="text-[9px] tracking-[0.14em] uppercase text-obsidian-500 border border-gold-700/40 px-2 py-0.5">
                             Custom Sized
                           </span>
                         )}
@@ -191,7 +191,7 @@ export default function Cart() {
 
 function Check() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold-700 shrink-0">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-obsidian-500 shrink-0">
       <path d="M4 12l5 5L20 6" />
     </svg>
   )
@@ -209,7 +209,7 @@ function CustomSummary({ measurements }) {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="text-[11px] tracking-[0.12em] uppercase text-obsidian-400 hover:text-gold-700 transition-colors duration-450 flex items-center gap-1.5"
+        className="text-[11px] tracking-[0.12em] uppercase text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450 flex items-center gap-1.5"
       >
         {open ? 'Hide' : 'View'} measurements
         <span className={`inline-block transition-transform duration-300 ${open ? 'rotate-45' : ''}`}>+</span>
@@ -218,7 +218,7 @@ function CustomSummary({ measurements }) {
         <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 max-w-md">
           {groups.map((g) => (
             <div key={g.title}>
-              <div className="text-[10px] tracking-[0.12em] uppercase text-gold-700 mb-1.5">{g.title}</div>
+              <div className="text-[10px] tracking-[0.12em] uppercase text-obsidian-500 mb-1.5">{g.title}</div>
               {g.fields.map((f) => (
                 <div key={f.key} className="flex justify-between text-xs py-0.5">
                   <span className="text-obsidian-400">{f.label}</span>

@@ -15,7 +15,7 @@ export default function WishlistButton({ productId, className = '' }) {
         toggle(productId)
       }}
       className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-300 ${
-        active ? 'text-gold-700' : 'text-obsidian-300 hover:text-obsidian-900'
+        active ? 'text-obsidian-500' : 'text-obsidian-300 hover:text-obsidian-900'
       } ${className}`}
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.5">

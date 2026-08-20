@@ -55,7 +55,7 @@ export default function NewsletterPopup() {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative bg-white w-full max-w-[860px] grid grid-cols-1 sm:grid-cols-2 overflow-hidden shadow-2xl"
+        className="relative bg-white w-full max-w-[860px] grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-2xl panel-raise"
       >
         <button
           onClick={dismiss}
@@ -80,7 +80,7 @@ export default function NewsletterPopup() {
         <div className="flex flex-col justify-center px-8 sm:px-11 py-12 sm:py-16">
           {submitted ? (
             <div className="text-center py-6">
-              <span className="w-12 h-12 rounded-full border border-gold-700 text-gold-700 flex items-center justify-center mx-auto mb-5">
+              <span className="w-12 h-12 rounded-full border border-gold-700 text-obsidian-500 flex items-center justify-center mx-auto mb-5">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <path d="M4 12l5 5L20 6" />
                 </svg>
@@ -111,7 +111,7 @@ export default function NewsletterPopup() {
                       setEmail(e.target.value)
                       setError('')
                     }}
-                    className={`w-full px-4 py-3.5 border text-obsidian-900 placeholder-obsidian-400 outline-none transition-colors duration-300 ${
+                    className={`w-full px-5 py-3.5 rounded-full border text-obsidian-900 placeholder-obsidian-400 outline-none transition-colors duration-300 ${
                       error ? 'border-red-400' : 'border-obsidian-900/25 focus:border-obsidian-900'
                     }`}
                   />
@@ -119,7 +119,7 @@ export default function NewsletterPopup() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-obsidian-900 text-white py-4 text-[15px] hover:bg-gold-700 transition-colors duration-450"
+                  className="btn btn-primary w-full !text-[13px]"
                 >
                   Sign up
                 </button>

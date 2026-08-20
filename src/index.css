@@ -59,6 +59,120 @@ h1, h2, h3, h4 {
   border-color: var(--hairline);
 }
 
+/* ---------------------------------------------------------------------------
+   Buttons. One shape for the whole site: fully rounded, raised off the page,
+   pressing down and shifting colour on click. Type stays black or white.
+   --------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 1rem 2.25rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    transform 220ms var(--ease-signature),
+    box-shadow 220ms var(--ease-signature),
+    background-color 220ms var(--ease-signature),
+    border-color 220ms var(--ease-signature);
+}
+
+/* solid, the primary action */
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+  box-shadow:
+    0 1px 2px rgba(23, 22, 26, 0.2),
+    0 8px 20px -6px rgba(23, 22, 26, 0.35);
+}
+.btn-primary:hover {
+  background: #2c2c2e;
+  transform: translateY(-2px);
+  box-shadow:
+    0 2px 4px rgba(23, 22, 26, 0.2),
+    0 16px 32px -8px rgba(23, 22, 26, 0.45);
+}
+.btn-primary:active {
+  background: var(--gold);
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(23, 22, 26, 0.3);
+}
+
+/* outlined, the quieter action */
+.btn-outline {
+  background: #fff;
+  color: var(--ink);
+  border-color: rgba(23, 22, 26, 0.18);
+  box-shadow:
+    0 1px 2px rgba(23, 22, 26, 0.06),
+    0 6px 16px -8px rgba(23, 22, 26, 0.2);
+}
+.btn-outline:hover {
+  border-color: rgba(23, 22, 26, 0.45);
+  transform: translateY(-2px);
+  box-shadow:
+    0 2px 4px rgba(23, 22, 26, 0.08),
+    0 14px 28px -10px rgba(23, 22, 26, 0.28);
+}
+.btn-outline:active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(23, 22, 26, 0.2);
+}
+
+/* inverted, for use on the dark closing band */
+.btn-invert {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+}
+.btn-invert:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
+}
+.btn-invert:active {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(1px);
+}
+
+/* ---------------------------------------------------------------------------
+   Depth. Cards and panels lift off the paper rather than sitting flat on it.
+   --------------------------------------------------------------------------- */
+.card-raise {
+  box-shadow:
+    0 1px 2px rgba(23, 22, 26, 0.04),
+    0 12px 28px -12px rgba(23, 22, 26, 0.22);
+  transition:
+    transform 450ms var(--ease-signature),
+    box-shadow 450ms var(--ease-signature);
+}
+.card-raise:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 2px 6px rgba(23, 22, 26, 0.06),
+    0 28px 48px -16px rgba(23, 22, 26, 0.32);
+}
+
+.panel-raise {
+  box-shadow:
+    0 2px 8px rgba(23, 22, 26, 0.06),
+    0 24px 60px -20px rgba(23, 22, 26, 0.28);
+}
+
+.header-raise {
+  box-shadow: 0 4px 24px -12px rgba(23, 22, 26, 0.3);
+}
+
 /* Ken Burns slow drift, used on hero and lookbook imagery */
 .kenburns {
   animation: kenburns 18s var(--ease-signature) forwards;

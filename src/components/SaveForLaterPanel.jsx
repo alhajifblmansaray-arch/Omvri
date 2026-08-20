@@ -35,7 +35,7 @@ export default function SaveForLaterPanel() {
 
       <button
         type="submit"
-        className="w-full bg-obsidian-900 text-white py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+        className="btn btn-primary w-full"
       >
         Continue
       </button>

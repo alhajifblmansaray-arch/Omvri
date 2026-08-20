@@ -32,7 +32,7 @@ export default function House() {
     <div className="pt-20">
       {/* hero */}
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-16 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The House
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900 leading-tight" style={{ animationDelay: '100ms' }}>
@@ -75,7 +75,7 @@ export default function House() {
             {values.map((v, i) => (
               <div key={v.title} className="border-t border-obsidian-900/15 pt-6">
                 <div className="flex items-baseline gap-4 mb-3">
-                  <span className="font-display text-xl text-gold-700">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-display text-xl text-obsidian-500">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="font-display text-2xl text-obsidian-900">{v.title}</h3>
                 </div>
                 <p className="text-sm text-obsidian-400 leading-relaxed">{v.body}</p>
@@ -105,13 +105,13 @@ export default function House() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/collections"
-            className="px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Shop the Collection
           </Link>
           <Link
             to="/lookbook"
-            className="px-9 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+            className="btn btn-outline"
           >
             See the Lookbook
           </Link>

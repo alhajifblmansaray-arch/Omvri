@@ -33,7 +33,7 @@ export default function Contact() {
   return (
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           Contact
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -50,7 +50,7 @@ export default function Contact() {
           {/* form */}
           {sent ? (
             <div className="border border-obsidian-900/10 px-8 py-20 text-center">
-              <span className="w-14 h-14 rounded-full border border-gold-700 text-gold-700 flex items-center justify-center mx-auto mb-6">
+              <span className="w-14 h-14 rounded-full border border-gold-700 text-obsidian-500 flex items-center justify-center mx-auto mb-6">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M4 12l5 5L20 6" />
                 </svg>
@@ -89,7 +89,7 @@ export default function Contact() {
               </Field>
               <button
                 type="submit"
-                className="w-full sm:w-auto px-10 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+                className="w-full sm:w-auto btn btn-primary"
               >
                 Send to the Atelier
               </button>
@@ -115,7 +115,7 @@ export default function Contact() {
               ))}
             </Detail>
             <Detail title="Write or call">
-              <a href={`mailto:${contact.email}`} className="hover:text-gold-700 transition-colors duration-450 block">
+              <a href={`mailto:${contact.email}`} className="hover:text-obsidian-500 transition-colors duration-450 block">
                 {contact.email}
               </a>
               <span className="block mt-1">{contact.phone}</span>
@@ -145,7 +145,7 @@ function Field({ label, error, children }) {
 function Detail({ title, children }) {
   return (
     <div className="border-t border-obsidian-900/15 pt-4">
-      <div className="text-[11px] tracking-[0.12em] uppercase text-gold-700 mb-2">{title}</div>
+      <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-2">{title}</div>
       <div className="text-sm text-obsidian-400 leading-relaxed">{children}</div>
     </div>
   )

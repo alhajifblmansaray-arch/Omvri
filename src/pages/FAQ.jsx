@@ -6,7 +6,7 @@ export default function FAQ() {
   return (
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           Questions
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -14,7 +14,7 @@ export default function FAQ() {
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[460px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
           Ordering, fit, delivery and care. If the answer is not here,{' '}
-          <Link to="/contact" className="text-gold-700 hover:underline">
+          <Link to="/contact" className="text-obsidian-500 hover:underline">
             write to the atelier
           </Link>
           .
@@ -24,7 +24,7 @@ export default function FAQ() {
       <section className="max-w-[760px] mx-auto px-6 pb-28">
         {faqs.map((g) => (
           <div key={g.group} className="mb-12">
-            <h2 className="text-[11px] tracking-[0.18em] uppercase text-gold-700 mb-4">{g.group}</h2>
+            <h2 className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-4">{g.group}</h2>
             {g.items.map((f) => (
               <Item key={f.q} {...f} />
             ))}
@@ -36,7 +36,7 @@ export default function FAQ() {
           <p className="text-sm text-obsidian-400 mb-8">A person answers within one working day.</p>
           <Link
             to="/contact"
-            className="inline-block px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Contact the Atelier
           </Link>

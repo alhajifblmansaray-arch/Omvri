@@ -31,7 +31,7 @@ export default function AddedToBagBar() {
           </div>
           <button
             onClick={() => navigate('/cart')}
-            className="text-[11px] tracking-[0.16em] uppercase text-gold-400 hover:text-white transition-colors duration-450"
+            className="text-[11px] tracking-[0.16em] uppercase text-white/80 hover:text-white transition-colors duration-450"
           >
             View
           </button>

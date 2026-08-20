@@ -29,7 +29,7 @@ export default function Reviews({ productId }) {
             </div>
             <p className="text-sm text-obsidian-600 leading-relaxed mb-2">{r.body}</p>
             <span className="text-xs text-obsidian-900">{r.name}</span>
-            <span className="text-xs text-gold-700 ml-2">Verified order</span>
+            <span className="text-xs text-obsidian-500 ml-2">Verified order</span>
           </div>
         ))}
       </div>

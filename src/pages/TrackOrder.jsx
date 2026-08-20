@@ -18,7 +18,7 @@ export default function TrackOrder() {
   return (
     <div className="pt-20">
       <section className="max-w-[900px] mx-auto px-6 pt-20 pb-12 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           Order Status
         </span>
         <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -40,7 +40,7 @@ export default function TrackOrder() {
           />
           <button
             type="submit"
-            className="px-8 py-3.5 bg-obsidian-900 text-white text-[11px] tracking-[0.16em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Track
           </button>
@@ -51,7 +51,7 @@ export default function TrackOrder() {
             <h2 className="font-display text-2xl text-obsidian-900 mb-3">Not found.</h2>
             <p className="text-sm text-obsidian-400 leading-relaxed max-w-[380px] mx-auto">
               No order “{searched}” on this device. Check the number in your confirmation email, or{' '}
-              <Link to="/contact" className="text-gold-700 hover:underline">
+              <Link to="/contact" className="text-obsidian-500 hover:underline">
                 write to the atelier
               </Link>{' '}
               and we will find it.
@@ -71,7 +71,7 @@ export default function TrackOrder() {
             <OrderTimeline order={order} />
             <Link
               to={`/order/${order.id}`}
-              className="inline-block mt-8 text-[11px] tracking-[0.14em] uppercase text-gold-700 hover:underline"
+              className="inline-block mt-8 text-[11px] tracking-[0.14em] uppercase text-obsidian-500 hover:underline"
             >
               View full order →
             </Link>

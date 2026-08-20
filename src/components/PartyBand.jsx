@@ -7,7 +7,7 @@ export default function PartyBand({ productName }) {
     <section className="border-y border-obsidian-900/10 bg-[#e9e1d6]">
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.05fr] items-stretch">
         <div className="px-6 md:px-10 py-12 md:py-16 flex flex-col justify-center">
-          <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-4">
+          <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-4">
             Weddings &amp; Parties
           </span>
           <h2 className="font-display text-3xl md:text-4xl text-obsidian-900 leading-[1.1] mb-4">
@@ -20,7 +20,7 @@ export default function PartyBand({ productName }) {
           </p>
           <Link
             to="/contact?topic=Wedding%20party"
-            className="self-start px-9 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+            className="btn btn-primary"
           >
             Consult With Us
           </Link>

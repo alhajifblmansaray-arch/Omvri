@@ -12,7 +12,7 @@ export default function Featured() {
   return (
     <div className="pt-20">
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-12 text-center">
-        <span className="reveal text-[11px] tracking-widest2 uppercase text-gold-700 mb-5 block">
+        <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The Featured Edit
         </span>
         <h1 className="reveal font-display text-5xl md:text-7xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
@@ -35,7 +35,7 @@ export default function Featured() {
         <div className="text-center mt-16">
           <Link
             to="/collections"
-            className="inline-block px-9 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+            className="btn btn-outline"
           >
             See All Seven Suits
           </Link>

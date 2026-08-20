@@ -55,7 +55,7 @@ function Arrow({ dir, onClick, label }) {
     <button
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-2' : 'right-2'} w-9 h-9 rounded-full flex items-center justify-center text-obsidian-400 hover:text-gold-700 transition-colors duration-450`}
+      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-2' : 'right-2'} w-9 h-9 rounded-full flex items-center justify-center text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450`}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d={isPrev ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'} />

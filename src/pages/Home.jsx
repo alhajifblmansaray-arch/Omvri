@@ -24,22 +24,22 @@ export default function Home() {
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-28">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-3">
+            <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-3">
               The Featured Edit
             </span>
             <h3 className="font-display text-3xl md:text-4xl text-obsidian-900">
               Cutting most this season
             </h3>
           </div>
-          <Link to="/featured" className="text-[11px] tracking-[0.16em] uppercase text-gold-700 hover:text-gold-800 transition-colors duration-450 shrink-0">
+          <Link to="/featured" className="text-[11px] tracking-[0.16em] uppercase text-obsidian-500 hover:text-obsidian-900 transition-colors duration-450 shrink-0">
             View All
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-obsidian-900/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {featuredProducts().map((p) => {
             const rating = ratingFor(p.id)
             return (
-              <Link key={p.id} to={`/suits/${p.slug}`} className="group bg-white">
+              <Link key={p.id} to={`/suits/${p.slug}`} className="group bg-white rounded-xl overflow-hidden card-raise">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={p.hero}
@@ -49,8 +49,8 @@ export default function Home() {
                     }`}
                   />
                 </div>
-                <div className="px-1 pt-5 pb-6">
-                  <div className="text-obsidian-900 font-display text-xl group-hover:text-gold-700 transition-colors duration-450">
+                <div className="px-4 pt-5 pb-6">
+                  <div className="text-obsidian-900 font-display text-xl group-hover:text-obsidian-500 transition-colors duration-450">
                     {p.name}
                   </div>
                   <div className="text-obsidian-600 text-sm mt-1">
@@ -93,7 +93,7 @@ export default function Home() {
 
         <div className="relative max-w-[1600px] mx-auto px-6 md:px-10 py-14 md:py-32">
           <div className="max-w-[520px] md:max-w-[46%]">
-            <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-5">
+            <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-5">
               Weddings &amp; Parties
             </span>
             <h3 className="font-display text-4xl md:text-5xl lg:text-6xl text-obsidian-900 leading-[1.08] mb-6">
@@ -123,7 +123,7 @@ export default function Home() {
 
             <Link
               to="/contact?topic=Wedding%20party"
-              className="inline-block px-10 py-4 bg-obsidian-900 text-white text-[11px] tracking-[0.18em] uppercase hover:bg-gold-700 transition-colors duration-450"
+              className="btn btn-primary"
             >
               Consult With Us
             </Link>
@@ -137,7 +137,7 @@ export default function Home() {
           <img src={craft.image} alt="The OMVRI cuff tab, hand-embroidered in gold thread" loading="lazy" className="w-full h-full object-cover" />
         </div>
         <div className="text-center md:text-left order-1 md:order-2">
-          <span className="text-[11px] tracking-widest2 uppercase text-gold-700 block mb-5">
+          <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-5">
             The Signature
           </span>
           <h3 className="font-display text-4xl md:text-5xl text-obsidian-900 leading-[1.1] mb-6">
@@ -151,7 +151,7 @@ export default function Home() {
           </p>
           <Link
             to="/house"
-            className="inline-block px-9 py-4 border border-obsidian-900/20 text-obsidian-900 text-[11px] tracking-[0.18em] uppercase hover:border-obsidian-900 transition-colors duration-450"
+            className="btn btn-outline"
           >
             Inside the House
           </Link>
@@ -167,13 +167,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {testimonials.map((t) => (
               <figure key={t.name} className="border-t border-obsidian-900/15 pt-6">
-                <div className="text-gold-700 mb-4" aria-hidden="true">★★★★★</div>
+                <div className="text-obsidian-500 mb-4" aria-hidden="true">★★★★★</div>
                 <blockquote className="text-sm text-obsidian-900 leading-relaxed mb-5">
                   “{t.quote}”
                 </blockquote>
                 <figcaption className="text-xs text-obsidian-400">
                   {t.name}, {t.city}
-                  <span className="block text-gold-700 mt-0.5">{t.suit}</span>
+                  <span className="block text-obsidian-500 mt-0.5">{t.suit}</span>
                 </figcaption>
               </figure>
             ))}
@@ -185,7 +185,7 @@ export default function Home() {
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28">
         <div className="flex items-end justify-between mb-10">
           <h3 className="font-display text-3xl text-obsidian-900">From the Lookbook</h3>
-          <Link to="/lookbook" className="text-[11px] tracking-[0.16em] uppercase text-gold-700 hover:text-gold-800 transition-colors duration-450">
+          <Link to="/lookbook" className="text-[11px] tracking-[0.16em] uppercase text-obsidian-500 hover:text-obsidian-900 transition-colors duration-450">
             View All
           </Link>
         </div>

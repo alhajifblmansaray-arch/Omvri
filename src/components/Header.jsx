@@ -23,7 +23,7 @@ const menuSmall = [
 // with a gold wash and lift on hover so they feel alive rather than greyed out.
 const iconBtn =
   'w-9 h-9 rounded-full flex items-center justify-center text-obsidian-800 ' +
-  'hover:text-gold-600 hover:bg-gold-700/10 active:scale-95 ' +
+  'hover:text-obsidian-900 hover:bg-gold-700/10 active:scale-95 ' +
   'transition-all duration-300 ease-signature'
 
 function Badge({ children }) {
@@ -52,7 +52,7 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-450 ease-signature ${
-          scrolled ? 'bg-white/90 backdrop-blur-md border-b border-obsidian-900/10' : 'bg-transparent'
+          scrolled ? 'bg-white/95 backdrop-blur-md header-raise' : 'bg-transparent'
         }`}
       >
         <div className="max-w-[1600px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
@@ -128,7 +128,7 @@ export default function Header() {
           <button
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
-            className="text-obsidian-400 hover:text-gold-700 transition-colors duration-450 text-2xl leading-none"
+            className="text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450 text-2xl leading-none"
           >
             ✕
           </button>
@@ -141,7 +141,7 @@ export default function Header() {
                 to={to}
                 onClick={() => setMenuOpen(false)}
                 style={{ animationDelay: `${i * 60}ms` }}
-                className="reveal font-display text-4xl md:text-5xl text-obsidian-900 hover:text-gold-700 transition-colors duration-450"
+                className="reveal font-display text-4xl md:text-5xl text-obsidian-900 hover:text-obsidian-500 transition-colors duration-450"
               >
                 {label}
               </Link>
@@ -153,7 +153,7 @@ export default function Header() {
                   to={to}
                   onClick={() => setMenuOpen(false)}
                   style={{ animationDelay: `${(menuLinks.length + i) * 60}ms` }}
-                  className="reveal text-[11px] tracking-[0.18em] uppercase text-obsidian-400 hover:text-gold-700 transition-colors duration-450"
+                  className="reveal text-[11px] tracking-[0.18em] uppercase text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450"
                 >
                   {label}
                 </Link>
