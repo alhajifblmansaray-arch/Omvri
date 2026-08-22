@@ -1,10 +1,25 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { featuredProducts } from '../data/products'
 import { formatMoney } from '../lib/currency'
 import { testimonials, lookbook, craft } from '../data/content'
 import Stars, { ratingFor } from '../components/Stars'
 
+// Fisher-Yates, so every frame has an equal chance of showing. A random sort
+// comparator would bias the result toward the original order.
+function pickRandom(list, count) {
+  const pool = [...list]
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[pool[i], pool[j]] = [pool[j], pool[i]]
+  }
+  return pool.slice(0, count)
+}
+
 export default function Home() {
+  // picked once per visit, so the teaser stays put while the page is open
+  const teaser = useMemo(() => pickRandom(lookbook, 4), [])
+
   return (
     <div>
       {/* full-bleed video hero */}
@@ -190,7 +205,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-          {lookbook.slice(0, 4).map((f) => (
+          {teaser.map((f) => (
             <Link key={f.src} to="/lookbook" className="group relative aspect-[3/4] overflow-hidden rounded-xl card-raise bg-ivory">
               <img
                 src={f.src}
