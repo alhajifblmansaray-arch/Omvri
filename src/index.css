@@ -271,6 +271,78 @@ h1, h2, h3, h4 {
   font-weight: 300;
 }
 
+/* ---------------------------------------------------------------------------
+   Testimonials. A slower, classical reveal used nowhere else on the site: each
+   card develops into focus, the way a print comes up in a tray. Blur clears,
+   the card settles up onto its shadow, and the quotation mark draws itself in
+   just behind the text.
+   --------------------------------------------------------------------------- */
+.testimonial {
+  position: relative;
+  opacity: 0;
+  transform: translateY(34px) scale(0.985);
+  filter: blur(7px);
+  transition:
+    opacity 1100ms var(--ease-signature),
+    transform 1100ms var(--ease-signature),
+    filter 1100ms var(--ease-signature),
+    box-shadow 500ms var(--ease-signature);
+}
+.testimonial.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+.testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 2px 6px rgba(23, 22, 26, 0.06),
+    0 26px 46px -18px rgba(23, 22, 26, 0.3);
+}
+
+/* the oversized serif quote, set behind the words */
+.testimonial-quote {
+  position: absolute;
+  top: 0.35rem;
+  left: 1.4rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(-14px);
+  transition:
+    opacity 1000ms var(--ease-signature) 260ms,
+    transform 1000ms var(--ease-signature) 260ms;
+  pointer-events: none;
+  user-select: none;
+}
+.testimonial.is-visible .testimonial-quote {
+  opacity: 0.16;
+  transform: translateY(0);
+}
+
+/* the rule under the stars draws out from the left as the card lands */
+.testimonial-rule {
+  display: block;
+  height: 1px;
+  width: 0;
+  background: var(--gold);
+  opacity: 0.5;
+  transition: width 900ms var(--ease-signature) 420ms;
+}
+.testimonial.is-visible .testimonial-rule {
+  width: 2.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial,
+  .testimonial-quote,
+  .testimonial-rule {
+    transition: none;
+  }
+}
+
 /* measure-path — a hand-drawn confirming stroke used for selection states */
 .measure-path {
   stroke-dasharray: 1;

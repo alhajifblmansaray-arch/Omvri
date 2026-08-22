@@ -2,8 +2,9 @@ import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { featuredProducts } from '../data/products'
 import { formatMoney } from '../lib/currency'
-import { testimonials, lookbook, craft } from '../data/content'
+import { lookbook, craft } from '../data/content'
 import Stars, { ratingFor } from '../components/Stars'
+import Testimonials from '../components/Testimonials'
 
 // Fisher-Yates, so every frame has an equal chance of showing. A random sort
 // comparator would bias the result toward the original order.
@@ -173,28 +174,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* testimonials */}
-      <section className="bg-ivory border-y border-obsidian-900/10">
-        <div className="max-w-[1300px] mx-auto px-6 md:px-10 py-24">
-          <h3 className="font-display text-3xl md:text-4xl text-obsidian-900 text-center mb-16">
-            Worn and vouched for.
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="border-t border-obsidian-900/15 pt-6">
-                <div className="text-obsidian-500 mb-4" aria-hidden="true">★★★★★</div>
-                <blockquote className="text-sm text-obsidian-900 leading-relaxed mb-5">
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="text-xs text-obsidian-400">
-                  {t.name}, {t.city}
-                  <span className="block text-obsidian-500 mt-0.5">{t.suit}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* lookbook teaser */}
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28">
