@@ -109,9 +109,17 @@ export default function Footer() {
             href={contact.instagram}
             target="_blank"
             rel="noreferrer"
-            className="inline-block mt-6 text-sm text-obsidian-400 hover:text-obsidian-900 transition-colors duration-450"
+            aria-label={`OMVRI on Instagram, ${contact.instagramHandle}`}
+            className="group inline-flex items-center gap-2.5 mt-6 text-sm text-obsidian-600 hover:text-obsidian-900 transition-colors duration-450"
           >
-            Instagram
+            <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            {contact.instagramHandle}
           </a>
         </div>
       </div>

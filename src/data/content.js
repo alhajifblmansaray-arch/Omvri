@@ -107,7 +107,8 @@ export const contact = {
     ['Saturday', '11:00 to 17:00'],
     ['Sunday and Monday', 'By appointment'],
   ],
-  instagram: 'https://instagram.com/omvri',
+  instagram: 'https://www.instagram.com/_omvri/',
+  instagramHandle: '@_omvri',
 }
 
 // Production stages for the order tracker. `afterDays` is days since the
