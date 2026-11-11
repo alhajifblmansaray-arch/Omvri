@@ -1,4 +1,8 @@
-# React + Vite
+# OMVRI
+
+Website source. Changes pushed to `main` on GitHub are deployed automatically by Netlify.
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
