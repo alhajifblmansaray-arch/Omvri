@@ -11,6 +11,7 @@ import Reviews from '../components/Reviews'
 import Stars, { ratingFor } from '../components/Stars'
 import PartyBand from '../components/PartyBand'
 import SpecBlock from '../components/SpecBlock'
+import ProductGallery from '../components/ProductGallery'
 
 // The education stack. Same four headings on every suit so the page reads the
 // same way twice, which is the point of a template.
@@ -66,27 +67,7 @@ export default function ProductDetail() {
   return (
     <div className="pt-20">
       <div className="lg:grid lg:grid-cols-[60%_40%]">
-        {/* scrolling image column, the craft story */}
-        <div className="relative px-4 md:px-6 space-y-5">
-          {product.gallery.map((shot, i) => (
-            <figure key={i} className="relative m-0">
-              <img
-                src={shot.src}
-                alt={shot.caption || `${product.name}, view ${i + 1}`}
-                className="w-full object-cover rounded-2xl card-raise"
-                loading={i > 1 ? 'lazy' : undefined}
-              />
-              {shot.caption && (
-                <figcaption className="px-6 md:px-12 py-6 text-sm text-obsidian-600 leading-relaxed max-w-[480px]">
-                  <span className="text-obsidian-500 uppercase tracking-[0.14em] text-[11px] block mb-1.5">
-                    {shot.caption.split(' · ')[0]}
-                  </span>
-                  {shot.caption.split(' · ')[1]}
-                </figcaption>
-              )}
-            </figure>
-          ))}
-        </div>
+        <ProductGallery key={product.slug} product={product} />
 
         {/* pinned right panel */}
         <div className="px-6 md:px-12 py-10 lg:py-0">
