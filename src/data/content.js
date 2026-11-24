@@ -101,7 +101,7 @@ export const craft = {
 export const contact = {
   email: 'atelier@omvri.com',
   phone: '+1 (416) 555-0148',
-  address: ['The OMVRI Atelier', '128 Ossington Avenue', 'Toronto, ON M6J 2Z5'],
+  address: ['The OMVRI Atelier', '158 Ossington Avenue', 'Toronto, ON M6J 2Z5'],
   hours: [
     ['Tuesday to Friday', '10:00 to 19:00'],
     ['Saturday', '11:00 to 17:00'],
