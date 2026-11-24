@@ -11,7 +11,7 @@ export default function OrderSummary({ items, compact = false }) {
       <div className="space-y-4 mb-6">
         {items.map((item) => (
           <div key={item.lineId} className="flex gap-4">
-            <div className="w-14 h-18 bg-ivory shrink-0 overflow-hidden rounded-lg">
+            <div className="w-14 h-[72px] bg-ivory shrink-0 overflow-hidden rounded-lg">
               <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top" />
             </div>
             <div className="flex-1 min-w-0">

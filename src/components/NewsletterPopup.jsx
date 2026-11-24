@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import useLockBodyScroll from '../hooks/useLockBodyScroll'
 
 const SEEN_KEY = 'omvri-popup-seen'
 
@@ -46,21 +47,28 @@ export default function NewsletterPopup() {
     return () => window.removeEventListener('keydown', onKey)
   }, [show])
 
+  useLockBodyScroll(show)
+
   if (!show) return null
 
+  // phones: rises from the bottom as a sheet, within reach of the thumb.
+  // larger screens: a centred card with the photograph beside the form.
   return (
     <div
       onClick={dismiss}
-      className="fixed inset-0 bg-obsidian-900/50 backdrop-blur-sm flex items-center justify-center z-[70] p-4"
+      className="fixed inset-0 bg-obsidian-900/50 backdrop-blur-sm flex items-end sm:items-center justify-center z-[70] sm:p-4"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative bg-white w-full max-w-[860px] grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-2xl panel-raise"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Get exclusive access"
+        className="reveal relative bg-white w-full max-w-[860px] max-h-[92dvh] overflow-y-auto overscroll-contain grid grid-cols-1 sm:grid-cols-2 rounded-t-3xl sm:rounded-2xl panel-raise"
       >
         <button
           onClick={dismiss}
           aria-label="Close"
-          className="absolute top-4 right-4 z-10 text-obsidian-400 hover:text-obsidian-900 transition-colors duration-300"
+          className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 w-11 h-11 rounded-full flex items-center justify-center text-obsidian-400 hover:text-obsidian-900 active:bg-obsidian-900/[0.06] transition-colors duration-300"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
             <path d="M6 6l12 12M18 6L6 18" />
@@ -77,7 +85,9 @@ export default function NewsletterPopup() {
         </div>
 
         {/* form side */}
-        <div className="flex flex-col justify-center px-8 sm:px-11 py-12 sm:py-16">
+        <div className="flex flex-col justify-center px-6 sm:px-11 pt-10 pb-[max(2rem,env(safe-area-inset-bottom))] sm:py-16">
+          {/* grab handle, the familiar cue that a sheet can be dismissed */}
+          <span className="sm:hidden absolute top-2.5 left-1/2 -translate-x-1/2 w-10 h-1 rounded-full bg-obsidian-900/15" aria-hidden="true" />
           {submitted ? (
             <div className="text-center py-6">
               <span className="w-12 h-12 rounded-full bg-obsidian-900 text-white flex items-center justify-center mx-auto mb-5">
@@ -92,10 +102,10 @@ export default function NewsletterPopup() {
             </div>
           ) : (
             <>
-              <h2 className="font-display text-4xl sm:text-[2.6rem] leading-[1.1] text-obsidian-900 mb-5">
+              <h2 className="font-display text-[2.1rem] sm:text-[2.6rem] leading-[1.1] text-obsidian-900 mb-4 sm:mb-5 pr-8 sm:pr-0">
                 Get Exclusive Access
               </h2>
-              <p className="text-obsidian-500 text-[15px] leading-relaxed mb-9">
+              <p className="text-obsidian-500 text-[15px] leading-relaxed mb-7 sm:mb-9">
                 Sign up for early collection previews, expert styling advice, and the latest in
                 menswear, all tailored for you. Take 15% off your first suit.
               </p>
@@ -106,12 +116,14 @@ export default function NewsletterPopup() {
                     type="email"
                     placeholder="Email"
                     aria-label="Email"
+                    autoComplete="email"
+                    enterKeyHint="send"
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value)
                       setError('')
                     }}
-                    className={`w-full px-5 py-3.5 rounded-full border text-obsidian-900 placeholder-obsidian-400 outline-none transition-colors duration-300 ${
+                    className={`w-full px-5 py-3.5 rounded-full border text-base text-obsidian-900 placeholder-obsidian-400 outline-none transition-colors duration-300 ${
                       error ? 'border-red-400' : 'border-obsidian-900/25 focus:border-obsidian-900'
                     }`}
                   />

@@ -9,7 +9,7 @@ export default function OrderConfirmation() {
 
   if (!order) {
     return (
-      <div className="pt-20">
+      <div className="pt-16 md:pt-20">
         <div className="max-w-[700px] mx-auto px-6 py-40 text-center">
           <h1 className="font-display text-4xl text-obsidian-900 mb-4">Order not found.</h1>
           <Link to="/collections" className="text-[11px] tracking-[0.16em] uppercase text-obsidian-500">
@@ -23,7 +23,7 @@ export default function OrderConfirmation() {
   const { totals } = order
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       <div className="max-w-[820px] mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <span className="w-14 h-14 rounded-full bg-obsidian-900 text-white flex items-center justify-center mx-auto mb-7">

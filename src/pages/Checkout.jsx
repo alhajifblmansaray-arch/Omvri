@@ -39,10 +39,11 @@ export default function Checkout() {
   const [step, setStep] = useState(0)
   const [touched, setTouched] = useState({})
   const [form, setForm] = useState({ country: 'Canada' })
+  const [summaryOpen, setSummaryOpen] = useState(false)
 
   if (items.length === 0) {
     return (
-      <div className="pt-20">
+      <div className="pt-16 md:pt-20">
         <div className="max-w-[700px] mx-auto px-6 py-40 text-center">
           <h1 className="font-display text-4xl text-obsidian-900 mb-4">Your bag is empty.</h1>
           <Link
@@ -86,16 +87,47 @@ export default function Checkout() {
   const totals = orderTotals(items)
 
   return (
-    <div className="pt-20">
-      <div className="max-w-[1300px] mx-auto px-6 md:px-10 py-16">
-        <h1 className="font-display text-4xl md:text-5xl text-obsidian-900 text-center mb-12">
+    <div className="pt-16 md:pt-20">
+      <div className="max-w-[1300px] mx-auto px-5 sm:px-6 md:px-10 py-10 md:py-16">
+        <h1 className="font-display text-4xl md:text-5xl text-obsidian-900 text-center mb-8 md:mb-12">
           Checkout
         </h1>
 
         <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-14 items-start">
           <div>
+            {/* phones and tablets: summary folds away at the top, Shopify style,
+                so the form comes first but the total is always one tap away */}
+            <div className="lg:hidden surface-soft mb-8 overflow-hidden">
+              <button
+                onClick={() => setSummaryOpen((o) => !o)}
+                aria-expanded={summaryOpen}
+                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+              >
+                <span className="flex items-center gap-2 text-sm text-obsidian-900">
+                  {summaryOpen ? 'Hide' : 'Show'} order summary
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className={`transition-transform duration-300 ${summaryOpen ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <span className="text-obsidian-900">{formatMoney(totals.total, 2)}</span>
+              </button>
+              {summaryOpen && (
+                <div className="px-5 pb-5">
+                  <OrderSummary items={items} compact />
+                </div>
+              )}
+            </div>
+
             {/* progress */}
-            <ol className="flex items-center gap-2 mb-10">
+            <ol className="flex items-center gap-2 mb-3 sm:mb-10">
               {STEPS.map((s, i) => (
                 <li key={s} className="flex items-center gap-2 flex-1">
                   <button
@@ -125,38 +157,43 @@ export default function Checkout() {
                 </li>
               ))}
             </ol>
+            {/* the step names are hidden beside the dots on phones; say where we are */}
+            <p className="sm:hidden text-[10px] tracking-[0.14em] uppercase text-obsidian-500 mb-8">
+              Step {step + 1} of {STEPS.length} · {STEPS[step]}
+            </p>
 
             {step === 0 && (
               <Section title="Contact">
-                <Field k="email" label="Email" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} type="email" />
+                <Field k="email" label="Email" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} type="email" autoComplete="email" />
                 <p className="text-xs text-obsidian-400 mt-3">
                   Your order confirmation and fitting updates go here.
                 </p>
               </Section>
             )}
 
+            {/* autoComplete lets a phone fill these from the owner's saved details */}
             {step === 1 && (
               <Section title="Shipping address">
-                <div className="grid grid-cols-2 gap-4">
-                  <Field k="firstName" label="First name" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} />
-                  <Field k="lastName" label="Last name" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} />
+                <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-4">
+                  <Field k="firstName" label="First name" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} autoComplete="shipping given-name" />
+                  <Field k="lastName" label="Last name" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} autoComplete="shipping family-name" />
                 </div>
-                <Field k="address" label="Address" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} />
-                <div className="grid grid-cols-2 gap-4">
-                  <Field k="city" label="City" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} />
-                  <Field k="postal" label="Postal code" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} />
+                <Field k="address" label="Address" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} autoComplete="shipping street-address" />
+                <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-4">
+                  <Field k="city" label="City" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} autoComplete="shipping address-level2" />
+                  <Field k="postal" label="Postal code" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} autoComplete="shipping postal-code" autoCapitalize="characters" />
                 </div>
-                <Field k="country" label="Country" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} />
+                <Field k="country" label="Country" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} autoComplete="shipping country-name" />
               </Section>
             )}
 
             {step === 2 && (
               <Section title="Payment">
-                <Field k="cardName" label="Name on card" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} />
-                <Field k="cardNumber" label="Card number" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} inputMode="numeric" placeholder="•••• •••• •••• ••••" />
+                <Field k="cardName" label="Name on card" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} autoComplete="cc-name" />
+                <Field k="cardNumber" label="Card number" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} inputMode="numeric" placeholder="•••• •••• •••• ••••" autoComplete="cc-number" />
                 <div className="grid grid-cols-2 gap-4">
-                  <Field k="expiry" label="Expiry (MM/YY)" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} placeholder="MM/YY" />
-                  <Field k="cvc" label="CVC" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} inputMode="numeric" />
+                  <Field k="expiry" label="Expiry (MM/YY)" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} placeholder="MM/YY" inputMode="numeric" autoComplete="cc-exp" />
+                  <Field k="cvc" label="CVC" form={form} set={set} touched={touched} setTouched={setTouched} errOf={errOf} inputMode="numeric" autoComplete="cc-csc" />
                 </div>
                 <p className="text-xs text-obsidian-400 mt-4 leading-relaxed">
                   Demo only. No payment is processed and no card details are stored or sent
@@ -212,7 +249,7 @@ export default function Checkout() {
             </div>
           </div>
 
-          <div className="mt-12 lg:mt-0 lg:sticky lg:top-28">
+          <div className="hidden lg:block lg:sticky lg:top-28">
             <OrderSummary items={items} />
           </div>
         </div>
@@ -230,21 +267,24 @@ function Section({ title, children }) {
   )
 }
 
-function Field({ k, label, form, set, touched, setTouched, errOf, type = 'text', inputMode, placeholder }) {
+function Field({ k, label, form, set, touched, setTouched, errOf, type = 'text', inputMode, placeholder, autoComplete, autoCapitalize }) {
   const err = touched[k] ? errOf(k) : null
   return (
     <label className="block">
       <span className="text-xs text-obsidian-500 mb-1.5 block">{label}</span>
       <input
         type={type}
+        name={k}
         inputMode={inputMode}
         placeholder={placeholder}
+        autoComplete={autoComplete}
+        autoCapitalize={autoCapitalize}
         aria-label={label}
         aria-invalid={!!err}
         value={form[k] ?? ''}
         onChange={(e) => set(k, e.target.value)}
         onBlur={() => setTouched((t) => ({ ...t, [k]: true }))}
-        className={`w-full bg-white outline-none px-4 py-3 rounded-xl text-obsidian-900 border transition-colors duration-300 ${
+        className={`w-full bg-white outline-none px-4 py-3 rounded-xl text-base text-obsidian-900 border transition-colors duration-300 ${
           err ? 'border-red-400' : 'border-obsidian-900/20 focus:border-obsidian-900'
         }`}
       />

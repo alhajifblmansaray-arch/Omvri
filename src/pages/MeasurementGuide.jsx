@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { jacketSlides, pantSlides } from '../data/measureGuide'
 
@@ -41,6 +41,27 @@ export default function MeasurementGuide() {
     return () => window.removeEventListener('keydown', onKey)
   }, [go])
 
+  // swipe left or right on the picture to step through it
+  const touchX = useRef(null)
+  const onTouchStart = (e) => {
+    touchX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e) => {
+    if (touchX.current == null) return
+    const dx = e.changedTouches[0].clientX - touchX.current
+    touchX.current = null
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1)
+  }
+
+  // keep the active chip in view as the customer steps through
+  const chipsRef = useRef(null)
+  useEffect(() => {
+    const row = chipsRef.current
+    const chip = row?.children[i]
+    if (!row || !chip || row.offsetParent === null) return
+    row.scrollTo({ left: chip.offsetLeft - 24, behavior: 'smooth' })
+  }, [i, set])
+
   const switchSet = (k) => {
     setSet(k)
     setI(0)
@@ -52,13 +73,13 @@ export default function MeasurementGuide() {
   }
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* hero */}
-      <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
+      <section className="max-w-[900px] mx-auto px-6 pt-12 md:pt-20 pb-10 md:pb-14 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           Sizing Assistance
         </span>
-        <h1 className="reveal font-display text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
+        <h1 className="reveal font-display text-[2.5rem] leading-[1.08] sm:text-5xl md:text-6xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
           How to Measure for the Perfect Fit
         </h1>
         <p className="reveal text-obsidian-400 text-sm max-w-[520px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '180ms' }}>
@@ -68,9 +89,9 @@ export default function MeasurementGuide() {
       </section>
 
       {/* interactive viewer */}
-      <section className="max-w-[1300px] mx-auto px-6 md:px-10 pb-24">
+      <section className="max-w-[1300px] mx-auto px-6 md:px-10 pb-16 md:pb-24">
         {/* set switch */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-6 md:mb-10">
           <div className="inline-flex surface-soft p-1 rounded-full">
             {Object.entries(sets).map(([k, v]) => (
               <button
@@ -87,9 +108,35 @@ export default function MeasurementGuide() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-start">
-          {/* numbered index */}
-          <ol className="lg:sticky lg:top-28 grid grid-cols-2 lg:grid-cols-1 gap-x-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-4 lg:gap-12 items-start">
+          {/* phones and tablets: the index is a sideways row of chips above the
+              picture, so the picture itself stays near the top of the screen */}
+          <ol ref={chipsRef} className="lg:hidden snap-row gap-2 -mx-6 px-6 pb-1">
+            {slides.map((s, n) => {
+              const active = n === i
+              return (
+                <li key={s.key}>
+                  <button
+                    onClick={() => setI(n)}
+                    aria-current={active}
+                    className={`flex items-center gap-2 rounded-full pl-3 pr-4 py-2.5 text-sm whitespace-nowrap transition-colors duration-300 ${
+                      active
+                        ? 'bg-obsidian-900 text-white'
+                        : 'surface-soft text-obsidian-600'
+                    }`}
+                  >
+                    <span className={`font-display ${active ? 'text-white/60' : 'text-obsidian-400'}`}>
+                      {String(n + 1).padStart(2, '0')}
+                    </span>
+                    {s.label}
+                  </button>
+                </li>
+              )
+            })}
+          </ol>
+
+          {/* desktop: numbered index down the side */}
+          <ol className="hidden lg:grid lg:sticky lg:top-28 grid-cols-1 gap-x-4">
             {slides.map((s, n) => {
               const active = n === i
               return (
@@ -115,7 +162,7 @@ export default function MeasurementGuide() {
 
           {/* stage */}
           <div className="surface overflow-hidden">
-            <div className="relative">
+            <div className="relative" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
               <Stage slide={slide} />
               <Arrow dir="prev" onClick={() => go(-1)} label={`Previous: ${slides[(i - 1 + slides.length) % slides.length].label}`} />
               <Arrow dir="next" onClick={() => go(1)} label={`Next: ${slides[(i + 1) % slides.length].label}`} />
@@ -126,7 +173,7 @@ export default function MeasurementGuide() {
                 <span className="text-obsidian-300"> / {slides.length}</span>
                 <span className="ml-2">{slide.label}</span>
               </span>
-              <div className="flex items-center gap-1.5">
+              <div className="hidden sm:flex items-center gap-1.5">
                 {slides.map((s, n) => (
                   <button
                     key={s.key}
@@ -143,7 +190,8 @@ export default function MeasurementGuide() {
         </div>
 
         <p className="text-center text-xs text-obsidian-400 mt-6">
-          Use the arrow keys to step through each measurement.
+          <span className="[@media(hover:none)]:hidden">Use the arrow keys to step through each measurement.</span>
+          <span className="hidden [@media(hover:none)]:inline">Swipe the picture to step through each measurement.</span>
         </p>
       </section>
 
@@ -217,7 +265,7 @@ function Arrow({ dir, onClick, label }) {
     <button
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-4' : 'right-4'} w-11 h-11 rounded-full bg-white/90 backdrop-blur border border-obsidian-900/10 shadow-sm flex items-center justify-center text-obsidian-900 hover:border-obsidian-900 hover:text-obsidian-500 transition-colors duration-450`}
+      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-2 sm:left-4' : 'right-2 sm:right-4'} w-11 h-11 rounded-full bg-white/90 backdrop-blur border border-obsidian-900/10 shadow-sm flex items-center justify-center text-obsidian-900 hover:border-obsidian-900 hover:text-obsidian-500 transition-colors duration-450`}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d={isPrev ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'} />

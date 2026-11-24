@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
 import SearchOverlay from './SearchOverlay'
+import useLockBodyScroll from '../hooks/useLockBodyScroll'
 
 const menuLinks = [
   ['Featured', '/featured'],
@@ -20,11 +21,21 @@ const menuSmall = [
 ]
 
 // Icons sit in their own tappable circle: dark enough to read at a glance,
-// with a gold wash and lift on hover so they feel alive rather than greyed out.
+// with a wash on hover so they feel alive rather than greyed out. 44px on
+// phones, the size Apple and Google both recommend for a fingertip.
 const iconBtn =
-  'w-9 h-9 rounded-full flex items-center justify-center text-obsidian-800 ' +
-  'hover:text-obsidian-900 hover:bg-obsidian-900/8 active:scale-95 ' +
+  'w-11 h-11 md:w-10 md:h-10 rounded-full flex items-center justify-center text-obsidian-800 ' +
+  'hover:text-obsidian-900 hover:bg-obsidian-900/[0.06] active:scale-95 active:bg-obsidian-900/[0.06] ' +
   'transition-all duration-300 ease-signature'
+
+function SearchIcon() {
+  return (
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
+      <circle cx="11" cy="11" r="7" />
+      <path d="M20 20l-3.5-3.5" />
+    </svg>
+  )
+}
 
 function Badge({ children }) {
   return (
@@ -42,11 +53,21 @@ export default function Header() {
   const { count: wishCount } = useWishlist()
   const navigate = useNavigate()
 
+  useLockBodyScroll(menuOpen)
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
-    window.addEventListener('scroll', onScroll)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e) => e.key === 'Escape' && setMenuOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [menuOpen])
 
   return (
     <>
@@ -55,35 +76,41 @@ export default function Header() {
           scrolled ? 'bg-white/95 backdrop-blur-md header-raise' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1600px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-          <button
-            aria-label="Open menu"
-            onClick={() => setMenuOpen(true)}
-            className="flex flex-col gap-[5px] w-6 group"
-          >
-            <span className="h-px bg-obsidian-900 w-full transition-all duration-450 group-hover:bg-gold" />
-            <span className="h-px bg-obsidian-900 w-4 transition-all duration-450 group-hover:bg-gold group-hover:w-full" />
-          </button>
+        {/* phones: menu + search on the left, account + bag on the right, so the
+            wordmark sits dead centre with equal room either side */}
+        <div className="relative max-w-[1600px] mx-auto px-2 sm:px-4 md:px-10 h-16 md:h-20 flex items-center justify-between">
+          <div className="flex items-center">
+            <button
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(true)}
+              className="w-11 h-11 flex flex-col items-center justify-center gap-[5px] group -ml-0.5 md:ml-0 md:w-6 md:items-start"
+            >
+              <span className="h-px bg-obsidian-900 w-[22px] md:w-6 transition-all duration-450 group-hover:bg-gold" />
+              <span className="h-px bg-obsidian-900 w-[22px] md:w-4 transition-all duration-450 group-hover:bg-gold group-hover:w-6" />
+            </button>
+            <button aria-label="Search" onClick={() => setSearchOpen(true)} className={`md:hidden ${iconBtn}`}>
+              <SearchIcon />
+            </button>
+          </div>
 
           <Link
             to="/"
-            className="font-display text-2xl md:text-3xl tracking-[0.3em] uppercase text-obsidian-900 absolute left-1/2 -translate-x-1/2"
+            aria-label="OMVRI home"
+            className="font-display text-[1.35rem] sm:text-2xl md:text-3xl tracking-[0.24em] md:tracking-[0.3em] uppercase text-obsidian-900 absolute left-1/2 -translate-x-1/2 pl-[0.24em] md:pl-[0.3em]"
           >
             Omvri
           </Link>
 
-          <div className="flex items-center gap-2 md:gap-3">
-            <button aria-label="Search" onClick={() => setSearchOpen(true)} className={iconBtn}>
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
-                <circle cx="11" cy="11" r="7" />
-                <path d="M20 20l-3.5-3.5" />
-              </svg>
+          <div className="flex items-center md:gap-3">
+            <button aria-label="Search" onClick={() => setSearchOpen(true)} className={`hidden md:flex ${iconBtn}`}>
+              <SearchIcon />
             </button>
 
             <button
               aria-label="Wishlist"
               onClick={() => navigate('/account')}
-              className={`relative hidden sm:flex ${iconBtn}`}
+              className={`relative hidden md:flex ${iconBtn}`}
             >
               <svg
                 width="19"
@@ -124,36 +151,38 @@ export default function Header() {
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="max-w-[1600px] mx-auto px-6 md:px-10 h-20 flex items-center justify-end">
+        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-10 h-16 md:h-20 flex items-center justify-end">
           <button
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
-            className="text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450 text-2xl leading-none"
+            className="w-11 h-11 rounded-full flex items-center justify-center text-obsidian-500 hover:text-obsidian-900 active:bg-obsidian-900/[0.06] transition-colors duration-450"
           >
-            ✕
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
           </button>
         </div>
         {menuOpen && (
-          <nav className="flex flex-col items-center justify-center gap-5 mt-10 pb-16">
+          <nav className="flex flex-col items-center justify-center gap-3 md:gap-5 mt-4 md:mt-10 pb-[max(4rem,env(safe-area-inset-bottom))]">
             {menuLinks.map(([label, to], i) => (
               <Link
                 key={label}
                 to={to}
                 onClick={() => setMenuOpen(false)}
                 style={{ animationDelay: `${i * 60}ms` }}
-                className="reveal font-display text-4xl md:text-5xl text-obsidian-900 hover:text-obsidian-500 transition-colors duration-450"
+                className="reveal font-display text-[2.1rem] leading-tight md:text-5xl py-1 text-obsidian-900 hover:text-obsidian-500 active:text-obsidian-500 transition-colors duration-450"
               >
                 {label}
               </Link>
             ))}
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10 px-6">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-x-8 gap-y-1 mt-8 md:mt-10 px-6 text-center">
               {menuSmall.map(([label, to], i) => (
                 <Link
                   key={label}
                   to={to}
                   onClick={() => setMenuOpen(false)}
                   style={{ animationDelay: `${(menuLinks.length + i) * 60}ms` }}
-                  className="reveal text-[11px] tracking-[0.18em] uppercase text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450"
+                  className="reveal py-3 text-[11px] tracking-[0.18em] uppercase text-obsidian-500 hover:text-obsidian-900 transition-colors duration-450"
                 >
                   {label}
                 </Link>

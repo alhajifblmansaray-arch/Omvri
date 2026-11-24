@@ -9,18 +9,19 @@ import { orderStages } from '../data/content'
 import OrderTimeline, { stageIndexFor } from '../components/OrderTimeline'
 import WishlistButton from '../components/WishlistButton'
 
+// [key, label, shorter label for phones]
 const tabs = [
-  ['orders', 'Orders'],
-  ['measurements', 'My Measurements'],
-  ['wishlist', 'Wishlist'],
+  ['orders', 'Orders', 'Orders'],
+  ['measurements', 'My Measurements', 'Measurements'],
+  ['wishlist', 'Wishlist', 'Wishlist'],
 ]
 
 export default function Account() {
   const [tab, setTab] = useState('orders')
 
   return (
-    <div className="pt-20">
-      <section className="max-w-[900px] mx-auto px-6 pt-20 pb-12 text-center">
+    <div className="pt-16 md:pt-20">
+      <section className="max-w-[900px] mx-auto px-6 pt-12 md:pt-20 pb-10 md:pb-12 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           My Wardrobe
         </span>
@@ -33,21 +34,24 @@ export default function Account() {
         </p>
       </section>
 
-      <section className="max-w-[900px] mx-auto px-6 pb-28">
-        {/* tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex surface-soft p-1 rounded-full">
-            {tabs.map(([k, label]) => (
+      <section className="max-w-[900px] mx-auto px-4 sm:px-6 pb-20 md:pb-28">
+        {/* tabs: full width and evenly split on phones so all three fit */}
+        <div className="flex justify-center mb-8 md:mb-12">
+          <div className="flex w-full sm:w-auto sm:inline-flex surface-soft p-1 rounded-full" role="tablist">
+            {tabs.map(([k, label, short]) => (
               <button
                 key={k}
+                role="tab"
+                aria-selected={tab === k}
                 onClick={() => setTab(k)}
-                className={`px-6 sm:px-8 py-2.5 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-300 ${
+                className={`flex-1 sm:flex-none px-2 sm:px-8 py-3 sm:py-2.5 rounded-full text-[10px] sm:text-[11px] tracking-[0.1em] sm:tracking-[0.14em] uppercase whitespace-nowrap transition-all duration-300 ${
                   tab === k
                     ? 'bg-obsidian-900 text-white shadow-md'
                     : 'text-obsidian-500 hover:text-obsidian-900'
                 }`}
               >
-                {label}
+                <span className="sm:hidden">{short}</span>
+                <span className="hidden sm:inline">{label}</span>
               </button>
             ))}
           </div>
@@ -101,7 +105,7 @@ function Orders() {
             <button
               onClick={() => setOpenId(open ? null : o.id)}
               aria-expanded={open}
-              className="w-full flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-5 text-left"
+              className="w-full flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 px-5 sm:px-6 py-5 text-left"
             >
               <span className="text-obsidian-900 font-medium">{o.id}</span>
               <span className="text-xs text-obsidian-400">
@@ -115,7 +119,7 @@ function Orders() {
             </button>
 
             {open && (
-              <div className="px-6 pb-8 border-t border-obsidian-900/10 pt-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="px-5 sm:px-6 pb-8 border-t border-obsidian-900/10 pt-6 grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
                   <div className="text-[11px] tracking-[0.12em] uppercase text-obsidian-500 mb-4">Production</div>
                   <OrderTimeline order={o} />
@@ -125,7 +129,7 @@ function Orders() {
                   <div className="space-y-4">
                     {o.items.map((item) => (
                       <div key={item.lineId} className="flex gap-4">
-                        <div className="w-14 h-18 bg-ivory shrink-0 overflow-hidden rounded-lg">
+                        <div className="w-14 h-[72px] bg-ivory shrink-0 overflow-hidden rounded-lg">
                           <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top" />
                         </div>
                         <div className="text-sm">
@@ -170,8 +174,8 @@ function Measurements() {
   }
 
   return (
-    <div className="surface p-8">
-      <div className="flex items-baseline justify-between mb-8">
+    <div className="surface p-5 sm:p-8">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-6 sm:mb-8">
         <h2 className="font-display text-2xl text-obsidian-900">On file</h2>
         <span className="text-xs text-obsidian-400">
           {filled} of {JACKET_FIELDS.length + PANT_FIELDS.length} saved
@@ -194,7 +198,7 @@ function Measurements() {
           </div>
         ))}
       </div>
-      <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 flex flex-col-reverse sm:flex-row gap-3 sm:gap-4">
         <Link
           to="/measurement-guide"
           className="btn btn-outline"
@@ -228,19 +232,19 @@ function Wishlist() {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-12">
       {saved.map((p) => (
         <Link key={p.id} to={`/suits/${p.slug}`} className="group">
-          <div className="relative aspect-[3/4] bg-ivory overflow-hidden rounded-xl card-raise mb-4">
+          <div className="relative aspect-[3/4] bg-ivory overflow-hidden rounded-xl card-raise mb-3 sm:mb-4">
             <img
               src={p.hero}
               alt={p.name}
               className="w-full h-full object-cover object-top transition-transform duration-700 ease-signature group-hover:scale-[1.03]"
             />
-            <WishlistButton productId={p.id} className="absolute top-3 right-3 bg-white/85" />
+            <WishlistButton productId={p.id} className="absolute top-2 right-2 sm:top-3 sm:right-3 !w-10 !h-10 bg-white/85" />
           </div>
-          <div className="flex items-baseline justify-between">
-            <h3 className="font-display text-xl text-obsidian-900 group-hover:text-obsidian-500 transition-colors duration-450">
+          <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5">
+            <h3 className="font-display text-lg sm:text-xl text-obsidian-900 group-hover:text-obsidian-500 transition-colors duration-450">
               {p.name}
             </h3>
             <span className="text-xs text-obsidian-400">{formatMoney(p.price)}</span>

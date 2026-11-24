@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // Just the artwork. The slides carry their own number, title and copy, so no
 // frame, counter or dots are drawn around them — navigation is the arrows plus
@@ -22,8 +22,20 @@ export default function MeasureCarousel({ slides, activeKey, onActiveChange, asp
 
   const slide = slides[i]
 
+  // swipe left or right to step through, for phones
+  const touchX = useRef(null)
+  const onTouchStart = (e) => {
+    touchX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e) => {
+    if (touchX.current == null || slides.length < 2) return
+    const dx = e.changedTouches[0].clientX - touchX.current
+    touchX.current = null
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1)
+  }
+
   return (
-    <div className="relative bg-white">
+    <div className="relative bg-white" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       {failed[slide.key] ? (
         <div className={`${aspect} flex flex-col items-center justify-center gap-2 px-6 text-center`}>
           <span className="font-display text-2xl text-obsidian-900">{slide.label}</span>
@@ -55,7 +67,7 @@ function Arrow({ dir, onClick, label }) {
     <button
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-2' : 'right-2'} w-9 h-9 rounded-full flex items-center justify-center text-obsidian-400 hover:text-obsidian-500 transition-colors duration-450`}
+      className={`absolute top-1/2 -translate-y-1/2 ${isPrev ? 'left-1' : 'right-1'} w-11 h-11 rounded-full flex items-center justify-center text-obsidian-500 hover:text-obsidian-900 active:bg-obsidian-900/[0.06] transition-colors duration-450`}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d={isPrev ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'} />

@@ -10,8 +10,8 @@ const spanClass = {
 
 export default function Lookbook() {
   return (
-    <div className="pt-20">
-      <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
+    <div className="pt-16 md:pt-20">
+      <section className="max-w-[900px] mx-auto px-6 pt-12 md:pt-20 pb-10 md:pb-14 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The Lookbook
         </span>
@@ -24,8 +24,8 @@ export default function Lookbook() {
         </p>
       </section>
 
-      <section className="max-w-[1300px] mx-auto px-4 md:px-10 pb-28">
-        <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[240px] md:auto-rows-[320px] gap-3 md:gap-5">
+      <section className="max-w-[1300px] mx-auto px-3 sm:px-4 md:px-10 pb-20 md:pb-28">
+        <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[clamp(170px,58vw,240px)] sm:auto-rows-[260px] md:auto-rows-[320px] gap-2.5 sm:gap-3 md:gap-5">
           {lookbook.map((f, i) => {
             const product = f.product ? getProductBySlug(f.product) : null
             const inner = (
@@ -36,7 +36,8 @@ export default function Lookbook() {
                   loading={i > 5 ? 'lazy' : undefined}
                   className="w-full h-full object-cover transition-transform duration-700 ease-signature group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-obsidian-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-450">
+                {/* captions always show on touch screens, where there is no hover */}
+                <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 bg-gradient-to-t from-obsidian-900/60 to-transparent opacity-100 [@media(hover:hover)]:opacity-0 group-hover:opacity-100 transition-opacity duration-450">
                   <div className="text-white text-xs tracking-wide">{f.title}</div>
                   {product && (
                     <div className="text-white/80 text-[10px] tracking-[0.14em] uppercase mt-1">

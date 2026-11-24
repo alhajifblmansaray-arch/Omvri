@@ -24,7 +24,8 @@ export default function Home() {
   return (
     <div>
       {/* full-bleed video hero */}
-      <section className="relative h-[92svh] mx-3 md:mx-5 mt-3 overflow-hidden rounded-3xl panel-raise bg-ivory">
+      {/* a touch shorter on phones so the next section peeks in and invites a scroll */}
+      <section className="relative h-[80svh] sm:h-[88svh] md:h-[92svh] mx-2 sm:mx-3 md:mx-5 mt-2 sm:mt-3 overflow-hidden rounded-[1.25rem] sm:rounded-3xl panel-raise bg-ivory">
         <video
           className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
           src="/video/hero.mp4"
@@ -37,8 +38,8 @@ export default function Home() {
       </section>
 
       {/* shoppable strip sits directly under the hero, before any essay */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-28">
-        <div className="flex items-end justify-between mb-10">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-16 md:pb-28">
+        <div className="flex items-end justify-between gap-4 mb-7 md:mb-10">
           <div>
             <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-3">
               The Featured Edit
@@ -47,15 +48,16 @@ export default function Home() {
               Cutting most this season
             </h3>
           </div>
-          <Link to="/featured" className="text-[11px] tracking-[0.16em] uppercase text-obsidian-500 hover:text-obsidian-900 transition-colors duration-450 shrink-0">
+          <Link to="/featured" className="py-2 -my-2 text-[11px] tracking-[0.16em] uppercase text-obsidian-500 hover:text-obsidian-900 transition-colors duration-450 shrink-0">
             View All
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* phones: a sideways swipe with the next suit peeking in. tablets up: a grid */}
+        <div className="snap-row gap-4 -mx-6 px-6 pb-4 -mb-4 sm:mx-0 sm:px-0 sm:pb-0 sm:mb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-5 sm:overflow-visible">
           {featuredProducts().map((p) => {
             const rating = ratingFor(p.id)
             return (
-              <Link key={p.id} to={`/suits/${p.slug}`} className="group bg-white rounded-xl overflow-hidden card-raise">
+              <Link key={p.id} to={`/suits/${p.slug}`} className="group w-[76%] sm:w-auto bg-white rounded-xl overflow-hidden card-raise">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={p.hero}
@@ -86,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* editorial intro */}
-      <section id="about" className="max-w-[900px] mx-auto px-6 pb-28 text-center">
+      <section id="about" className="max-w-[900px] mx-auto px-6 pb-16 md:pb-28 text-center">
         <h2 className="font-display text-3xl md:text-4xl text-obsidian-900 mb-6 leading-snug">
           Every stitch placed by hand, every measurement taken in person.
         </h2>
@@ -98,7 +100,7 @@ export default function Home() {
       </section>
 
       {/* weddings and parties, copy sits in the banner's open left side */}
-      <section className="relative mx-4 md:mx-10 my-10 rounded-3xl overflow-hidden panel-raise bg-[#e9e1d6]">
+      <section className="relative mx-3 sm:mx-4 md:mx-10 my-6 md:my-10 rounded-[1.25rem] sm:rounded-3xl overflow-hidden panel-raise bg-[#e9e1d6]">
         {/* banner: background on desktop, stacked image on small screens */}
         <img
           src="/images/looks/party/banner.jpg"
@@ -107,7 +109,7 @@ export default function Home() {
           className="w-full h-[52vw] max-h-[300px] object-cover object-right md:absolute md:inset-0 md:h-full md:max-h-none"
         />
 
-        <div className="relative max-w-[1600px] mx-auto px-6 md:px-10 py-14 md:py-32">
+        <div className="relative max-w-[1600px] mx-auto px-6 md:px-10 py-10 sm:py-14 md:py-32">
           <div className="max-w-[520px] md:max-w-[46%]">
             <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-5">
               Weddings &amp; Parties
@@ -139,7 +141,7 @@ export default function Home() {
 
             <Link
               to="/contact?topic=Wedding%20party"
-              className="btn btn-primary"
+              className="btn btn-primary w-full sm:w-auto"
             >
               Consult With Us
             </Link>
@@ -148,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* craft band, the OMVRI tab */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-16 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
         <div className="aspect-[4/5] max-w-md w-full mx-auto overflow-hidden rounded-2xl card-raise bg-ivory order-2 md:order-1">
           <img src={craft.image} alt="The OMVRI cuff tab, hand-embroidered in gold thread" loading="lazy" className="w-full h-full object-cover" />
         </div>
@@ -177,10 +179,10 @@ export default function Home() {
       <Testimonials />
 
       {/* lookbook teaser */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-28">
-        <div className="flex items-end justify-between mb-10">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 py-16 md:py-28">
+        <div className="flex items-end justify-between gap-4 mb-7 md:mb-10">
           <h3 className="font-display text-3xl text-obsidian-900">From the Lookbook</h3>
-          <Link to="/lookbook" className="text-[11px] tracking-[0.16em] uppercase text-obsidian-500 hover:text-obsidian-900 transition-colors duration-450">
+          <Link to="/lookbook" className="py-2 -my-2 shrink-0 text-[11px] tracking-[0.16em] uppercase text-obsidian-500 hover:text-obsidian-900 transition-colors duration-450">
             View All
           </Link>
         </div>
@@ -193,8 +195,9 @@ export default function Home() {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 ease-signature group-hover:scale-[1.04]"
               />
-              <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-obsidian-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-450">
-                <span className="text-white text-xs tracking-wide">{f.title}</span>
+              {/* captions always show on touch screens, where there is no hover */}
+              <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 bg-gradient-to-t from-obsidian-900/60 to-transparent opacity-100 [@media(hover:hover)]:opacity-0 group-hover:opacity-100 transition-opacity duration-450">
+                <span className="text-white text-[11px] md:text-xs tracking-wide line-clamp-2">{f.title}</span>
               </div>
             </Link>
           ))}

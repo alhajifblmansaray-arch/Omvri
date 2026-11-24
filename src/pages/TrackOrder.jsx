@@ -16,8 +16,8 @@ export default function TrackOrder() {
   }
 
   return (
-    <div className="pt-20">
-      <section className="max-w-[900px] mx-auto px-6 pt-20 pb-12 text-center">
+    <div className="pt-16 md:pt-20">
+      <section className="max-w-[900px] mx-auto px-6 pt-12 md:pt-20 pb-10 md:pb-12 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           Order Status
         </span>
@@ -30,17 +30,21 @@ export default function TrackOrder() {
       </section>
 
       <section className="max-w-[560px] mx-auto px-6 pb-28">
-        <form onSubmit={submit} className="flex gap-3 mb-10">
+        <form onSubmit={submit} className="flex flex-col min-[400px]:flex-row gap-3 mb-10">
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="OMV-000000"
             aria-label="Order number"
-            className="flex-1 bg-white outline-none px-5 py-3.5 rounded-full text-obsidian-900 border border-obsidian-900/20 focus:border-obsidian-900 transition-colors duration-300 tracking-[0.08em]"
+            autoCapitalize="characters"
+            autoCorrect="off"
+            spellCheck="false"
+            enterKeyHint="search"
+            className="flex-1 min-w-0 bg-white outline-none px-5 py-3.5 rounded-full text-base text-obsidian-900 border border-obsidian-900/20 focus:border-obsidian-900 transition-colors duration-300 tracking-[0.08em]"
           />
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary shrink-0"
           >
             Track
           </button>
@@ -60,7 +64,7 @@ export default function TrackOrder() {
         )}
 
         {order && (
-          <div className="surface p-8">
+          <div className="surface p-5 sm:p-8">
             <div className="flex flex-wrap items-baseline justify-between gap-2 mb-8">
               <h2 className="font-display text-2xl text-obsidian-900">{order.id}</h2>
               <span className="text-xs text-obsidian-400">

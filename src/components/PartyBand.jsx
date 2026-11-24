@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 // the equivalent here is dressing the whole party in the suit already on screen.
 export default function PartyBand({ productName }) {
   return (
-    <section className="px-4 md:px-10 py-10">
+    <section className="px-3 sm:px-4 md:px-10 py-6 md:py-10">
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.05fr] items-stretch bg-[#e9e1d6] rounded-3xl overflow-hidden panel-raise">
         <div className="px-6 md:px-10 py-12 md:py-16 flex flex-col justify-center">
           <span className="text-[11px] tracking-widest2 uppercase text-obsidian-500 block mb-4">

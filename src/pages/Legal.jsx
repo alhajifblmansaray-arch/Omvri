@@ -33,8 +33,8 @@ const content = {
 export default function Legal({ kind = 'terms' }) {
   const c = content[kind]
   return (
-    <div className="pt-20">
-      <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
+    <div className="pt-16 md:pt-20">
+      <section className="max-w-[900px] mx-auto px-6 pt-12 md:pt-20 pb-10 md:pb-14 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           {c.eyebrow}
         </span>
@@ -48,12 +48,12 @@ export default function Legal({ kind = 'terms' }) {
 
       <section className="max-w-[720px] mx-auto px-6 pb-28">
         {c.sections.map(([h, body], i) => (
-          <div key={h} className="surface-soft px-7 py-6 mb-3">
-            <div className="flex items-baseline gap-4 mb-2.5">
+          <div key={h} className="surface-soft px-5 sm:px-7 py-5 sm:py-6 mb-3">
+            <div className="flex items-baseline gap-3 sm:gap-4 mb-2.5">
               <span className="font-display text-lg text-obsidian-500">{String(i + 1).padStart(2, '0')}</span>
               <h2 className="text-obsidian-900">{h}</h2>
             </div>
-            <p className="text-sm text-obsidian-400 leading-relaxed pl-10">{body}</p>
+            <p className="text-sm text-obsidian-500 sm:text-obsidian-400 leading-relaxed sm:pl-10">{body}</p>
           </div>
         ))}
       </section>

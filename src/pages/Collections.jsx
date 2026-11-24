@@ -22,12 +22,12 @@ export default function Collections() {
   }, [sort])
 
   return (
-    <div className="pt-20">
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-14 text-center">
+    <div className="pt-16 md:pt-20">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-12 md:pt-20 pb-10 md:pb-14 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The Collection
         </span>
-        <h1 className="reveal font-display text-5xl md:text-7xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
+        <h1 className="reveal font-display text-[2.6rem] leading-[1.08] sm:text-5xl md:text-7xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
           Ready to Wear,
           <br className="hidden sm:block" /> Made to Measure.
         </h1>
@@ -39,16 +39,18 @@ export default function Collections() {
 
       {/* sort bar */}
       <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-10">
-        <div className="surface-soft flex flex-wrap items-center justify-between gap-4 px-6 py-4">
-          <span className="text-sm text-obsidian-500">
+        <div className="surface-soft flex items-center justify-between gap-4 pl-5 pr-3 sm:px-6 py-3 sm:py-4">
+          <span className="text-sm text-obsidian-500 shrink-0">
             {shown.length} suits
           </span>
-          <label className="flex items-center gap-3 text-sm text-obsidian-500">
-            Sort
+          <label className="flex items-center gap-3 text-sm text-obsidian-500 min-w-0">
+            <span className="hidden sm:inline">Sort</span>
+            {/* 16px text on phones so iOS doesn't zoom the page when it's tapped */}
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="rounded-full bg-white text-obsidian-900 text-sm py-2 pl-4 pr-3 outline-none border border-obsidian-900/15 focus:border-obsidian-900"
+              aria-label="Sort suits"
+              className="min-w-0 max-w-full rounded-full bg-white text-obsidian-900 text-base sm:text-sm py-2.5 sm:py-2 pl-4 pr-3 outline-none border border-obsidian-900/15 focus:border-obsidian-900"
             >
               {sorts.map(([v, label]) => (
                 <option key={v} value={v}>
@@ -59,12 +61,13 @@ export default function Collections() {
           </label>
         </div>
         <p className="text-xs text-obsidian-500 mt-3">
-          Hover any suit to see it from every angle.
+          <span className="[@media(hover:none)]:hidden">Hover any suit to see it from every angle.</span>
+          <span className="hidden [@media(hover:none)]:inline">Swipe any photo to see the suit from every angle.</span>
         </p>
       </section>
 
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-20 md:pb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 md:gap-x-8 gap-y-12 md:gap-y-16">
           {shown.map((p, i) => (
             <CollectionCard key={p.id} product={p} index={i} />
           ))}
@@ -73,7 +76,7 @@ export default function Collections() {
 
       {/* made to measure cross-sell */}
       <section className="bg-ivory border-t border-obsidian-900/10">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div className="text-center md:text-left">
             <h2 className="font-display text-4xl md:text-5xl text-obsidian-900 mb-6">
               Cut to your measure.

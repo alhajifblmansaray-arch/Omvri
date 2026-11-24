@@ -47,9 +47,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t border-obsidian-900/10 bg-ivory mt-32">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-16 grid grid-cols-2 md:grid-cols-5 gap-10">
-        <div className="col-span-2 md:col-span-1">
+    <footer className="border-t border-obsidian-900/10 bg-ivory mt-16 md:mt-32">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-12 md:py-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-10 md:gap-10">
+        <div className="col-span-2 sm:col-span-3 md:col-span-1">
           <div className="font-display text-2xl tracking-[0.3em] uppercase text-obsidian-900 mb-4">Omvri</div>
           <p className="text-xs text-obsidian-400 leading-relaxed max-w-[220px]">
             Bespoke tailoring, cut to measure. Est. in the atelier, made for the day ahead.
@@ -67,10 +67,11 @@ export default function Footer() {
         {cols.map((c) => (
           <div key={c.title}>
             <div className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-4">{c.title}</div>
-            <ul className="space-y-2.5 text-sm text-obsidian-400">
+            {/* taller rows on phones so each link is easy to hit with a thumb */}
+            <ul className="space-y-0.5 md:space-y-2.5 text-[15px] md:text-sm text-obsidian-500 md:text-obsidian-400">
               {c.links.map(([label, to]) => (
                 <li key={label}>
-                  <Link to={to} className="hover:text-obsidian-900 transition-colors duration-450">
+                  <Link to={to} className="block py-1.5 md:py-0 hover:text-obsidian-900 transition-colors duration-450">
                     {label}
                   </Link>
                 </li>
@@ -79,7 +80,7 @@ export default function Footer() {
           </div>
         ))}
 
-        <div className="col-span-2 md:col-span-1">
+        <div className="col-span-2 sm:col-span-3 md:col-span-1">
           <div className="text-[11px] tracking-[0.18em] uppercase text-obsidian-500 mb-4">The List</div>
           {done ? (
             <p className="text-sm text-obsidian-400 leading-relaxed">
@@ -90,16 +91,19 @@ export default function Footer() {
               <p className="text-xs text-obsidian-400 leading-relaxed mb-4">
                 New cloths, new looks, no noise. One letter a month.
               </p>
-              <div className="flex items-center bg-white rounded-full border border-obsidian-900/15 focus-within:border-obsidian-900 transition-colors duration-300 pl-4 pr-2">
+              <div className="flex items-center bg-white rounded-full border border-obsidian-900/15 focus-within:border-obsidian-900 transition-colors duration-300 pl-4 pr-1 max-w-[420px]">
+                {/* 16px on phones so iOS doesn't zoom in when it's tapped */}
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   aria-label="Email for newsletter"
-                  className="flex-1 min-w-0 bg-transparent outline-none py-2.5 text-sm text-obsidian-900 placeholder-obsidian-300"
+                  autoComplete="email"
+                  enterKeyHint="send"
+                  className="flex-1 min-w-0 bg-transparent outline-none py-3 md:py-2.5 text-base md:text-sm text-obsidian-900 placeholder-obsidian-300"
                 />
-                <button type="submit" aria-label="Subscribe" className="text-obsidian-900 hover:text-obsidian-500 transition-colors duration-300 px-1">
+                <button type="submit" aria-label="Subscribe" className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center text-obsidian-900 hover:text-obsidian-500 active:bg-obsidian-900/[0.06] transition-colors duration-300">
                   →
                 </button>
               </div>
@@ -124,7 +128,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-6 border-t border-obsidian-900/5 flex flex-col md:flex-row justify-between items-center gap-2 text-[11px] tracking-wide text-obsidian-400/70">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-6 border-t border-obsidian-900/5 flex flex-col md:flex-row justify-between items-center gap-2 text-center text-[11px] tracking-wide text-obsidian-500 md:text-obsidian-400/70">
         <span>© {new Date().getFullYear()} Omvri Bespoke. All rights reserved.</span>
         <span>Cut in-house. Finished by hand.</span>
       </div>

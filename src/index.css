@@ -26,6 +26,53 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* stop iOS from inflating text when the phone is turned sideways */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* no grey flash on tap; the buttons have their own pressed state */
+a, button, label, select, summary {
+  -webkit-tap-highlight-color: transparent;
+}
+button, a, [role='button'] {
+  touch-action: manipulation;
+}
+
+/* clip sideways overflow without breaking position: sticky (overflow-x: hidden
+   on body turns it into a scroll container on some browsers) */
+html {
+  overflow-x: clip;
+}
+
+/* ---------------------------------------------------------------------------
+   Swipe rows. On phones, rows of cards become a sideways swipe with each card
+   snapping into place, instead of a long column of full-width cards.
+   --------------------------------------------------------------------------- */
+@layer components {
+  .snap-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.5rem;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .snap-row::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-row > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+@layer utilities {
+  /* room for a bar pinned to the bottom of the screen, plus the iPhone home bar */
+  .pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
 }
 
 h1, h2, h3, h4 {
@@ -92,12 +139,14 @@ h1, h2, h3, h4 {
     0 1px 2px rgba(23, 22, 26, 0.2),
     0 8px 20px -6px rgba(23, 22, 26, 0.35);
 }
-.btn-primary:hover {
-  background: #2c2c2e;
-  transform: translateY(-2px);
-  box-shadow:
-    0 2px 4px rgba(23, 22, 26, 0.2),
-    0 16px 32px -8px rgba(23, 22, 26, 0.45);
+@media (hover: hover) {
+  .btn-primary:hover {
+    background: #2c2c2e;
+    transform: translateY(-2px);
+    box-shadow:
+      0 2px 4px rgba(23, 22, 26, 0.2),
+      0 16px 32px -8px rgba(23, 22, 26, 0.45);
+  }
 }
 .btn-primary:active {
   background: var(--gold);
@@ -114,12 +163,14 @@ h1, h2, h3, h4 {
     0 1px 2px rgba(23, 22, 26, 0.06),
     0 6px 16px -8px rgba(23, 22, 26, 0.2);
 }
-.btn-outline:hover {
-  border-color: rgba(23, 22, 26, 0.45);
-  transform: translateY(-2px);
-  box-shadow:
-    0 2px 4px rgba(23, 22, 26, 0.08),
-    0 14px 28px -10px rgba(23, 22, 26, 0.28);
+@media (hover: hover) {
+  .btn-outline:hover {
+    border-color: rgba(23, 22, 26, 0.45);
+    transform: translateY(-2px);
+    box-shadow:
+      0 2px 4px rgba(23, 22, 26, 0.08),
+      0 14px 28px -10px rgba(23, 22, 26, 0.28);
+  }
 }
 .btn-outline:active {
   background: var(--gold);
@@ -135,9 +186,11 @@ h1, h2, h3, h4 {
   color: var(--ink);
   box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
 }
-.btn-invert:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
+@media (hover: hover) {
+  .btn-invert:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
+  }
 }
 .btn-invert:active {
   background: var(--gold);
@@ -156,11 +209,13 @@ h1, h2, h3, h4 {
     transform 450ms var(--ease-signature),
     box-shadow 450ms var(--ease-signature);
 }
-.card-raise:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 2px 6px rgba(23, 22, 26, 0.06),
-    0 28px 48px -16px rgba(23, 22, 26, 0.32);
+@media (hover: hover) {
+  .card-raise:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 2px 6px rgba(23, 22, 26, 0.06),
+      0 28px 48px -16px rgba(23, 22, 26, 0.32);
+  }
 }
 
 .panel-raise {
@@ -196,11 +251,13 @@ h1, h2, h3, h4 {
     transform 300ms var(--ease-signature),
     box-shadow 300ms var(--ease-signature);
 }
-.surface-hover:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 2px 4px rgba(23, 22, 26, 0.06),
-    0 20px 36px -18px rgba(23, 22, 26, 0.28);
+@media (hover: hover) {
+  .surface-hover:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 2px 4px rgba(23, 22, 26, 0.06),
+      0 20px 36px -18px rgba(23, 22, 26, 0.28);
+  }
 }
 
 /* Ken Burns slow drift, used on hero and lookbook imagery */
@@ -225,11 +282,17 @@ h1, h2, h3, h4 {
   overflow: hidden;
   transition: box-shadow 300ms var(--ease-signature);
 }
-.accordion-item:hover,
 .accordion-item[data-open='true'] {
   box-shadow:
     0 1px 2px rgba(23, 22, 26, 0.04),
     0 10px 24px -14px rgba(23, 22, 26, 0.2);
+}
+@media (hover: hover) {
+  .accordion-item:hover {
+    box-shadow:
+      0 1px 2px rgba(23, 22, 26, 0.04),
+      0 10px 24px -14px rgba(23, 22, 26, 0.2);
+  }
 }
 .accordion-trigger {
   width: 100%;
@@ -293,11 +356,13 @@ h1, h2, h3, h4 {
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
-.testimonial:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 2px 6px rgba(23, 22, 26, 0.06),
-    0 26px 46px -18px rgba(23, 22, 26, 0.3);
+@media (hover: hover) {
+  .testimonial.is-visible:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 2px 6px rgba(23, 22, 26, 0.06),
+      0 26px 46px -18px rgba(23, 22, 26, 0.3);
+  }
 }
 
 /* the oversized serif quote, set behind the words */

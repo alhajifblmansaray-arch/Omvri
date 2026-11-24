@@ -10,12 +10,12 @@ export default function Featured() {
   const shown = featuredProducts()
 
   return (
-    <div className="pt-20">
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-20 pb-12 text-center">
+    <div className="pt-16 md:pt-20">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pt-12 md:pt-20 pb-10 md:pb-12 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           The Featured Edit
         </span>
-        <h1 className="reveal font-display text-5xl md:text-7xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
+        <h1 className="reveal font-display text-[2.6rem] leading-[1.08] sm:text-5xl md:text-7xl text-obsidian-900" style={{ animationDelay: '100ms' }}>
           Black tie, and
           <br className="hidden sm:block" /> what comes after.
         </h1>
@@ -25,17 +25,17 @@ export default function Featured() {
         </p>
       </section>
 
-      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-10 pb-16 md:pb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 md:gap-x-8 gap-y-12 md:gap-y-16">
           {shown.map((p, i) => (
             <CollectionCard key={p.id} product={p} index={i} />
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-12 md:mt-16">
           <Link
             to="/collections"
-            className="btn btn-outline"
+            className="btn btn-outline w-full sm:w-auto"
           >
             See All Seven Suits
           </Link>

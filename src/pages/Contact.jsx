@@ -31,8 +31,8 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-20">
-      <section className="max-w-[900px] mx-auto px-6 pt-20 pb-14 text-center">
+    <div className="pt-16 md:pt-20">
+      <section className="max-w-[900px] mx-auto px-6 pt-12 md:pt-20 pb-10 md:pb-14 text-center">
         <span className="reveal text-[11px] tracking-widest2 uppercase text-obsidian-500 mb-5 block">
           Contact
         </span>
