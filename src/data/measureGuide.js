@@ -21,9 +21,9 @@ export const jacketSlides = [
 
 // Pant artwork is shot portrait, unlike the landscape jacket set.
 export const pantSlides = [
-  { key: 'hip', label: 'Hip', src: '/images/measure/pants/1-hip.jpg' },
-  { key: 'pantWaist', label: 'Waist', src: '/images/measure/pants/2-waist.jpg' },
-  { key: 'thigh', label: 'Thigh', src: '/images/measure/pants/3-thigh.jpg' },
-  { key: 'outseam', label: 'Outseam', src: '/images/measure/pants/4-outseam.jpg' },
-  { key: 'inseam', label: 'Inseam', src: '/images/measure/pants/5-inseam.jpg' },
+  { key: 'hip', label: 'Hip', src: '/images/measure/pants/1-hip-2.jpg' },
+  { key: 'pantWaist', label: 'Waist', src: '/images/measure/pants/2-waist-v2.jpg' },
+  { key: 'thigh', label: 'Thigh', src: '/images/measure/pants/3-thigh-v2.jpg' },
+  { key: 'outseam', label: 'Outseam', src: '/images/measure/pants/4-outseam-v2.jpg' },
+  { key: 'inseam', label: 'Inseam', src: '/images/measure/pants/5-inseam-v2.jpg' },
 ]
